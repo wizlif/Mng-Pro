@@ -1,0 +1,59 @@
+﻿<Window x:Class="WpfApplication1.Payments_received"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication1"
+        mc:Ignorable="d"
+        Title="Payments_received" Height="300" Width="300">
+    <StackPanel>
+
+        <DataGrid Width="Auto" Height="625">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Date" Width="150"/>
+                <DataGridTextColumn Header="Invoice #" Width="150"/>
+                <DataGridTextColumn Header="Category" Width="150"/>
+                <DataGridTextColumn Header="Customer" Width="150"/>
+                <DataGridTextColumn Header="Ammount Received" Width="150"/>
+                <DataGridTextColumn Header="Payment method" Width="150"/>
+                <DataGridTextColumn Header="Check #" Width="150"/>
+                <DataGridTextColumn Header="Card Number" Width="150"/>
+                <DataGridTextColumn Header="Name on Card " Width="150"/>
+                <DataGridTextColumn Header="Expiration Month" Width="150"/>
+                <DataGridTextColumn Header="Expiration year" Width="150"/>
+                <DataGridTextColumn Header="Tranaction Number" Width="150"/>
+                <DataGridTextColumn Header="Other" Width="150"/>
+                
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+        <ToolBar Margin="0,0,0,0">
+            <Label>0,Listed, 0 Selected</Label>
+            <Separator/>
+            <Button></Button>
+            <Button></Button>
+            <Button></Button>
+            <Button></Button>
+            <Separator/>
+            <Button>Add</Button>
+            <Button>Edit</Button>
+            <Button>Delete</Button>
+            <Separator/>
+            <Button>Print</Button>
+            <Separator/>
+            <Button>Filter</Button>
+            <Separator/>
+            <Button>Search</Button>
+            <Separator/>
+            <CheckBox>Show Row Filter</CheckBox>
+            
+        </ToolBar>
+        <StackPanel Orientation="Horizontal">
+            <Button Width="100" Height="28" Margin="800,10,0,0">Help</Button>
+            <Button Width="100" Height="28" Margin="10,10,0,0">Close</Button>
+        </StackPanel>
+
+
+    </StackPanel>
+</Window>

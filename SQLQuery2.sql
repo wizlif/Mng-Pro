@@ -1,0 +1,1 @@
+﻿SELECT [Equipment no],[Description] FROM [dbo].[Equipment] WHERE [Equipment no] LIKE '%100%' OR [Description] LIKE '%100%'

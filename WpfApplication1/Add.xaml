@@ -1,0 +1,662 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:WpfApplication1" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" x:Class="WpfApplication1.Add"
+        mc:Ignorable="d"
+        x:Name="AddEquipment"
+        Title="Add New Equipment" MinHeight="577.887" MinWidth="932.919">
+    <Window.Resources>
+        <Style x:Key="LabelStyle" TargetType="{x:Type Label}">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="Red"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <DockPanel Margin="0,0,0,5"  Width="{Binding ActualWidth, ElementName=AddEquipment}"   x:Name="StackPanel" HorizontalAlignment="Center" VerticalAlignment="Center" >
+        <Viewbox  x:Name="ViewBox" Width="{Binding ActualWidth, ElementName=StackPanel}">
+            <DockPanel LastChildFill="True" Width="{Binding ActualWidth, ElementName=AddEquipment}" Height="{Binding ActualHeight, ElementName=AddEquipment}">
+
+                <StackPanel  VerticalAlignment="Bottom" DockPanel.Dock="Bottom"   Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button x:Name="buttonAddNewEquipment" Width="90" Height="30" Margin="0,0,10,0" Content="Save" Click="buttonAddNewEquipment_Click"/>
+                    <Button Width="90" Height="30" Margin="0,0,10,0" Content="Cancel"/>
+                    <Button Width="90" Height="30" Content="Help"/>
+                </StackPanel>
+                <TabControl TabStripPlacement="Right">
+                    <TabItem Header="General">
+                        <Grid   x:Name="Major" >
+                            <Grid.RowDefinitions >
+                                <RowDefinition  Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <DockPanel LastChildFill="True"  Grid.Column="0" Grid.Row="0"  >
+                                <GroupBox  DockPanel.Dock="Top" Header="Identification">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="4*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label Margin="0,0,0,5"  Grid.Column="0" Grid.Row="0" Content="Unit #"/>
+                                        <Label Margin="0,0,0,5"  Grid.Column="0" Grid.Row="1" Content="Description"/>
+                                        <Label Margin="0,0,0,5"  Grid.Column="0" Grid.Row="2" Content="Year"/>
+                                        <Label Margin="0,0,0,5"  Grid.Column="0" Grid.Row="3" Content="Make"/>
+                                        <Label Margin="0,0,0,5"  Grid.Column="0" Grid.Row="4" Content="Model"/>
+                                        <Label Margin="0,0,0,5"  Grid.Column="0" Grid.Row="5" Content="Serial"/>
+                                        <Label Margin="0,0,0,5"  Grid.Column="0" Grid.Row="6" Content="Type"/>
+                                        <Label Margin="0,0,0,5"  Grid.Column="0" Grid.Row="7" Content="Color"/>
+                                        <Label Margin="0,0,0,5"  Grid.Column="0" Grid.Row="8" Content="Identification"/>
+
+                                        <TextBox Margin="0,0,0,5" x:Name="TextBoxEquipmentNo" Grid.Column="1" Grid.Row="0"/>
+                                        <TextBox Margin="0,0,0,5" x:Name="TextBoxDescription" Grid.Column="1" Grid.Row="1"/>
+                                        <TextBox Margin="0,0,0,5" x:Name="TextBoxYear" Grid.Column="1" Grid.Row="2"/>
+                                        <TextBox Margin="0,0,0,5" x:Name="TextBoxMake" Grid.Column="1" Grid.Row="3"/>
+                                        <ComboBox Margin="0,0,0,5" x:Name="TextBoxModel" Grid.Column="1" Grid.Row="4"/>
+                                        <ComboBox Margin="0,0,0,5" x:Name="TextBoxSerial" Grid.Column="1" Grid.Row="5"/>
+                                        <TextBox Margin="0,0,0,5" x:Name="TextBoxType" Grid.Column="1" Grid.Row="6"/>
+                                        <ComboBox Margin="0,0,0,5" x:Name="TextBoxColor" Grid.Column="1" Grid.Row="7"/>
+                                        <ComboBox Margin="0,0,0,5" x:Name="TextBoxIdentification" Grid.Column="1" Grid.Row="8"/>
+                                    </Grid>
+                                </GroupBox>
+
+                                <GroupBox DockPanel.Dock="Bottom" Header="E-mail Notifications">
+                                    <DockPanel>
+                                        <Label Content="Recipient(s)"/>
+                                        <ComboBox x:Name="TextBoxRecipients">
+                                            <ComboBoxItem>
+                                                <DataGrid Width="500" Height="600"/>
+                                            </ComboBoxItem>
+
+                                        </ComboBox>
+                                    </DockPanel>
+                                </GroupBox>
+                                <GroupBox   Header="Status">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition IsEnabled="False" Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="4*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label Margin="0,0,0,5" Grid.Column="0" Grid.Row="0" Content="Status"/>
+                                        <Label Margin="0,0,0,5" Grid.Column="0" Grid.Row="1" Content="Ownership"/>
+                                        <Label Margin="0,0,0,5" Grid.Column="0" Grid.Row="2" Content="Customer"/>
+                                        <Label Margin="0,0,0,5" Grid.Column="0" Grid.Row="3" Content="Job Site"/>
+
+                                        <ComboBox Margin="0,0,0,5" x:Name="TextBoxStatus" SelectedIndex="0" Grid.Column="1" Grid.Row="0">
+                                            <ComboBoxItem Content="Active"/>
+                                            <ComboBoxItem Content="In Shop"/>
+                                            <ComboBoxItem Content="Inactive"/>
+                                            <ComboBoxItem Content="Out of service"/>
+                                            <ComboBoxItem Content="Sold"/>
+                                            <ComboBoxItem Content="Transferred"/>
+                                        </ComboBox>
+                                        <ComboBox Margin="0,0,0,5" x:Name="TextBoxOwnership" Grid.Column="1" Grid.Row="1">
+                                            <ComboBoxItem Content="Owned"/>
+                                            <ComboBoxItem Content="Leased"/>
+                                            <ComboBoxItem Content="Rented"/>
+                                            <ComboBoxItem Content="Customer"/>
+                                        </ComboBox>
+                                        <DockPanel IsEnabled="False"  LastChildFill="True" Grid.Column="1" Grid.Row="2">
+
+                                            <Button x:Name="ButtonAddCustomer" DockPanel.Dock="Right" Click="ButtonAddCustomer_Click" Content="+"/>
+                                            <ComboBox x:Name="TextBoxCustomer"/>
+                                        </DockPanel>
+                                        <TextBox x:Name="TextBoxJobSite" Grid.Column="1" Grid.Row="3"/>
+                                    </Grid>
+                                </GroupBox>
+                            </DockPanel>
+                            <DockPanel LastChildFill="True" Grid.Column="1" Grid.Row="0" >
+                                <GroupBox  DockPanel.Dock="Top"   Header="PM Tracking">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="4*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label Margin="0,0,0,5" Grid.Column="0" Grid.Row="0" Content="Maint Sched"/>
+                                        <Label Margin="0,0,0,5" Grid.Column="0" Grid.Row="1" Content="No Meter"/>
+                                        <Label Margin="0,0,0,5" Grid.Column="0" Grid.Row="2" Content="Base Meter"/>
+                                        <Label Margin="0,0,0,5" Grid.Column="0" Grid.Row="3" Content="Base Date"/>
+
+                                        <DockPanel Margin="0,0,0,5"   LastChildFill="True" Grid.Column="1" Grid.Row="0">
+
+                                            <Button x:Name="ButtonAddMaintSched" DockPanel.Dock="Right" Click="ButtonAddMaintSched_Click" Content="+"/>
+                                            <ComboBox x:Name="TextBoxMaintSched" Loaded="TextBoxMaintSched_Loaded"/>
+                                        </DockPanel>
+                                        <TextBox Margin="0,0,0,5" x:Name="TextBoxNoMeter" Grid.Column="1" Grid.Row="1" Text="0"/>
+                                        <TextBox Margin="0,0,0,5" x:Name="TextBoxBaseMeter" Grid.Column="1" Grid.Row="2" Text="0"/>
+                                        <DatePicker Margin="0,0,0,5" x:Name="TextBoxBaseDate" Grid.Column="1" Grid.Row="3"/>
+                                    </Grid>
+                                </GroupBox>
+                                <GroupBox DockPanel.Dock="Bottom" Header="Other Details (Custom)">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="4*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label Margin="0,0,0,5" x:Name="LabelCustomField" Grid.Column="0" Grid.Row="0" MouseEnter="LabelCustomField_MouseEnter" Content="(Custom field)"/>
+                                        <Label Margin="0,0,0,5" Grid.Column="0" Grid.Row="1" Content="(Custom field)"/>
+                                        <Label Margin="0,0,0,5" Grid.Column="0" Grid.Row="2" Content="(Custom field)"/>
+                                        <Label Margin="0,0,0,5" Grid.Column="0" Grid.Row="3" Content="(Custom field)"/>
+                                        <Label Margin="0,0,0,5" Grid.Column="0" Grid.Row="4" Content="(Custom field)"/>
+                                        <Label Margin="0,0,0,5" Grid.Column="0" Grid.Row="5" Content="(Custom field)"/>
+                                        <Label Margin="0,0,0,5" Grid.Column="0" Grid.Row="6" Content="(Custom field)"/>
+
+                                        <TextBox Margin="0,0,0,5" x:Name="TextBoxCustom1" Grid.Column="1" Grid.Row="0" />
+                                        <TextBox Margin="0,0,0,5" x:Name="TextBoxCustom2" Grid.Column="1" Grid.Row="1" />
+                                        <TextBox Margin="0,0,0,5" x:Name="TextBoxCustom3" Grid.Column="1" Grid.Row="2" />
+                                        <TextBox Margin="0,0,0,5" x:Name="TextBoxCustom4" Grid.Column="1" Grid.Row="3" />
+                                        <TextBox Margin="0,0,0,5" x:Name="TextBoxCustom5" Grid.Column="1" Grid.Row="4" />
+                                        <TextBox Margin="0,0,0,5" x:Name="TextBoxCustom6" Grid.Column="1" Grid.Row="5" />
+                                        <TextBox Margin="0,0,0,5" x:Name="TextBoxCustom7" Grid.Column="1" Grid.Row="6" />
+                                    </Grid>
+                                </GroupBox>
+
+                                <GroupBox Header="Assignment">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition IsEnabled="False" Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="4*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label Margin="0,0,0,5" Grid.Column="0" Grid.Row="0" Content="Assigned To"/>
+                                        <Label Margin="0,0,0,5" Grid.Column="0" Grid.Row="1" Content="Cost Center"/>
+                                        <Label Margin="0,0,0,5" Grid.Column="0" Grid.Row="2" Content="Parent"/>
+                                        <Label Margin="0,0,0,5" Grid.Column="0" Grid.Row="3" Content="Category"/>
+
+                                        <DockPanel Margin="0,0,0,5"  LastChildFill="True"  Grid.Column="1" Grid.Row="0">
+
+                                            <Button x:Name="ButtonAddNewEmployee" DockPanel.Dock="Right" Click="ButtonAddNewEmployee_Click" Content="+"/>
+                                            <ComboBox x:Name="TextBoxAssignTo"/>
+                                        </DockPanel>
+                                        <ComboBox Margin="0,0,0,5" x:Name="TextBoxCostCenter" Grid.Column="1" Grid.Row="1"/>
+
+                                        <ComboBox Margin="0,0,0,5" x:Name="TextBoxParent" Grid.Column="1" Grid.Row="2" >
+                                            <ComboBoxItem Content="Customers"/>
+                                            <ComboBoxItem Content="Fuel"/>
+                                            <ComboBoxItem Content="Parts"/>
+                                            <ComboBoxItem Content="Shop"/>
+                                        </ComboBox>
+                                        <ComboBox Margin="0,0,0,5" x:Name="TextBoxCategory" Grid.Column="1" Grid.Row="3"/>
+                                    </Grid>
+                                </GroupBox>
+
+                            </DockPanel>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="Specifications">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="4*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="4*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Margin="0,0,0,5" Style="{StaticResource LabelStyle}"  Grid.Column="0" Grid.Row="0" Content="(Custom field)"/>
+                            <Label Margin="0,0,0,5" Style="{StaticResource LabelStyle}"  Grid.Column="0" Grid.Row="1" Content="(Custom field)"/>
+                            <Label Margin="0,0,0,5" Style="{StaticResource LabelStyle}"  Grid.Column="0" Grid.Row="2" Content="(Custom field)"/>
+                            <Label Margin="0,0,0,5" Style="{StaticResource LabelStyle}"  Grid.Column="0" Grid.Row="3" Content="(Custom field)"/>
+                            <Label Margin="0,0,0,5" Style="{StaticResource LabelStyle}"  Grid.Column="0" Grid.Row="4" Content="(Custom field)"/>
+                            <Label Margin="0,0,0,5" Style="{StaticResource LabelStyle}"  Grid.Column="0" Grid.Row="5" Content="(Custom field)"/>
+                            <Label Margin="0,0,0,5" Style="{StaticResource LabelStyle}"  Grid.Column="0" Grid.Row="6" Content="(Custom field)"/>
+                            <Label Margin="0,0,0,5" Style="{StaticResource LabelStyle}"  Grid.Column="0" Grid.Row="7" Content="(Custom field)"/>
+                            <Label Margin="0,0,0,5" Style="{StaticResource LabelStyle}"  Grid.Column="0" Grid.Row="8" Content="(Custom field)"/>
+                            <Label Margin="0,0,0,5" Style="{StaticResource LabelStyle}"  Grid.Column="0" Grid.Row="9" Content="(Custom field)"/>
+                            <Label Margin="0,0,0,5" Style="{StaticResource LabelStyle}"  Grid.Column="0" Grid.Row="10" Content="(Custom field)"/>
+                            <Label Margin="0,0,0,5" Style="{StaticResource LabelStyle}"  Grid.Column="0" Grid.Row="11" Content="(Custom field)"/>
+
+                            <Label Margin="0,0,0,5" Style="{StaticResource LabelStyle}"  Grid.Column="2" Grid.Row="0" MouseEnter="LabelCustomField_MouseEnter" Content="(Custom field)"/>
+                            <Label Margin="0,0,0,5" Style="{StaticResource LabelStyle}"  Grid.Column="2" Grid.Row="1" Content="(Custom field)"/>
+                            <Label Margin="0,0,0,5" Style="{StaticResource LabelStyle}"  Grid.Column="2" Grid.Row="2" Content="(Custom field)"/>
+                            <Label Margin="0,0,0,5" Style="{StaticResource LabelStyle}"  Grid.Column="2" Grid.Row="3" Content="(Custom field)"/>
+                            <Label Margin="0,0,0,5" Style="{StaticResource LabelStyle}"  Grid.Column="2" Grid.Row="4" Content="(Custom field)"/>
+                            <Label Margin="0,0,0,5" Style="{StaticResource LabelStyle}"  Grid.Column="2" Grid.Row="5" Content="(Custom field)"/>
+                            <Label Margin="0,0,0,5" Style="{StaticResource LabelStyle}"  Grid.Column="2" Grid.Row="6" Content="(Custom field)"/>
+                            <Label Margin="0,0,0,5" Style="{StaticResource LabelStyle}"  Grid.Column="2" Grid.Row="7" Content="(Custom field)"/>
+                            <Label Margin="0,0,0,5" Style="{StaticResource LabelStyle}"  Grid.Column="2" Grid.Row="8" Content="(Custom field)"/>
+                            <Label Margin="0,0,0,5" Style="{StaticResource LabelStyle}"  Grid.Column="2" Grid.Row="9" Content="(Custom field)"/>
+                            <Label Margin="0,0,0,5" Style="{StaticResource LabelStyle}"  Grid.Column="2" Grid.Row="10" Content="(Custom field)"/>
+
+
+                            <TextBox Margin="0,0,0,5" x:Name="TextBoxCustom8" Grid.Column="1" Grid.Row="0" />
+                            <TextBox Margin="0,0,0,5" x:Name="TextBoxCustom9" Grid.Column="1" Grid.Row="1" />
+                            <TextBox Margin="0,0,0,5" x:Name="TextBoxCustom10" Grid.Column="1" Grid.Row="2" />
+                            <TextBox Margin="0,0,0,5" x:Name="TextBoxCustom11" Grid.Column="1" Grid.Row="3" />
+                            <TextBox Margin="0,0,0,5" x:Name="TextBoxCustom12" Grid.Column="1" Grid.Row="4" />
+                            <TextBox Margin="0,0,0,5" x:Name="TextBoxCustom13" Grid.Column="1" Grid.Row="5" />
+                            <TextBox Margin="0,0,0,5" x:Name="TextBoxCustom14" Grid.Column="1" Grid.Row="6" />
+                            <TextBox Margin="0,0,0,5" x:Name="TextBoxCustom15" Grid.Column="1" Grid.Row="7" />
+                            <TextBox Margin="0,0,0,5" x:Name="TextBoxCustom16" Grid.Column="1" Grid.Row="8" />
+                            <TextBox Margin="0,0,0,5" x:Name="TextBoxCustom17" Grid.Column="1" Grid.Row="9" />
+                            <TextBox Margin="0,0,0,5" x:Name="TextBoxCustom18" Grid.Column="1" Grid.Row="10" />
+                            <TextBox Margin="0,0,0,5" x:Name="TextBoxCustom19" Grid.Column="1" Grid.Row="11" />
+
+                            <TextBox Margin="0,0,0,5" x:Name="TextBoxCustom20" Grid.Column="3" Grid.Row="0" />
+                            <TextBox Margin="0,0,0,5" x:Name="TextBoxCustom21" Grid.Column="3" Grid.Row="1" />
+                            <TextBox Margin="0,0,0,5" x:Name="TextBoxCustom22" Grid.Column="3" Grid.Row="2" />
+                            <TextBox Margin="0,0,0,5" x:Name="TextBoxCustom23" Grid.Column="3" Grid.Row="3" />
+                            <TextBox Margin="0,0,0,5" x:Name="TextBoxCustom24" Grid.Column="3" Grid.Row="4" />
+                            <TextBox Margin="0,0,0,5" x:Name="TextBoxCustom25" Grid.Column="3" Grid.Row="5" />
+                            <TextBox Margin="0,0,0,5" x:Name="TextBoxCustom26" Grid.Column="3" Grid.Row="6" />
+                            <TextBox Margin="0,0,0,5" x:Name="TextBoxCustom27" Grid.Column="3" Grid.Row="7" />
+                            <TextBox Margin="0,0,0,5" x:Name="TextBoxCustom28" Grid.Column="3" Grid.Row="8" />
+                            <TextBox Margin="0,0,0,5" x:Name="TextBoxCustom29" Grid.Column="3" Grid.Row="9" />
+                            <TextBox Margin="0,0,0,5" x:Name="TextBoxCustom30" Grid.Column="3" Grid.Row="10" />
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="Purchase">
+                        <DockPanel LastChildFill="True">
+                            <GroupBox DockPanel.Dock="Bottom" Header="Depreciation" HorizontalAlignment="Stretch">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Margin="0,0,0,5" Grid.Column="0" Grid.Row="0" Content="Starting Value"/>
+                                    <Label Margin="0,0,0,5" Grid.Column="0" Grid.Row="1" Content="Salvage Value"/>
+                                    <Label Margin="5,0,0,5" Grid.Column="2" Grid.Row="0" Content="Depreciation (Monthly)"/>
+                                    <Label Margin="5,0,0,5" Grid.Column="2" Grid.Row="1" Content="Current Value"/>
+                                    <Label Margin="0,0,0,5" Grid.Column="0" Grid.Row="2" Content="Term (Months)"/>
+
+                                    <TextBox Margin="0,0,0,5" Grid.Column="1" Grid.Row="0" Text="$0.00"/>
+                                    <TextBox Margin="0,0,0,5" Grid.Column="1" Grid.Row="1" Text="$0.00"/>
+                                    <TextBox Margin="5,0,0,5" IsEnabled="False" Grid.Column="3" Grid.Row="0" Text="$0.00"/>
+                                    <TextBox Margin="5,0,0,5" IsEnabled="False" Grid.Column="3" Grid.Row="1" Text="$0.00"/>
+                                    <telerik:RadNumericUpDown Margin="0,0,0,5" Grid.Column="1" Grid.Row="2" ></telerik:RadNumericUpDown>
+                                </Grid>
+                            </GroupBox>
+                            <GroupBox DockPanel.Dock="Bottom" Header="Equipment Status" HorizontalAlignment="Stretch">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Margin="0,0,0,5" Grid.Column="0" Grid.Row="0" Content="In Service"/>
+                                    <Label Margin="0,0,0,5" Grid.Column="0" Grid.Row="1" Content="Out of Service"/>
+                                    <Label Margin="0,0,0,5" Grid.Column="0" Grid.Row="2" Content="Transfer Date"/>
+                                    <Label Margin="5,0,0,5" Grid.Column="2" Grid.Row="0" Content="Date sold"/>
+                                    <Label Margin="5,0,0,5" Grid.Column="2" Grid.Row="1" Content="Sold to"/>
+                                    <Label Margin="5,0,0,5" Grid.Column="2" Grid.Row="2" Content="Comments"/>
+
+                                    <DatePicker Margin="0,0,0,5" Grid.Column="1" Grid.Row="0"/>
+                                    <DatePicker Margin="0,0,0,5" Grid.Column="1" Grid.Row="1"/>
+                                    <DatePicker Margin="0,0,0,5" Grid.Column="1" Grid.Row="2"/>
+                                    <DatePicker Margin="5,0,0,5" Grid.Column="3" Grid.Row="0"/>
+                                    <TextBox Margin="5,0,0,5" Grid.Column="3" Grid.Row="1" />
+                                    <TextBox Margin="5,0,0,5" Grid.Column="3" Grid.Row="2" />
+                                </Grid>
+                            </GroupBox>
+                            <GroupBox DockPanel.Dock="Bottom" Header="Purchase Information" HorizontalAlignment="Stretch">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Margin="0,0,0,5" Grid.Column="0" Grid.Row="0">Dealer</Label>
+                                    <Label Margin="0,0,0,5" Grid.Column="0" Grid.Row="4">Warranty Expiration Date</Label>
+                                    <Label Margin="0,0,0,5" Grid.Column="0" Grid.Row="5">Warranty Expiration Meter</Label>
+                                    <Label Margin="5,0,0,5" Grid.Column="2" Grid.Row="0">Date Purchased</Label>
+                                    <Label Margin="5,0,0,5" Grid.Column="2" Grid.Row="1">No Meter</Label>
+                                    <Label Margin="5,0,0,5" Grid.Column="2" Grid.Row="2">Price</Label>
+                                    <Label Margin="5,0,0,5" Grid.Column="2" Grid.Row="3">Comments</Label>
+
+                                    <Grid Margin="0,0,0,5" Grid.Column="1" Grid.Row="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="6*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <ComboBox Grid.Column="0" Grid.Row="0"></ComboBox>
+                                        <Button x:Name="ButtonAddVendor" Margin="2,0,0,0"  Grid.Column="1" Grid.Row="0" Click="ButtonAddVendor_Click">+</Button>
+                                    </Grid>
+
+                                    <ScrollViewer Margin="0,0,0,5" Grid.Column="1" Grid.Row="1" Grid.RowSpan="3">
+                                        <TextBox IsReadOnly="True"/>
+                                    </ScrollViewer>
+                                    <DatePicker Margin="0,0,0,5" Grid.Column="3" Grid.Row="0"/>
+                                    <TextBox Margin="0,0,0,5" Grid.Column="3" Grid.Row="1"></TextBox>
+                                    <TextBox Margin="0,0,0,5" Grid.Column="3" Grid.Row="2">$0.00</TextBox>
+                                    <DatePicker Margin="0,0,0,5" Grid.Column="1" Grid.Row="4"/>
+                                    <TextBox Margin="0,0,0,5" Grid.Column="1" Grid.Row="5"/>
+                                    <ScrollViewer Margin="5,0,0,5" Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="4" Grid.RowSpan="2">
+                                        <TextBox IsReadOnly="True"/>
+                                    </ScrollViewer>
+                                </Grid>
+                            </GroupBox>
+                        </DockPanel>
+                    </TabItem>
+                    <TabItem Header="Expirations">
+                        <DockPanel LastChildFill="True">
+                            <GroupBox DockPanel.Dock="Top" Header="Licensing and Registration">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="0" Grid.Row="0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                        <Label Margin="0,0,0,5" Grid.Column="0" Grid.Row="0">Plate #</Label>
+                                        <Label Margin="0,0,0,5" Grid.Column="0" Grid.Row="1">Type</Label>
+                                        <Label Margin="0,0,0,5" Grid.Column="0" Grid.Row="2">State/Province</Label>
+
+                                        <TextBox Margin="0,0,0,5" Grid.Column="1" Grid.Row="0" />
+                                        <TextBox Margin="0,0,0,5" Grid.Column="1" Grid.Row="1" />
+                                        <TextBox Margin="0,0,0,5" Grid.Column="1" Grid.Row="2" />
+                                </Grid>
+                                    <Grid Margin="0,0,0,5" Grid.Column="1" Grid.Row="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"></RowDefinition>
+                                            <RowDefinition Height="*"></RowDefinition>
+                                            <RowDefinition Height="*"></RowDefinition>
+                                            <RowDefinition Height="*"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Margin="5,0,0,5" Grid.Column="0" Grid.Row="0">Notes:</Label>
+                                        <ScrollViewer Margin="5,0,0,5" Grid.ColumnSpan="2" Grid.RowSpan="3"  Grid.Column="0" Grid.Row="1">
+                                            <TextBox></TextBox>
+                                        </ScrollViewer>
+                                    </Grid>
+                                </Grid>
+                            </GroupBox>
+                            <GroupBox Header="Expirations">
+                                <DataGrid>
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="Expiration Name"/>
+                                        <DataGridTextColumn Header="Expiration Date"/>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </GroupBox>
+                        </DockPanel>
+                    </TabItem>
+                    <TabItem Header="Expenses">
+                        <DockPanel LastChildFill="True">
+                            <DataGrid>
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Expense"/>
+                                    <DataGridTextColumn Header="Last Date"/>
+                                    <DataGridTextColumn Header="Next Date"/>
+                                    <DataGridTextColumn Header="Interval"/>
+                                    <DataGridTextColumn Header="Period"/>
+                                    <DataGridTextColumn Header="Cost"/>
+                                    <DataGridTextColumn Header="Notes"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </DockPanel>
+                    </TabItem>
+                    <TabItem Header="Loan/Lease">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="2*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="6*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Label  Grid.Column="0" Grid.Row="0">Company</Label>
+                            <Label Grid.Column="0" Grid.Row="4">Account #</Label>
+                            <Label Grid.Column="0" Grid.Row="5">Start Date</Label>
+                            <Label Grid.Column="0" Grid.Row="6">End Date</Label>
+                            <Label Grid.Column="0" Grid.Row="7">Payment</Label>
+                            <Label Grid.Column="0" Grid.Row="8">Residual</Label>
+                            <Label Grid.Column="0" Grid.Row="9">Notes</Label>
+
+                            <Grid Margin="0,0,0,5"  Grid.Column="1" Grid.Row="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="6*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <ComboBox Grid.Column="0" Grid.Row="0"></ComboBox>
+                                <Button x:Name="ButtonAddVendor2"  Margin="2,0,0,0"  Grid.Column="1" Grid.Row="0" Click="ButtonAddVendor_Click" >+</Button>
+                            </Grid>
+                            <ScrollViewer Margin="0,0,0,5" Grid.Column="1" Grid.Row="1" Grid.RowSpan="3">
+                               <TextBox/> 
+                            </ScrollViewer>
+                            <TextBox Margin="0,0,0,5" Grid.Column="1" Grid.Row="4"/>
+                            <DatePicker Margin="0,0,0,5" Grid.Column="1" Grid.Row="5"/>
+                            <DatePicker Margin="0,0,0,5" Grid.Column="1" Grid.Row="6"/>
+                            <TextBox Margin="0,0,0,5" Grid.Column="1" Grid.Row="7"/>
+                            <TextBox Margin="0,0,0,5" Grid.Column="1" Grid.Row="8"/>
+                            <ScrollViewer Grid.Column="1" Grid.Row="9" Grid.RowSpan="3">
+                                <TextBox/>
+                            </ScrollViewer>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="Insurance">
+                        <GroupBox Header="Policy Information">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="2*"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="2*"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Grid.Column="0" Grid.Row="0">Company</Label>
+                                <Label Grid.Column="0" Grid.Row="4">Policy #</Label>
+                                <Label Grid.Column="0" Grid.Row="5">Start Date</Label>
+                                <Label Grid.Column="0" Grid.Row="6">End Date</Label>
+                                <Label Grid.Column="2" Grid.Row="4">Payment</Label>
+                                <Label Grid.Column="2" Grid.Row="5">Deductible</Label>
+                                <Label Grid.Column="2" Grid.Row="6">Notes</Label>
+
+                                <Grid Margin="0,0,0,5"  Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="6*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <ComboBox Grid.Column="0" Grid.Row="0"></ComboBox>
+                                    <Button x:Name="ButtonAddVendor3"  Margin="2,0,0,0"  Grid.Column="1" Grid.Row="0" Click="ButtonAddVendor_Click" >+</Button>
+                                </Grid>
+                                <ScrollViewer Margin="0,0,0,5" Grid.Column="1" Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="3">
+                                    <TextBox/>
+                                </ScrollViewer>
+                                <TextBox Margin="0,0,0,5" Grid.Column="1" Grid.Row="4"/>
+                                <DatePicker Margin="0,0,0,5" Grid.Column="1" Grid.Row="5"/>
+                                <DatePicker Margin="0,0,0,5" Grid.Column="1" Grid.Row="6"/>
+                                <TextBox Margin="0,0,0,5" Grid.Column="3" Grid.Row="4"/>
+                                <TextBox Margin="0,0,0,5" Grid.Column="3" Grid.Row="5"/>
+                                <ScrollViewer Margin="0,0,0,5" Grid.Column="3" Grid.Row="6" Grid.RowSpan="4" Grid.ColumnSpan="3">
+                                    <TextBox/>
+                                </ScrollViewer>
+                            </Grid>
+                        </GroupBox>
+                    </TabItem>
+                    <TabItem Header="Photo">
+                        <DockPanel LastChildFill="True">
+                            <DockPanel DockPanel.Dock="Bottom">
+                                <Button DockPanel.Dock="Left"  Width="90" Height="30" Margin="0,0,10,0" Content="Add Image"/>
+                                <Button DockPanel.Dock="Left" Width="90" Height="30" Content="Delete Image"/>
+                                <Button HorizontalAlignment="Right"  DockPanel.Dock="Right" Width="90" Height="30" Content="View Image"/>
+                            </DockPanel>
+                            <Image></Image>
+                        </DockPanel>
+                    </TabItem>
+                    <TabItem Header="Attachments">
+                        <DockPanel LastChildFill="True">
+                            <DataGrid>
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Attachments"/>
+                                </DataGrid.Columns>
+                            </DataGrid> 
+                        </DockPanel>
+                    </TabItem>
+                    <TabItem Header="Notes">
+                        <ScrollViewer>
+                            <TextBox/>
+                        </ScrollViewer>
+                    </TabItem>
+                    <TabItem Header="Configure">
+                        <DockPanel>
+                            <GroupBox DockPanel.Dock="Bottom"  Header="Virtual Mileage/Km/Hours">
+                                <DockPanel LastChildFill="True">
+                                    <CheckBox DockPanel.Dock="Top">Enable Virtual Mi/Km/Hours Calcs for Meter1</CheckBox>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"></RowDefinition>
+                                            <RowDefinition Height="Auto"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                            <ColumnDefinition Width="6*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label Grid.Column="0" Grid.Row="0">Average Daily Mi/Km/Hr</Label>
+                                        <Label Grid.Column="0" Grid.Row="1">Starting Date</Label>
+
+                                        <TextBox Margin="0,0,0,5"  Grid.Column="1" Grid.Row="0">0</TextBox>
+                                        <DatePicker Grid.Column="1" Grid.Row="1"/>
+                                    </Grid>
+                                </DockPanel>
+                            </GroupBox>
+                            <GroupBox Header="Track the following details for this equipment">
+                                <StackPanel Orientation="Vertical">
+                                    <CheckBox Margin="0,0,0,5">Specifications</CheckBox>
+                                    <CheckBox Margin="0,0,0,5">Purchase/Status</CheckBox>
+                                    <CheckBox Margin="0,0,0,5">Expirations</CheckBox>
+                                    <CheckBox Margin="0,0,0,5">Loan/Lease</CheckBox>
+                                    <CheckBox Margin="0,0,0,5">Insurance</CheckBox>
+                                    <CheckBox Margin="0,0,0,5">Expenses</CheckBox>
+                                    <CheckBox Margin="0,0,0,5">Photos</CheckBox>
+                                    <CheckBox Margin="0,0,0,5">Attachments</CheckBox>
+                                </StackPanel>
+                            </GroupBox>
+                            
+                        </DockPanel>
+                    </TabItem>
+                </TabControl>
+            </DockPanel>
+        </Viewbox>
+    </DockPanel>
+</Window>

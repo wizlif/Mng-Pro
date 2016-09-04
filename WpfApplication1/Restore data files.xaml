@@ -1,0 +1,42 @@
+﻿<Window x:Class="WpfApplication1.Restore_data_files"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication1"
+        mc:Ignorable="d"
+        
+        Title="Backup_datafiles" Height="262" Width="470"
+        MaxHeight="262"
+        MinHeight="262"
+        MaxWidth="470"
+        MinWidth="470"
+        >
+    <StackPanel Margin="0,0,0,1" RenderTransformOrigin="0.496,0.532">
+
+        <Label Height="33">Select the backup file you wish to restore</Label>
+        <StackPanel Orientation="Horizontal" Height="31">
+
+            <TextBox Width="373" Margin="5,0,0,0"></TextBox>
+            <Button Width="70">Browse</Button>
+        </StackPanel>
+
+
+
+        <StackPanel >
+            <Label>
+                <TextBlock Height="55"> WARNING!The Restore process will retrieve data files  from the backup
+            <LineBreak/>
+            archive chosen above. All of your current data will be replaced with the backup data</TextBlock>
+            </Label>
+
+        </StackPanel>
+
+        
+        <Button Margin="20,0,287,0">Restore</Button>
+        <Button Margin="20,7,287,0" Height="24">Close</Button>
+
+
+    </StackPanel>
+</Window>
+

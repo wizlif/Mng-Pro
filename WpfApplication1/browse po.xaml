@@ -1,0 +1,86 @@
+﻿<Window x:Class="WpfApplication1.browse_po"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication1"
+        mc:Ignorable="d"
+        Title="browse_po" Height="300" Width="300">
+    <StackPanel>
+        <ToolBar Margin="0,0,0,0">
+
+            <Separator/>
+
+            <Label>Status:</Label>
+            <ComboBox Width="200"></ComboBox>
+            
+            <Separator/>
+            <Label>Location:</Label>
+            <ComboBox Width="200"></ComboBox>
+            
+           
+
+        </ToolBar>
+        <DataGrid Width="Auto" Height="500">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="PO Number" Width="150"/>
+                <DataGridTextColumn Header="PO date" Width="150"/>
+                <DataGridTextColumn Header="Date Expected" Width="150"/>
+                <DataGridTextColumn Header="Status" Width="150"/>
+                <DataGridTextColumn Header="Date Closed" Width="150"/>
+                <DataGridTextColumn Header="Category" Width="150"/>
+                <DataGridTextColumn Header="Category" Width="150"/>
+                <DataGridTextColumn Header="vendor" Width="150"/>
+                <DataGridTextColumn Header="Buyer " Width="150"/>
+                <DataGridTextColumn Header="Ship Via" Width="150"/>
+                <DataGridTextColumn Header="Invoice Number" Width="150"/>
+                <DataGridTextColumn Header="Order Number" Width="150"/>
+                
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+        <ToolBar Margin="0,0,0,0">
+           
+            <Separator/>
+            <Button></Button>
+            <Button></Button>
+            <Button></Button>
+            <Button></Button>
+            <Separator/>
+            <Button>Add PO</Button>
+            <Button>Edit</Button>
+            <Button>Delete PO</Button>
+            <Separator/>
+            <Button>Print</Button>
+            <Separator/>
+            <Button>Filter</Button>
+            <Separator/>
+            <Button>Search</Button>
+            <Separator/>
+            <CheckBox>Show Row Filter</CheckBox>
+
+        </ToolBar>
+        <StackPanel Margin="0,10,0,0" >
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                <CheckBox> Enable Data Range</CheckBox>
+                    <DatePicker Margin="10,0,0,0" Width="200"></DatePicker>
+                    <Label Margin="10,0,0,0">Through</Label>
+                    <DatePicker Margin="10,0,0,0" Width="200"></DatePicker>
+                </StackPanel>
+                <CheckBox Margin="0,10,0,0">Highlight Parts yet to be Received</CheckBox>
+
+                <Button Width="100" Height="28" Margin="0,0,0,0">Help</Button>
+                <Button Width="100" Height="28" Margin="0,10,0,0">Close</Button>
+            </StackPanel>
+
+           
+    
+        </StackPanel>
+       
+
+
+    </StackPanel>
+</Window>

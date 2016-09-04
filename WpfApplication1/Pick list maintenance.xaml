@@ -1,0 +1,117 @@
+﻿<Window x:Name="PKListMaintainance" x:Class="WpfApplication1.Pick_list_maintenance"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication1"
+        mc:Ignorable="d"
+        Title="Pick list maintenance" Height="500" Width="500"
+         MaxHeight="500"
+        MinHeight="500"
+        MaxWidth="500"
+        MinWidth="500" Loaded="PKListMaintainance_Loaded">
+    <DockPanel LastChildFill="True">
+        <ComboBox x:Name="ComboBoxMaintenance" SelectedValuePath="Content" DockPanel.Dock="Top" SelectionChanged="ComboBoxMaintenance_SelectionChanged" >
+            <ComboBoxItem>Colors</ComboBoxItem>
+            <ComboBoxItem>Cost Center</ComboBoxItem>
+            <ComboBoxItem>Destination</ComboBoxItem>
+            <ComboBoxItem>Employee Categories</ComboBoxItem>
+            <ComboBoxItem>Employee Certificates</ComboBoxItem>
+            <ComboBoxItem>Employee Status</ComboBoxItem>
+            <ComboBoxItem>Employee Types</ComboBoxItem>
+            <ComboBoxItem>Equiment Usage Type</ComboBoxItem>
+            <ComboBoxItem>Expiration Type</ComboBoxItem>
+            <ComboBoxItem>Fleet Status</ComboBoxItem>
+            <ComboBoxItem>Fluid Types</ComboBoxItem>
+            <ComboBoxItem>Fuel Brand</ComboBoxItem>
+            <ComboBoxItem>Fuel Type</ComboBoxItem>
+            <ComboBoxItem>General Expense Types</ComboBoxItem>
+            <ComboBoxItem>Makes</ComboBoxItem>
+            <ComboBoxItem>Models</ComboBoxItem>
+            <ComboBoxItem>PM Types</ComboBoxItem>
+            <ComboBoxItem>Part Categories</ComboBoxItem>
+            <ComboBoxItem>Part Manufacturers</ComboBoxItem>
+            <ComboBoxItem>Payment Terms</ComboBoxItem>
+            <ComboBoxItem>Repair Types</ComboBoxItem>
+            <ComboBoxItem>Shipping Methods</ComboBoxItem>
+            <ComboBoxItem>State/Prov</ComboBoxItem>
+            <ComboBoxItem>Units Type</ComboBoxItem>
+            <ComboBoxItem>Vehicle/Equip Types</ComboBoxItem>
+            <ComboBoxItem>Vendor Type</ComboBoxItem>
+            <ComboBoxItem>Work Order Status</ComboBoxItem>
+            <ComboBoxItem>Work Type</ComboBoxItem>
+        </ComboBox>
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Left">
+            <Button Width="100" Height="28" Margin="43,10,0,0">Print</Button>
+            <Button Width="100" Height="28" Margin="5,10,0,0">Help</Button>
+            <Button Width="100" Height="28" Margin="5,10,0,0">Close</Button>
+        </StackPanel>
+        <ToolBar DockPanel.Dock="Bottom" Margin="5,0,0,0">
+
+            <Separator/>
+
+            <Button Margin="0,6,0,5" >
+                <StackPanel Orientation="Horizontal">
+                    <Image Width="20" Height="20"  Source="Images\48\End_48px_1.png"/>
+                </StackPanel>
+            </Button>
+
+            <Button Margin="0,6,0,5" >
+                <StackPanel Orientation="Horizontal">
+                    <Image Width="20" Height="20"  Source="Images\48\Sort Right_48px.png"/>
+                </StackPanel>
+            </Button>
+
+            <Button Margin="0,6,0,5" >
+                <StackPanel Orientation="Horizontal">
+                    <Image Width="20" Height="20"  Source="Images\48\Sort Left_48px.png"/>
+                </StackPanel>
+            </Button>
+
+            <Button Margin="0,6,0,5" >
+                <StackPanel Orientation="Horizontal">
+                    <Image Width="20" Height="20"  Source="Images\48\Skip to Start_48px.png"/>
+                </StackPanel>
+            </Button>
+            <Separator/>
+
+            <Button x:Name="ButtonPickListMaintainanceAdd" Click="ButtonPickListMaintainanceAdd_Click"  Margin="0,6,0,5" >
+                <StackPanel Orientation="Horizontal">
+                    <Image Width="20" Height="20"  Source="Images\48\File_48px_1.png"/>
+                    <TextBlock Margin="3,0,0,0" VerticalAlignment="Center">New</TextBlock>
+                </StackPanel>
+            </Button>
+            <Separator/>
+            <Button x:Name="ButtonEdit" Margin="0,6,0,5" Click="ButtonEdit_Click"  >
+                <StackPanel Orientation="Horizontal">
+                    <Image Width="20" Height="20"  Source="Images\48\Edit File_48px_1.png"/>
+                    <TextBlock Margin="3,0,0,0" VerticalAlignment="Center">Edit</TextBlock>
+                </StackPanel>
+            </Button>
+            <Separator/>
+            <Button x:Name="ButtonDelete" Margin="0,6,0,5"  >
+                <StackPanel Orientation="Horizontal">
+                    <Image Width="20" Height="20"  Source="Images\48\Delete File_48px.png"/>
+                    <TextBlock Margin="3,0,0,0" VerticalAlignment="Center">Delete</TextBlock>
+                </StackPanel>
+            </Button>
+            <Separator/>
+        </ToolBar>
+        <DockPanel LastChildFill="True">
+            <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal">
+                
+                <Label  Margin="0,0,0,0">Listed=</Label>
+                <Label Content="{Binding ElementName=ListBoxMainList,Path=Items.Count}"/>
+            </StackPanel>
+
+            <ListBox SelectedValuePath="Content" x:Name="ListBoxMainList"></ListBox>
+        </DockPanel>
+        
+        
+        
+
+        
+
+
+    </DockPanel>
+</Window>

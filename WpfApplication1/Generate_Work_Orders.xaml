@@ -1,0 +1,97 @@
+﻿<Window x:Class="WpfApplication1.Generate_Work_Orders"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication1"
+        mc:Ignorable="d"
+        x:Name="GeneralWork_Orders"
+        Title="Generate Work Orders" MinHeight="552.273" MinWidth="559.091">
+    <DockPanel Margin="0,0,0,5"  Width="{Binding ElementName=GeneralWork_Orders,Path=ActualWidth}"   x:Name="StackPanel" HorizontalAlignment="Center" VerticalAlignment="Center" >
+        <Viewbox  x:Name="ViewBox" Width="{Binding ElementName=StackPanel,Path=ActualWidth}">
+            <DockPanel LastChildFill="True" Width="{Binding ElementName=GeneralWork_Orders,Path=ActualWidth}" Height="{Binding ElementName=GeneralWork_Orders,Path=ActualHeight}">
+
+                <StackPanel  VerticalAlignment="Bottom" DockPanel.Dock="Bottom"   Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Width="90" Height="30" Margin="0,0,10,0" Content="Ok"/>
+                    <Button Width="90" Height="30" Margin="0,0,10,0" Content="Cancel"/>
+                    <Button Width="90" Height="30" Content="Help"/>
+                </StackPanel>
+                <TabControl>
+                    <TabItem Header="Generate Options">
+                        <DockPanel LastChildFill="True">
+                            <DockPanel DockPanel.Dock="Top">
+                                <Label DockPanel.Dock="Left">General Work Orders</Label>
+                                <ComboBox SelectedIndex="0"  IsEnabled="False">
+                                    <ComboBoxItem>Selected Equipment</ComboBoxItem>
+                                </ComboBox>
+                            </DockPanel>
+
+                            <DockPanel LastChildFill="True">
+                                <StackPanel  Orientation="Vertical" DockPanel.Dock="Bottom">
+                                    <CheckBox Margin="0,0,2,5" VerticalAlignment="Center">Close Work Orders</CheckBox>
+                                    <CheckBox VerticalAlignment="Center">Combine Work Orders</CheckBox>
+                                </StackPanel>
+                                <GroupBox Header="PM Interval Criteria" DockPanel.Dock="Bottom">
+                                    <DockPanel LastChildFill="True">
+                                        <DockPanel LastChildFill="True">
+                                            <StackPanel VerticalAlignment="Center" DockPanel.Dock="Left">
+                                                <RadioButton Margin="0,0,2,5" IsChecked="True" Content="All"></RadioButton>
+                                                <RadioButton x:Name="RadioButtonDateOnly" Margin="0,0,2,5" Checked="RadioButtonDateOnly_Checked" Unchecked="RadioButtonDateOnly_Unchecked">Date Only</RadioButton>
+                                                <RadioButton>Meter Only</RadioButton>
+                                            </StackPanel>
+                                            <StackPanel DockPanel.Dock="Right"  VerticalAlignment="Center" Orientation="Horizontal">
+                                                <CheckBox IsEnabled="False" x:Name="CheckBoxDateOnly" VerticalAlignment="Center" HorizontalAlignment="Center" Checked="CheckBoxDateOnly_Checked" Unchecked="CheckBoxDateOnly_Unchecked"></CheckBox>
+                                                <DatePicker x:Name="DatePickerFrom" IsEnabled="False"/>
+                                                <Label>through</Label>
+                                                <DatePicker x:Name="DatePickerTo" IsEnabled="False"/>
+                                            </StackPanel>
+                                        </DockPanel>
+                                    </DockPanel>
+                                </GroupBox>
+
+                                <GroupBox Header="Automatically Include Tasks" >
+                                    <DockPanel LastChildFill="True">
+                                        <DockPanel DockPanel.Dock="Top" >
+                                            <CheckBox x:Name="CheckBoxDue" IsChecked="False" Margin="0,2,5,0" Unchecked="CheckBoxDue_Unchecked" Checked="CheckBoxDue_Checked">Due</CheckBox>
+                                            <CheckBox IsChecked="True">Soon Date</CheckBox>
+                                        </DockPanel>
+
+                                        <GroupBox IsEnabled="False" x:Name="GroupBoxTasks" DockPanel.Dock="Top" Header="Task Type">
+                                            <StackPanel>
+                                                <CheckBox IsChecked="True" Margin="0,0,2,5">Preventive Maintainanace</CheckBox>
+                                                <CheckBox IsChecked="True">Repairs</CheckBox>
+                                            </StackPanel>
+                                        </GroupBox>
+                                        <DockPanel  >
+                                            <CheckBox x:Name="CheckBoxSelected" IsChecked="False" Margin="0,0,0,5" DockPanel.Dock="Top" Checked="CheckBoxSelected_Checked" Unchecked="CheckBoxSelected_Unchecked">Selected</CheckBox>
+                                            <ListView x:Name="ListViewSelected" IsEnabled="False"></ListView>
+                                        </DockPanel>
+                                    </DockPanel>
+                                </GroupBox>
+
+                            </DockPanel>
+                        </DockPanel>
+                    </TabItem>
+                    <TabItem Header="Meter Update">
+                        <DockPanel LastChildFill="True">
+                            <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal">
+                            <Label >Equipment Listed=</Label>
+                                <Label Content="{Binding ElementName=DataGridWorkOrder,Path=Items.Count}"/>
+                            </StackPanel>
+                            <DataGrid x:Name="DataGridWorkOrder">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Equipment"/>
+                                <DataGridTextColumn Header="Meter #1  Current Meter"/>
+                                <DataGridTextColumn Header="Meter #1  New Meter"/>
+                                <DataGridTextColumn Header="Meter #2  Current Meter"/>
+                                <DataGridTextColumn Header="Meter #2  New Meter"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        </DockPanel>
+                    </TabItem>
+                </TabControl>
+            </DockPanel>
+        </Viewbox>
+
+    </DockPanel>
+</Window>

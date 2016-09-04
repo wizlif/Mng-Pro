@@ -1,0 +1,80 @@
+﻿<Window x:Class="WpfApplication1.Add_Fuel_Entry"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication1"
+        mc:Ignorable="d"
+        Title="Add_Fuel_Entry" Height="506" Width="607">
+    <DockPanel Height="Auto" Width="Auto" LastChildFill="True">
+        <StackPanel Orientation="Vertical" DockPanel.Dock="Left">
+            <DockPanel Margin="0,0,0,5" LastChildFill="True">
+                        <Label DockPanel.Dock="Left">Purchase Date:</Label>
+                        <DatePicker/>
+                    </DockPanel>
+                    <DockPanel Margin="0,0,0,5" LastChildFill="True">
+                        <Label  DockPanel.Dock="Left">Fill Hours:</Label>
+                        <TextBox/>
+                    </DockPanel>
+                    <DockPanel Margin="0,0,0,5" LastChildFill="True">
+                        <Label  DockPanel.Dock="Left">Last (Meter):</Label>
+                        <TextBox/>
+                    </DockPanel>
+                    <DockPanel Margin="0,0,0,5" LastChildFill="True">
+                        <Label  DockPanel.Dock="Left">Gallons Consumed:</Label>
+                        <TextBox/>
+                    </DockPanel>
+            <DockPanel Margin="0,0,0,5" LastChildFill="True">
+                <Label  DockPanel.Dock="Left">Gallons per Hour:</Label>
+                <TextBox/>
+            </DockPanel>
+            <DockPanel Margin="0,0,0,5" LastChildFill="True">
+                <Label  DockPanel.Dock="Left">Price per Gallon:</Label>
+                <TextBox/>
+            </DockPanel>
+            <DockPanel Margin="0,0,0,5" LastChildFill="True">
+                <Label  DockPanel.Dock="Left">Total Cost:</Label>
+                <TextBox/>
+            </DockPanel>
+            <DockPanel Margin="0,0,0,5" LastChildFill="True">
+                <Label  DockPanel.Dock="Left">State:</Label>
+                <ComboBox/>
+            </DockPanel>
+            <DockPanel Margin="0,0,0,5" LastChildFill="True">
+                <Label  DockPanel.Dock="Left">Fuel Type:</Label>
+                <ComboBox/>
+            </DockPanel>
+            <DockPanel Margin="0,0,0,5" LastChildFill="True">
+                <Label  DockPanel.Dock="Left">Brand:</Label>
+                <ComboBox/>
+            </DockPanel>
+            <DockPanel Margin="0,0,0,5" LastChildFill="True">
+                <Label  DockPanel.Dock="Left">Vendor:</Label>
+                <ComboBox/>
+                <Button x:Name="ButtonAddVendor" DockPanel.Dock="Right" Click="ButtonAddVendor_Click">+</Button>
+            </DockPanel>
+            <DockPanel Margin="0,0,0,5" LastChildFill="True">
+                <Label  DockPanel.Dock="Left">Driver:</Label>
+                <ComboBox/>
+                <Button DockPanel.Dock="Right">+</Button>
+            </DockPanel>
+            <DockPanel Margin="0,0,0,5" LastChildFill="True">
+                <Label  DockPanel.Dock="Left">Stock Tank:</Label>
+                <ComboBox/>
+            </DockPanel>
+            <DockPanel Margin="0,0,0,5" LastChildFill="True">
+                <Label  DockPanel.Dock="Left">Cost Center:</Label>
+                <ComboBox/>
+            </DockPanel>
+            <DockPanel Margin="0,0,0,5" LastChildFill="True">
+                <Label  DockPanel.Dock="Left">Comments:</Label>
+                <TextBox/>
+            </DockPanel>
+            <StackPanel Margin="0,0,0,5" Orientation="Horizontal" DockPanel.Dock="Bottom" HorizontalAlignment="Right">
+                <Button Margin="0,0,5,0">Save</Button>
+                <Button Margin="0,0,5,0">Save +</Button>
+                <Button Margin="0,0,5,0">Cancel</Button>
+            </StackPanel>
+        </StackPanel>
+    </DockPanel>
+</Window>

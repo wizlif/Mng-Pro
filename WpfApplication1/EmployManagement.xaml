@@ -1,0 +1,48 @@
+﻿<Window x:Class="WpfApplication1.EmployManagement"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication1"
+        mc:Ignorable="d"
+        x:Name="Employ_Management"
+        Title="EmployManagement" Height="300" Width="300">
+    <DockPanel  Width="{Binding ElementName=Employ_Management,Path=ActualWidth}"   x:Name="StackPanel" HorizontalAlignment="Center" VerticalAlignment="Center" >
+        <Viewbox  x:Name="ViewBox" Width="{Binding ElementName=StackPanel,Path=ActualWidth}">
+            <DockPanel LastChildFill="True" Width="{Binding ElementName=Employ_Management,Path=ActualWidth}" Height="{Binding ElementName=Employ_Management,Path=ActualHeight}">
+                <DockPanel LastChildFill="True" DockPanel.Dock="Bottom">
+                    <StackPanel >
+                        <CheckBox>Highlight Expirations Due</CheckBox>
+                        <CheckBox>Highlight Expirations Soon Due</CheckBox>
+                    </StackPanel>
+                    <StackPanel MinWidth="280" DockPanel.Dock="Right"  VerticalAlignment="Bottom"    Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Width="90" Height="30" Margin="0,0,10,0" Content="Print"/>
+                    <Button Width="90" Height="30" Margin="0,0,10,0" Content="Help"/>
+                    <Button Width="90" Height="30" Content="Close"/>
+                </StackPanel>
+                </DockPanel>
+                
+                <DockPanel>
+                    <ToolBar DockPanel.Dock="Bottom">
+                        <Separator></Separator>
+                        <Label>(0 listed,0 selected)</Label>
+                        <Separator></Separator>
+                        <Button>Add</Button>
+                        <Button IsEnabled="False">Edit</Button>
+                        <Button IsEnabled="False">Delete</Button>
+                        <Separator></Separator>
+                        <Button>Print</Button>
+                        <Separator></Separator>
+                        <Button>Search</Button>
+                        <Separator></Separator>
+                        <Button>Record Payment</Button>
+                        <Separator></Separator>
+                        <Label>Show Filter</Label>
+                        <CheckBox></CheckBox>
+                    </ToolBar>
+                    <DataGrid/>
+                </DockPanel>
+            </DockPanel>
+        </Viewbox>
+    </DockPanel>
+</Window>

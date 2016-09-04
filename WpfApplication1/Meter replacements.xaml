@@ -1,0 +1,52 @@
+﻿<Window x:Class="WpfApplication1.Meter_replacements"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication1"
+        mc:Ignorable="d"
+        Title="Meter_replacements" Height="300" Width="300">
+    <StackPanel>
+        
+
+
+        <DataGrid Width="Auto" Height="590">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Equipment" Width="150"/>
+                <DataGridTextColumn Header="Date Replaced" Width="150"/>
+                <DataGridTextColumn Header="Current Reading" Width="150"/>
+                <DataGridTextColumn Header="Replacement Reading" Width="150"/>
+                <DataGridTextColumn Header="Description" Width="150"/>
+                
+                
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+        <ToolBar Margin="0,0,0,0">
+            
+            <Separator/>
+            <Button></Button>
+            <Button></Button>
+            <Button></Button>
+            <Button></Button>
+            <Separator/>
+            <Button>Add</Button>
+            <Button>Edit</Button>
+            <Button>Delete</Button>
+            <Separator/>
+            <Button>Print</Button>
+            <Separator/>
+            <Button>Search</Button>
+            
+
+        </ToolBar>
+
+        <StackPanel Orientation="Horizontal">
+            <Button Width="100" Height="28" Margin="800,20,0,0">Help</Button>
+            <Button Width="100" Height="28" Margin="10,20,0,0">Close</Button>
+        
+</StackPanel>
+
+    </StackPanel>
+</Window>

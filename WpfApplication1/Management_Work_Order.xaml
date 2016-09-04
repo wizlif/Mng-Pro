@@ -1,0 +1,54 @@
+﻿<Window x:Class="WpfApplication1.Management_Work_Order"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication1"
+        mc:Ignorable="d"
+        x:Name="ManagementWorkOrder"
+        Title="Management_Work_Order" Height="300" Width="700" Loaded="ManagementWorkOrder_Loaded">
+    <Window.Resources>
+        
+    </Window.Resources>
+    <StackPanel  x:Name="StackPanel" HorizontalAlignment="Center" VerticalAlignment="Center" Height="{Binding ElementName=ManagementWorkOrder,Path=ActualHeight}">
+        <Viewbox x:Name="ViewBox" Margin="0,15,0,0"  MaxHeight="{Binding ElementName=ManagementWorkOrder,Path=ActualHeight}">
+            <Grid x:Name="Grid" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <DataGrid MaxHeight="500" Grid.Row="0" ></DataGrid>
+                <ToolBar Height="28" Grid.Row="1">
+                    <Label>(0 listed,0 Selected)</Label>
+                    <Separator></Separator>
+                    <TextBox Width="100"/>
+                    <Button>Add</Button>
+                    <Button>Edit</Button>
+                    <Button>Delete</Button>
+                    <Separator></Separator>
+                    <Button>Print</Button>
+                    <Separator></Separator>
+                    <Button>Filter</Button>
+                    <Separator></Separator>
+                    <Button>Search</Button>
+                    <Separator></Separator>
+                    <Label>Show Row Filter</Label>
+                    <CheckBox/>
+                    <Separator></Separator>
+                    <Button>Toggle Status</Button>
+                </ToolBar>
+                <DockPanel Grid.Row="2" >
+                    <StackPanel Orientation="Vertical">
+                        <CheckBox>Highlight Outstanding Work orders</CheckBox>
+                        <CheckBox>Group by work Order #</CheckBox>
+                    </StackPanel>
+                    <Button HorizontalAlignment="Right">Help</Button>
+                </DockPanel>
+            </Grid>
+        </Viewbox>
+    </StackPanel>
+</Window>

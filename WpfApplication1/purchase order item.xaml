@@ -1,0 +1,75 @@
+﻿<Window x:Class="WpfApplication1.purchase_order_item"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication1"
+        mc:Ignorable="d"
+        Title="purchase_order_item" Height="434.55" Width="500">
+    
+    <Grid Margin="0,10,95,64" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+
+
+        </Grid.RowDefinitions>
+        <Label Grid.Column="0" Grid.Row="0">Item Type</Label>
+        <ComboBox Grid.Column="1" Grid.Row="0" Margin="0,5,0,0"></ComboBox>
+
+        <Label Grid.Column="0" Grid.Row="1">PO Items</Label>
+        <ComboBox Grid.Column="1" Grid.Row="1"  Margin="0,5,0,0"></ComboBox>
+
+
+        <Label Grid.Column="0" Grid.Row="2">WareHouse</Label>
+        <ComboBox Grid.Column="1" Grid.Row="2"  Margin="0,5,0,0" ></ComboBox>
+
+
+        <Label Grid.Column="0" Grid.Row="3">Warranty</Label>
+        <TextBox Grid.Column="1" Grid.Row="3"  Margin="0,5,0,0"></TextBox>
+
+
+        <Label Grid.Column="0" Grid.Row="4">Order Quantity</Label>
+        <TextBox Grid.Column="1" Grid.Row="4"  Margin="0,5,0,0"></TextBox>
+
+
+        <Label Grid.Column="0" Grid.Row="5">Unit Cost</Label>
+        <TextBox Grid.Column="1" Grid.Row="5"  Margin="0,5,0,0"></TextBox>
+
+
+        <Label Grid.Column="0" Grid.Row="6">Extended Cost</Label>
+        <TextBox Grid.Column="1" Grid.Row="6"  Margin="0,5,0,0"></TextBox>
+
+
+        <Label Grid.Column="0" Grid.Row="7">Notes</Label>
+        <TextBox Grid.Column="1" Grid.Row="7"  Grid.ColumnSpan="1" Grid.RowSpan="3" Margin="0,5,0,0" ></TextBox>
+
+
+        <CheckBox Grid.Column="0" Grid.Row="11">Tax 1</CheckBox>
+        <CheckBox Grid.Column="0" Grid.Row="12">Tax 2</CheckBox>
+
+
+        <Button Grid.Column="1" Grid.Row="11" Margin="76,5,10,0">Save</Button>
+        <Button Grid.Column="1" Grid.Row="12" Margin="76,5,10,0">Cancel</Button>
+
+
+    </Grid>
+
+    
+</Window>

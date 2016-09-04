@@ -1,0 +1,318 @@
+﻿<Window x:Class="WpfApplication1.add_new_work_order"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication1"
+        mc:Ignorable="d"
+        x:Name="AddNewWorkOrder"
+        Title="add_new_work_order" MinHeight="728" MinWidth="977"
+        >
+    <DockPanel  Width="{Binding ElementName=AddNewWorkOrder,Path=ActualWidth}"   x:Name="StackPanel" HorizontalAlignment="Center" VerticalAlignment="Center" >
+        <Viewbox  x:Name="ViewBox" Width="{Binding ElementName=StackPanel,Path=ActualWidth}">
+            <DockPanel LastChildFill="True" Width="{Binding ElementName=AddNewWorkOrder,Path=ActualWidth}" Height="{Binding ElementName=AddNewWorkOrder,Path=ActualHeight}">
+                <StackPanel DockPanel.Dock="Top" HorizontalAlignment="Left" Orientation="Horizontal">
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Vertical">
+                            <GroupBox Header="General work Details" >
+                                <Grid>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition ></ColumnDefinition>
+                                        <ColumnDefinition ></ColumnDefinition>
+
+                                    </Grid.ColumnDefinitions>
+
+
+                                    <Grid.RowDefinitions>
+
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+
+                                    </Grid.RowDefinitions>
+
+                                    <Label Grid.Column="0" Grid.Row="0" Content="Work order #"  VerticalAlignment="Top"/>
+                                    <TextBox Grid.Column="1" Grid.Row="0"  VerticalAlignment="Top"/>
+
+
+                                    <Label Grid.Column="0" Grid.Row="1" Content="Status"/>
+                                    <ComboBox Grid.Column="1" Grid.Row="1"></ComboBox>
+
+                                    <Label Grid.Column="0" Grid.Row="2" Content="Date Issued:"/>
+                                    <DatePicker Grid.Column="1" Grid.Row="2"></DatePicker>
+
+                                    <Label Grid.Column="0" Grid.Row="3" Content="Date Started"/>
+                                    <DatePicker Grid.Column="1" Grid.Row="3"></DatePicker>
+
+                                    <Label Grid.Column="0" Grid.Row="4" Content="Date Complete"/>
+                                    <ComboBox Grid.Column="1" Grid.Row="4" IsEnabled="False"></ComboBox>
+                                </Grid>
+                            </GroupBox>
+
+                        </StackPanel>
+                        <StackPanel Orientation="Vertical">
+                            <GroupBox Header="additional Details" >
+
+                                <Grid>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition ></ColumnDefinition>
+                                        <ColumnDefinition ></ColumnDefinition>
+
+                                    </Grid.ColumnDefinitions>
+
+
+                                    <Grid.RowDefinitions>
+
+                                        <RowDefinition ></RowDefinition>
+                                        <RowDefinition ></RowDefinition>
+                                        <RowDefinition ></RowDefinition>
+                                        <RowDefinition ></RowDefinition>
+                                        <RowDefinition ></RowDefinition>
+                                        <RowDefinition ></RowDefinition>
+
+
+
+                                    </Grid.RowDefinitions>
+
+                                    <Label Grid.Column="0" Grid.Row="0"   Content="Type"  VerticalAlignment="Top"/>
+                                    <ComboBox Grid.Column="1" Grid.Row="0"  VerticalAlignment="Top"/>
+
+
+                                    <Label Grid.Column="0" Grid.Row="1" Content="Priority"  VerticalAlignment="Top"/>
+                                    <ComboBox Grid.Column="1" Grid.Row="1"></ComboBox>
+
+                                    <Label Grid.Column="0" Grid.Row="2" Content="Cost Center" Margin="0,0,5,0"/>
+                                    <ComboBox Grid.Column="1" Grid.Row="2"></ComboBox>
+
+                                    <Label Grid.Column="0" Grid.Row="3" Content="PO #"/>
+                                    <ComboBox Grid.Column="1" Grid.Row="3"/>
+
+                                    <Label Grid.Column="0" Grid.Row="4" Content="Invoice #"/>
+                                    <TextBox Grid.Column="1" Grid.Row="4" ></TextBox>
+
+
+
+                                    <Label Grid.Column="0" Grid.Row="5" Content="Custom"/>
+                                    <TextBox Grid.Column="1" Grid.Row="5" ></TextBox>
+
+
+                                </Grid>
+                            </GroupBox>
+                        </StackPanel>
+                    </StackPanel>
+                    <DockPanel LastChildFill="True">
+                        <GroupBox >
+                            <TabControl >
+
+                                <TabItem Header="Maintenance(0)">
+                                    <DockPanel >
+                                        <ToolBar DockPanel.Dock="Bottom">
+                                            <Button>Add</Button>
+                                            <Separator/>
+                                            <Button>Edit</Button>
+                                            <Separator/>
+                                            <Button>Delete</Button>
+                                            <Separator/>
+                                            <Button>Quick search</Button>
+                                            <Separator/>
+                                            <Button>View Image</Button>
+                                        </ToolBar>
+                                        <DataGrid>
+                                            <DataGrid.Columns>
+                                                <DataGridTextColumn Header="Maintenance Task" />
+                                                <DataGridTextColumn Header="Cost" />
+                                                <DataGridTextColumn Header="Notes" />
+                                                <DataGridTextColumn Header="Photo" />
+                                            </DataGrid.Columns>
+                                        </DataGrid>
+                                        <StackPanel Orientation="Horizontal">
+
+
+
+
+                                        </StackPanel>
+
+
+                                    </DockPanel>
+
+                                </TabItem>
+
+                                <TabItem Header="Parts Used(0)">
+
+                                    <DockPanel>
+                                        <ToolBar DockPanel.Dock="Bottom" >
+                                            <Button>Add</Button>
+                                            <Separator/>
+                                            <Button>Edit</Button>
+                                            <Separator/>
+                                            <Button>Delete</Button>
+                                            <Separator/>
+                                            <Button>Core Charge/Credit</Button>
+                                            <Separator/>
+                                        </ToolBar>
+                                        <DataGrid >
+                                            <DataGrid.Columns>
+                                                <DataGridTextColumn Header="Part #" />
+                                                <DataGridTextColumn Header="Name" />
+                                                <DataGridTextColumn Header="Used" />
+                                                <DataGridTextColumn Header="Cost" />
+                                                <DataGridTextColumn Header="Total" />
+                                            </DataGrid.Columns>
+                                        </DataGrid>
+                                    </DockPanel>
+
+                                </TabItem>
+
+                                <TabItem Header="Labour details(0)"  VerticalAlignment="Top">
+
+                                    <DockPanel LastChildFill="True">
+                                        
+                                        <ToolBar DockPanel.Dock="Bottom" >
+                                            <Button>Add</Button>
+                                            <Separator/>
+                                            <Button>Edit</Button>
+                                            <Separator/>
+                                            <Button>Delete</Button>
+                                        </ToolBar>
+                                        <DataGrid  >
+                                            <DataGrid.Columns>
+                                                <DataGridTextColumn Header="Technician" />
+                                                <DataGridTextColumn Header="Comments" />
+                                                <DataGridTextColumn Header="Rate" />
+                                                <DataGridTextColumn Header="Hours" />
+                                                <DataGridTextColumn Header="Total" />
+                                            </DataGrid.Columns>
+                                        </DataGrid>
+                                    </DockPanel>
+                                </TabItem>
+
+                                <TabItem Header="Attachments(0)">
+
+                                    <DockPanel>
+                                        <ToolBar DockPanel.Dock="Bottom" >
+                                            <Button>Add</Button>
+                                            <Separator/>
+                                            <Button>Edit</Button>
+                                            <Separator/>
+                                            <Button>Delete</Button>
+                                            <Separator/>
+                                            <Button>Scan</Button>
+                                            <Separator/>
+                                            <Button>Scan to PDF</Button>
+                                            <Separator/>
+                                            <Button>View</Button>
+
+
+                                        </ToolBar>
+                                        <DataGrid>
+                                            <DataGrid.Columns>
+                                                <DataGridTextColumn Header="Attachement Description" />
+                                            </DataGrid.Columns>
+                                        </DataGrid>
+                                    </DockPanel>
+                                </TabItem>
+                            </TabControl>
+                        </GroupBox>
+                    </DockPanel>
+                </StackPanel>
+                <!--end of fast horizontal  stack -->
+                <DockPanel LastChildFill="True" DockPanel.Dock="Bottom"  Height="36">
+                    <CheckBox Margin="5,0,0,0">Print</CheckBox>
+                    <CheckBox Margin="5,0,0,0">E-mail</CheckBox>
+                    <CheckBox Margin="5,0,0,0">Generate Invoice</CheckBox>
+                    <CheckBox Margin="5,0,0,0">Generate PO</CheckBox>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Margin="20,0,0,0" Width="90">Save</Button>
+                    <Button Margin="5,0,0,0" Width="90">Close</Button>
+                    <Button Margin="5,0,0,0" Width="90">Help</Button>
+                    </StackPanel>
+                </DockPanel>
+                <DockPanel LastChildFill="True" >
+                    <DockPanel LastChildFill="True">
+                        <StackPanel DockPanel.Dock="Top" Orientation="Vertical">
+                            <GroupBox Header="Assigned to" >
+                                <StackPanel Orientation="Horizontal" >
+                                    <RadioButton Width="75" Content="Employee"/>
+                                    <RadioButton Width="61" Content="Vendor"/>
+                                    <ComboBox Width="172" Text="yh" />
+                                    <Button Width="39" Content="+" />
+                                </StackPanel>
+                            </GroupBox>
+                        </StackPanel>
+                        <DockPanel DockPanel.Dock="Top" VerticalAlignment="Stretch" >
+                            <GroupBox Header="Notes" >
+                                <ScrollViewer>
+                                    <TextBox></TextBox>
+                                </ScrollViewer>
+                            </GroupBox>
+                        </DockPanel>
+                    </DockPanel>
+                    <DockPanel >
+                        <GroupBox Header="Totals" >
+
+
+                            <Grid>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+
+                                </Grid.ColumnDefinitions>
+
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+
+                                </Grid.RowDefinitions>
+
+                                <CheckBox Grid.Column="0"  Grid.Row="0">Discount %</CheckBox>
+                                <TextBox Grid.Column="2" Grid.Row="0"></TextBox>
+
+                                <Label Grid.Column="0"  Grid.Row="1">Tax1</Label>
+                                <TextBox Grid.Column="1" Grid.Row="1"></TextBox>
+                                <TextBox Grid.Column="2" Grid.Row="1"></TextBox>
+
+                                <Label Grid.Column="0"  Grid.Row="2">Tax2</Label>
+                                <TextBox Grid.Column="1" Grid.Row="2"></TextBox>
+                                <TextBox Grid.Column="2" Grid.Row="2"></TextBox>
+
+
+                                <Label Grid.Column="0"  Grid.Row="3" Content="Labour"/>
+                                <TextBox Grid.Column="2" Grid.Row="3"></TextBox>
+
+                                <Label Grid.Column="0"  Grid.Row="4" Content="Parts"/>
+                                <TextBox Grid.Column="2" Grid.Row="4"></TextBox>
+
+                                <CheckBox  Grid.Column="0"  Grid.Row="5">Total Cost</CheckBox>
+                                <TextBox Grid.Column="2" Grid.Row="5"></TextBox>
+
+
+                            </Grid>
+
+
+
+
+
+
+                        </GroupBox>
+                    </DockPanel>
+                </DockPanel>
+                <!--end of 2nd horizontal  stack -->
+                
+            </DockPanel>
+            </Viewbox>
+    </DockPanel>
+            <!--end of main stack -->
+
+
+</Window>

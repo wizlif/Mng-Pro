@@ -1,0 +1,42 @@
+﻿<Window x:Class="WpfApplication1.Meter_update_log"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication1"
+        mc:Ignorable="d"
+        Title="Meter_update_log" Height="300" Width="300">
+    <StackPanel>
+        
+
+
+        <DataGrid Width="Auto" Height="550">
+            <DataGrid.Columns>
+                
+
+                <DataGridTextColumn Header="Equipment" Width="250"/>
+                <DataGridTextColumn Header="Category" Width="150"/>
+                <DataGridTextColumn Header="Meter #1" Width="150"/>
+                <DataGridTextColumn Header="Meter #2" Width="150"/>
+                
+                <DataGridTextColumn Header="Log Date" Width="150"/>
+               
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+        <ToolBar Margin="0,0,0,0">
+            <Label>Listed = 0 </Label>
+            
+
+        </ToolBar>
+        <StackPanel Orientation="Horizontal">
+            
+
+            
+            <Button Width="100" Height="28" Margin="10,20,0,0">Close</Button>
+        </StackPanel>
+
+
+    </StackPanel>
+</Window>

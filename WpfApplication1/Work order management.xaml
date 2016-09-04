@@ -1,0 +1,91 @@
+﻿<Window x:Class="WpfApplication1.Work_order_management"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication1"
+        mc:Ignorable="d"
+        x:Name="WorkOrderManagement"
+        Title="Work Order Management" MinHeight="536.818" MinWidth="702" >
+    <DockPanel  Width="{Binding ElementName=WorkOrderManagement,Path=ActualWidth}"   x:Name="StackPanel" HorizontalAlignment="Center" VerticalAlignment="Center" >
+        <Viewbox  x:Name="ViewBox" Width="{Binding ElementName=StackPanel,Path=ActualWidth}">
+            <DockPanel Margin="0,0,0,10" LastChildFill="True" Width="{Binding ElementName=WorkOrderManagement,Path=ActualWidth}" Height="{Binding ElementName=WorkOrderManagement,Path=ActualHeight}">
+        <ToolBar DockPanel.Dock="Top">
+            <Label>Status:</Label>
+            <ComboBox Width="200"></ComboBox>
+            <Separator/>
+            <Label>Status:</Label>
+            <ComboBox Width="200"></ComboBox>
+        </ToolBar>
+                <DockPanel LastChildFill="True" DockPanel.Dock="Bottom">
+                    <StackPanel DockPanel.Dock="Right" Orientation="Vertical">
+                        <Button Width="100" Height="28" Margin="0,10,0,0">Help</Button>
+                        <Button Width="100" Height="28" Margin="0,10,0,0">Close</Button>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical">
+                        <CheckBox Margin="2,2,0,5">HighLight OutStanding Work orders</CheckBox>
+                        <CheckBox Margin="2,2,0,5">Group By work Order Number</CheckBox>
+                    </StackPanel>
+                </DockPanel>
+                <DockPanel LastChildFill="True">
+                    <ToolBar DockPanel.Dock="Bottom">
+                        <Label>0,Listed, 0 Selected</Label>
+                        <Separator/>
+                        <Button></Button>
+                        <Button></Button>
+                        <Button></Button>
+                        <Button></Button>
+                        <Separator/>
+                        <Button>Add</Button>
+                        <Button>Edit</Button>
+                        <Button>Delete</Button>
+                        <Separator/>
+                        <Button>Print</Button>
+                        <Separator/>
+                        <Button>Filter</Button>
+                        <Separator/>
+                        <Button>Search</Button>
+                        <Separator/>
+                        <Button>Show Row Filter</Button>
+                        <Separator/>
+                        <Button>Toggle Status</Button>
+                    </ToolBar>
+                    <DataGrid    DockPanel.Dock="Top"  >
+                <DataGrid.Columns >
+                    <DataGridTextColumn Header="Work Order Number"/>
+                    <DataGridTextColumn Header="Equipment"/>
+                    <DataGridTextColumn Header="%Complete"/>
+                    <DataGridTextColumn Header="Status"/>
+                    <DataGridTextColumn Header="Date Issued"/>
+                    <DataGridTextColumn Header="Date Complete"/>
+                    <DataGridTextColumn Header="Down Time(Days)"/>
+                    <DataGridTextColumn Header="Meter"/>
+                    <DataGridTextColumn Header="Priority"/>
+                    <DataGridTextColumn Header="Type"/>
+                    <DataGridTextColumn Header="Work Perfomed"/>
+                    <DataGridTextColumn Header="Employee Assigment"/>
+                    <DataGridTextColumn Header="Vendor Name"/>
+                    <DataGridTextColumn Header="Invoice Number"/>
+                    <DataGridTextColumn Header="Purchase Order Number"/>
+                    <DataGridTextColumn Header="Cost Center"/>
+                    <DataGridTextColumn Header="Parts Cost"/>
+                    <DataGridTextColumn Header="Repair Cost"/>
+                    <DataGridTextColumn Header="Labour Cost"/>
+                    <DataGridTextColumn Header="Taxes"/>
+                    <DataGridTextColumn Header="Total Cost"/>
+                    <DataGridTextColumn Header="Discount Percent"/>
+                    <DataGridTextColumn Header="Discount Value"/>
+                    <DataGridTextColumn Header="Category"/>
+
+                </DataGrid.Columns>
+
+            </DataGrid>
+
+            
+
+        </DockPanel >
+        
+            </DockPanel>
+        </Viewbox>
+    </DockPanel>
+</Window>

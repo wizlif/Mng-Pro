@@ -1,0 +1,62 @@
+﻿<Window x:Class="WpfApplication1.Invoice_Management"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication1"
+        mc:Ignorable="d"
+        x:Name="InvoiceManagement"
+        Title="Invoice_Management" Height="300" Width="300">
+    <DockPanel  Width="{Binding ElementName=InvoiceManagement,Path=ActualWidth}"   x:Name="StackPanel" HorizontalAlignment="Center" VerticalAlignment="Center" >
+        <Viewbox  x:Name="ViewBox" Width="{Binding ElementName=StackPanel,Path=ActualWidth}">
+            <DockPanel Margin="0,0,0,5"   Width="{Binding ElementName=InvoiceManagement,Path=ActualWidth}" Height="{Binding ElementName=InvoiceManagement,Path=ActualHeight}">
+                <ToolBar  DockPanel.Dock="Top">
+                    <Label>Status:</Label>
+                    <ComboBox Width="Auto" SelectedIndex="0" >
+                        <ComboBoxItem>All</ComboBoxItem>
+                        <ComboBoxItem>Outstanding</ComboBoxItem>
+                        <ComboBoxItem>Paid In Full</ComboBoxItem>
+                    </ComboBox>
+                    <Separator></Separator>
+                    <Label>Location:</Label>
+                    <ComboBox Width="Auto" SelectedIndex="0" >
+                        <ComboBoxItem>All Locations</ComboBoxItem>
+                        <ComboBoxItem>General Equipment</ComboBoxItem>
+                        <ComboBoxItem>On-Site Fuel Tanks</ComboBoxItem>
+                        <ComboBoxItem>Production Equipment</ComboBoxItem>
+                        <ComboBoxItem>Plant</ComboBoxItem>
+                    </ComboBox>
+                </ToolBar>
+                <DockPanel LastChildFill="True" Margin="0,5,0,0"  DockPanel.Dock="Bottom"    >
+                    <Button DockPanel.Dock="Right" HorizontalAlignment="Left"  Width="90" Height="30" Content="Close"/>
+                    <GroupBox Header="View Options" >
+                        <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                            <CheckBox VerticalAlignment="Center">Enable Date Range:</CheckBox>
+                            <DatePicker Margin="10,0,0,0"/>
+                            <Label>through</Label>
+                            <DatePicker />
+                        </StackPanel>
+                    </GroupBox>
+                </DockPanel>
+                <DockPanel>
+                    <ToolBar DockPanel.Dock="Bottom">
+                        <Button x:Name="ButtonAddInvoice" Click="ButtonAddInvoice_Click">Add</Button>
+                        <Button x:Name="ButtonEditInvoice" Click="ButtonEditInvoice_Click">Edit</Button>
+                        <Button>Delete</Button>
+                        <Separator></Separator>
+                        <Button>Print</Button>
+                        <Separator></Separator>
+                        <Button>Search</Button>
+                        <Separator></Separator>
+                        <Button>Record Payment</Button>
+                        <Separator></Separator>
+                        <Label>Show Filter</Label>
+                        <CheckBox></CheckBox>
+                    </ToolBar>
+                    <DataGrid  />
+                </DockPanel>
+                
+            </DockPanel>
+        </Viewbox>
+    </DockPanel>
+</Window>

@@ -1,0 +1,29 @@
+﻿<Window x:Class="WpfApplication1.WareHouse_Contact_add"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication1"
+        mc:Ignorable="d"
+        Title="WareHouse_Contact_add" Height="300" Width="300"
+        MaxHeight="300"
+        MinHeight="300"
+        MaxWidth="300"
+        MinWidth="300">
+    
+    
+    <StackPanel>
+        <Label Margin="10,0,122,0" Content="Add Contact"/>
+        <TextBox Margin="10,0"/>
+
+        <Label Margin="10,0,122,0" Content="Add E-mail"/>
+        <TextBox Margin="10,0"/>
+
+        <StackPanel Orientation="Horizontal">
+            <Button Content="Save" Margin="10,20,0,0" Width="71"/>
+            <Button Content="Cancel" Width="71" Margin="5,20,0,0"/>
+        </StackPanel>
+
+
+    </StackPanel>
+</Window>

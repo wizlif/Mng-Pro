@@ -1,0 +1,889 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{53958277-EA16-4E8E-B325-684D730FEFFF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WpfApplication1</RootNamespace>
+    <AssemblyName>WpfApplication1</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ControlzEx, Version=2.0.1.61, Culture=neutral, PublicKeyToken=f08b075e934b7045, processorArchitecture=MSIL">
+      <HintPath>..\packages\ControlzEx.2.0.1.61\lib\net45\ControlzEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fluent, Version=4.0.3.394, Culture=neutral, PublicKeyToken=3e436e32a8c5546f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fluent.Ribbon.4.0.3.394\lib\net45\Fluent.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MahApps.Metro, Version=1.2.4.0, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.2.4.0\lib\net45\MahApps.Metro.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MenuRibbon.WPF, Version=0.5.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MenuRibbon.WPF.0.5.1.0\lib\net40\MenuRibbon.WPF.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Reactive.Core, Version=2.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rx-Core.2.2.4\lib\net45\System.Reactive.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reactive.Interfaces, Version=2.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rx-Interfaces.2.2.4\lib\net45\System.Reactive.Interfaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reactive.Linq, Version=2.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rx-Linq.2.2.4\lib\net45\System.Reactive.Linq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Ribbon" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\ControlzEx.2.0.1.61\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.Windows.Controls.Input, Version=2016.2.613.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Add category.xaml.cs">
+      <DependentUpon>Add category.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Add New Emloyee.xaml.cs">
+      <DependentUpon>Add New Emloyee.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Add new ship.xaml.cs">
+      <DependentUpon>Add new ship.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Add payment.xaml.cs">
+      <DependentUpon>Add payment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Add pm service.xaml.cs">
+      <DependentUpon>Add pm service.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Backup datafiles.xaml.cs">
+      <DependentUpon>Backup datafiles.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="New PM schedule.xaml.cs">
+      <DependentUpon>New PM schedule.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="add new work order.xaml.cs">
+      <DependentUpon>add new work order.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="add purchase order.xaml.cs">
+      <DependentUpon>add purchase order.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Add wareHouse.xaml.cs">
+      <DependentUpon>Add wareHouse.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Add.xaml.cs">
+      <DependentUpon>Add.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Add_Customer.xaml.cs">
+      <DependentUpon>Add_Customer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Add_Fuel_Entry.xaml.cs">
+      <DependentUpon>Add_Fuel_Entry.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Add_Invoice.xaml.cs">
+      <DependentUpon>Add_Invoice.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Add_New_Fuel_Tank.xaml.cs">
+      <DependentUpon>Add_New_Fuel_Tank.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Add_New_Part.xaml.cs">
+      <DependentUpon>Add_New_Part.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Add_Payment.xaml.cs">
+      <DependentUpon>Add_Payment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Add_Vendor.xaml.cs">
+      <DependentUpon>Add_Vendor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Add_WareHouse.xaml.cs">
+      <DependentUpon>Add_WareHouse.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Adjust_Inventory_Part.xaml.cs">
+      <DependentUpon>Adjust_Inventory_Part.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="browse po.xaml.cs">
+      <DependentUpon>browse po.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cost Statistics.xaml.cs">
+      <DependentUpon>Cost Statistics.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Customer Database.xaml.cs">
+      <DependentUpon>Customer Database.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Email_Log.xaml.cs">
+      <DependentUpon>Email_Log.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EmployManagement.xaml.cs">
+      <DependentUpon>EmployManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Fuel_Inventory.xaml.cs">
+      <DependentUpon>Fuel_Inventory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Generate_Work_Orders.xaml.cs">
+      <DependentUpon>Generate_Work_Orders.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Histories.xaml.cs">
+      <DependentUpon>Histories.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Inspections.xaml.cs">
+      <DependentUpon>Inspections.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Invoice_Management.xaml.cs">
+      <DependentUpon>Invoice_Management.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Job_Site_History.xaml.cs">
+      <DependentUpon>Job_Site_History.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Last_Pm.xaml.cs">
+      <DependentUpon>Last_Pm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Management_Work_Order.xaml.cs">
+      <DependentUpon>Management_Work_Order.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Meter replacements.xaml.cs">
+      <DependentUpon>Meter replacements.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Meter update log.xaml.cs">
+      <DependentUpon>Meter update log.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="New job site.xaml.cs">
+      <DependentUpon>New job site.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="New Value.xaml.cs">
+      <DependentUpon>New Value.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Parts inventory management.xaml.cs">
+      <DependentUpon>Parts inventory management.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Payments received.xaml.cs">
+      <DependentUpon>Payments received.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pick list maintenance.xaml.cs">
+      <DependentUpon>Pick list maintenance.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PM shedule.xaml.cs">
+      <DependentUpon>PM shedule.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Purchase order browse.xaml.cs">
+      <DependentUpon>Purchase order browse.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="purchase order item.xaml.cs">
+      <DependentUpon>purchase order item.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Purchase order parts received.xaml.cs">
+      <DependentUpon>Purchase order parts received.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Repair requests.xaml.cs">
+      <DependentUpon>Repair requests.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Replace meter.xaml.cs">
+      <DependentUpon>Replace meter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Report Viewer.xaml.cs">
+      <DependentUpon>Report Viewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Restore data files.xaml.cs">
+      <DependentUpon>Restore data files.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Service_Associations.xaml.cs">
+      <DependentUpon>Service_Associations.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Shipping details.xaml.cs">
+      <DependentUpon>Shipping details.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vendor_ Databse.xaml.cs">
+      <DependentUpon>Vendor_ Databse.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WareHouse Contact add.xaml.cs">
+      <DependentUpon>WareHouse Contact add.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WareHouse contacts.xaml.cs">
+      <DependentUpon>WareHouse contacts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Work order management.xaml.cs">
+      <DependentUpon>Work order management.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Add category.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Add New Emloyee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Add new ship.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Add payment.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Add pm service.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Backup datafiles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="New PM schedule.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="add new work order.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="add purchase order.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Add wareHouse.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Add.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Add_Customer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Add_Fuel_Entry.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Add_Invoice.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Add_New_Fuel_Tank.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Add_New_Part.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Add_Payment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Add_Vendor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Add_WareHouse.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Adjust_Inventory_Part.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="browse po.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Cost Statistics.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Customer Database.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Email_Log.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EmployManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Fuel_Inventory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Generate_Work_Orders.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Histories.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Inspections.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Invoice_Management.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Job_Site_History.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Last_Pm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Management_Work_Order.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Meter replacements.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Meter update log.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="New job site.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="New Value.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Parts inventory management.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Payments received.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pick list maintenance.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PM shedule.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Purchase order browse.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="purchase order item.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Purchase order parts received.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Repair requests.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Replace meter.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Report Viewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Icons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\IconsNonShared.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Restore data files.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Service_Associations.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Shipping details.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Vendor_ Databse.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WareHouse Contact add.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WareHouse contacts.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Work order management.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <Resource Include="Resources\Entypo.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\file.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\WindowsIcons-license.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Entypo-license.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Edit File_48px_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\File_48px_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Copy_48px_6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Delete File_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Add Folder_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Add Property_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Edit Property_48px_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Delete Property_48px_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Data Backup_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Data Recovery_48px_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Services_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Delete_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Calendar_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Support_48px_9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\User Group Man Man_48px_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Clipboard_48px_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Package_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Purchase Order_48px_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Sell Property_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Filing Cabinet_48px_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Expired_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Connection Status On_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Data Sheet_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Factory_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Robot_48px_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Module_48px_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Paint Palette_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\School_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\In Transit_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Water_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Ruler_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Gas Station_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Gas Pump_48px_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Colosseum_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Receipt_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Steam Engine_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Maintenance_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Hammer_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Drill_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Engineering_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Outline_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Worker Male_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Warehouse_48px_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Coins_48px_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Water Transportation_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Low Tide_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Market Square_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Waiter_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Printer Maintenance_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Road Worker_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Oil Storage Tank_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Inspection_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Historical_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Administrative Tools_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Speed_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Toolbox_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Category_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Tree Structure_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Roller Brush_48px_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Leave_48px_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Week View_48px_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Property With Timer_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Museum_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Dashboard_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Timer_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Combo Chart_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Chromatography_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Email_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\New Product_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Add List_48px_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Ingredients List_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Plus Minus_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Available Updates_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\StumbleUpon_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Bill_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Transaction List_48px_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Record_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Wallet_48px_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\HDD_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Work_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Speedometer_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Server_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Broom_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Bulldozer_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Shopping Bag_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\System Report_48px_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\School Director_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\1password_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Info_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Help_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Import_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Print_48px_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Sort Right_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Sort Left_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Fast Forward_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Rewind_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Skip to Start_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\End_48px_1.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

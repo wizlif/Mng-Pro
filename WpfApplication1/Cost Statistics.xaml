@@ -1,0 +1,56 @@
+﻿<Window x:Class="WpfApplication1.Cost_Statistics"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication1"
+        mc:Ignorable="d"
+        x:Name="CostStatistics"
+        Title="Cost Statistics" Height="300" Width="300">
+    <DockPanel Margin="0,0,0,5"  Width="{Binding ElementName=CostStatistics,Path=ActualWidth}"   x:Name="StackPanel" HorizontalAlignment="Center" VerticalAlignment="Center" >
+        <Viewbox  x:Name="ViewBox" Width="{Binding ElementName=StackPanel,Path=ActualWidth}">
+            <DockPanel LastChildFill="True" Width="{Binding ElementName=CostStatistics,Path=ActualWidth}" Height="{Binding ElementName=CostStatistics,Path=ActualHeight}">
+                <DockPanel Margin="0,0,0,5" DockPanel.Dock="Top" LastChildFill="True">
+                    <Label>Equipment Selection</Label>
+                    <ComboBox SelectedIndex="1">
+                        <ComboBoxItem>All</ComboBoxItem>
+                        <ComboBoxItem>Selected Equipment</ComboBoxItem>
+                        <ComboBoxItem>Selected Category - (ABC Company, Inc)</ComboBoxItem>
+                        <ComboBoxItem>Selected Category and Sub-Categories - (ABC Company, Inc)</ComboBoxItem>
+                    </ComboBox>
+                </DockPanel>
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" HorizontalAlignment="Right">
+                    <Button Margin="0,0,10,0" HorizontalAlignment="Left"  Width="90" Height="30" Content="Print"/>
+                    <Button Margin="0,0,10,0" HorizontalAlignment="Left"  Width="90" Height="30" Content="Help"/>
+                    <Button   HorizontalAlignment="Left"  Width="90" Height="30" Content="Close"/>
+                </StackPanel>
+                <DockPanel LastChildFill="True" Margin="0,5,0,0"  DockPanel.Dock="Bottom"    >
+                    <GroupBox Header="View Settings" >
+                        <DockPanel LastChildFill="True" VerticalAlignment="Center" >
+                            <CheckBox DockPanel.Dock="Left" VerticalAlignment="Center">Enable Date interval viewing:</CheckBox>
+                            <StackPanel Margin="0,2,0,0" Orientation="Horizontal">
+                                <DatePicker Margin="10,0,0,0"/>
+                                <Label>through</Label>
+                                <DatePicker />
+                            </StackPanel>
+                        </DockPanel>
+                    </GroupBox>
+                </DockPanel>
+                <TabControl>
+                    <TabItem Header="Preventive Maintainance">
+                        <DataGrid/>
+                    </TabItem>
+                    <TabItem Header="Repairs">
+                        <DataGrid/>
+                    </TabItem>
+                    <TabItem Header="Parts Used">
+                        <DataGrid/>
+                    </TabItem>
+                    <TabItem Header="Labor Details">
+                        <DataGrid/>
+                    </TabItem>
+                </TabControl>
+            </DockPanel>
+        </Viewbox>
+    </DockPanel>
+</Window>

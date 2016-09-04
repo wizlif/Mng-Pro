@@ -1,0 +1,164 @@
+﻿<Window x:Class="WpfApplication1.PM_shedule"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication1"
+        mc:Ignorable="d"
+        
+        Title="PM_shedule" Height="732.567" Width="1206.367">
+    <StackPanel >
+
+
+        <ToolBar Margin="0,10,0,0" >
+
+            <Label VerticalAlignment="Center">Schedule</Label>
+            
+            <ComboBox x:Name="ComboBoxSchedule" Margin="0,6,0,7" Width="231" Loaded="ComboBoxSchedule_Loaded"></ComboBox>
+            <Separator/>
+            <Button x:Name="ButtonAddNewSchedule" Margin="0,6,0,5" Click="ButtonAddNewSchedule_Click" >
+                <StackPanel Orientation="Horizontal">
+                    <Image Width="20" Height="20"  Source="Images\48\File_48px_1.png"/>
+                    <TextBlock Margin="3,0,0,0" VerticalAlignment="Center">New</TextBlock>
+                </StackPanel>
+            </Button>
+            <Separator/>
+            <Button x:Name="ButtonEditSchedule" Margin="0,6,0,5" Click="ButtonEditSchedule_Click" >
+                <StackPanel Orientation="Horizontal">
+                    <Image Width="20" Height="20"  Source="Images\48\Edit File_48px_1.png"/>
+                    <TextBlock Margin="3,0,0,0" VerticalAlignment="Center">Edit</TextBlock>
+                </StackPanel>
+                </Button>
+            <Separator/>
+            <Button x:Name="ButtonDeleteSchedule" Margin="0,6,0,5" Click="ButtonDeleteSchedule_Click" >
+                <StackPanel Orientation="Horizontal">
+                    <Image Width="20" Height="20"  Source="Images\48\Delete File_48px.png"/>
+                    <TextBlock Margin="3,0,0,0" VerticalAlignment="Center">Delete</TextBlock>
+                </StackPanel>
+            </Button>
+            <Separator/>
+
+
+        </ToolBar>
+
+        <StackPanel>
+
+            
+
+                <TabControl Height="545">
+
+                    <TabItem Header="PM services">
+                        <StackPanel>
+
+
+                        <DataGrid Width="Auto" Height="507" >
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Service" Width="150"/>
+                                <DataGridTextColumn Header="Enabled" Width="150"/>
+                                <DataGridTextColumn Header="Type" Width="150"/>
+                                <DataGridTextColumn Header="priority" Width="150"/>
+                                <DataGridTextColumn Header="Date interval" Width="150"/>
+                                <DataGridTextColumn Header="Fixed expiry date" Width="150"/>
+                                <DataGridTextColumn Header="Advanced notify( days)" Width="150"/>
+                                <DataGridTextColumn Header="Hour intervals" Width="150"/>
+                                <DataGridTextColumn Header="Fixed expiry (hours)" Width="150"/>
+                                <DataGridTextColumn Header="Advanced notification(hours)" Width="150"/>
+                                <DataGridTextColumn Header="Linked service" Width="150"/>
+
+
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <StackPanel Orientation="Horizontal"/>
+
+
+                    </StackPanel>
+
+                    </TabItem>
+
+                    <TabItem Header="Daily Inspections" Margin="0,-2,-2,-1">
+
+                        <StackPanel>
+
+                            <DataGrid Width="Auto" Height="506">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Inspection" Width="150"/>
+                                    <DataGridTextColumn Header="Type" Width="150"/>
+                                    <DataGridTextColumn Header="Priority" Width="150"/>
+                                    
+
+
+
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        <StackPanel Orientation="Horizontal">
+                                <StackPanel Orientation="Vertical" Margin="0,20,0,0">
+
+
+                                </StackPanel>
+
+
+
+                            </StackPanel>
+
+
+                        </StackPanel>
+
+                    </TabItem>
+            </TabControl>
+
+            
+
+
+            <ToolBar Margin="0,0,0,0">
+                <Label VerticalAlignment="Center">PM service:</Label>
+                <Button x:Name="ButtonAddMService" Click="ButtonAddMService_Click"  >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Width="20" Height="20"  Source="Images\48\File_48px_1.png"/>
+                        <TextBlock Margin="3,0,0,0" VerticalAlignment="Center">Add</TextBlock>
+                    </StackPanel>
+                </Button>
+                <Separator/>
+
+                <Button  >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Width="20" Height="20"  Source="Images\48\Edit File_48px_1.png"/>
+                        <TextBlock Margin="3,0,0,0" VerticalAlignment="Center">Edit</TextBlock>
+                    </StackPanel>
+                </Button>
+                <Separator/>
+                <Separator/>
+
+                <Button  >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Width="20" Height="20"  Source="Images\48\Delete File_48px.png"/>
+                        <TextBlock Margin="3,0,0,0" VerticalAlignment="Center">Delete</TextBlock>
+                    </StackPanel>
+                </Button>
+                <Separator/>
+
+                <Button  >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Width="20" Height="20"  Source="Images\48\Import_48px.png"/>
+                        <TextBlock Margin="3,0,0,0" VerticalAlignment="Center">Import</TextBlock>
+                    </StackPanel>
+                </Button>
+                <Separator/>
+
+                <Button  >
+                    <StackPanel Orientation="Horizontal">
+                        <Image Width="20" Height="20"  Source="Images\48\Print_48px_2.png"/>
+                        <TextBlock Margin="3,0,0,0" VerticalAlignment="Center">Print</TextBlock>
+                    </StackPanel>
+                </Button>
+
+
+            </ToolBar>
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Vertical" Margin="0,20,0,0"/>
+                <Button Width="100" Height="28" Margin="10,20,0,0" Content="Help"/>
+                <Button Width="100" Height="28" Margin="10,20,0,0" Content="close"/>
+            </StackPanel>
+
+        </StackPanel>
+    </StackPanel>
+</Window>

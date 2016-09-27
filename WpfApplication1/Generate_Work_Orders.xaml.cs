@@ -1,18 +1,33 @@
-﻿using System.Windows;
+﻿using MahApps.Metro.Controls;
+using System.Diagnostics;
+using System.IO;
+using System.Windows;
 
 namespace WpfApplication1
 {
     /// <summary>
     /// Interaction logic for Generate_Work_Orders.xaml
     /// </summary>
-    public partial class Generate_Work_Orders : Window
+    public partial class Generate_Work_Orders : MetroWindow
     {
         public Generate_Work_Orders()
         {
             InitializeComponent();
+}
+private void ButtonSettings_Click(object sender, RoutedEventArgs e)
+{
+(new Settings()).ShowDialog();
+}
+
+        public static string GetServerAddress()
+        {
+            string ipaddress = "";
+            using (StreamReader reader = new StreamReader(Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName).ToString() + "\\Settings.txt"))
+            {
+                ipaddress = reader.ReadLine();
+            }
+            return ipaddress;
         }
-
-
 
         private void RadioButtonDateOnly_Checked(object sender, RoutedEventArgs e)
         {

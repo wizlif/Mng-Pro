@@ -1,12 +1,39 @@
-﻿<Window x:Class="WpfApplication1.Add_Customer"
+﻿<Controls:MetroWindow x:Class="WpfApplication1.Add_Customer"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApplication1"
         mc:Ignorable="d"
-        Title="Add_Customer" Height="300" Width="300">
+xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                      ShowIconOnTitleBar="True"
+        ResizeMode="CanResize"
+                      ShowMaxRestoreButton="True"
+                      ShowMinButton="True"
+                      WindowStartupLocation="CenterScreen"
+                      SaveWindowPosition="True"
+                      BorderBrush="{DynamicResource AccentColorBrush}"
+                      BorderThickness="1"
+        Title="" MinHeight="300" MinWidth="525"  FontFamily="Segoe UI Light" FontSize="16" Icon="Images/48/Ruby Gemstone_48px.png" >
+    <Controls:MetroWindow.Resources>
+    </Controls:MetroWindow.Resources>
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <Button x:Name="ButtonSettings" Click="ButtonSettings_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image Width="20" Height="20" Source="Images/48/Settings_48px.png"/>
+                    <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="Settings"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="ButtonSignUp" >
+                <StackPanel Orientation="Horizontal">
+                    <Image Width="20" Height="20" Source="Images/48/Add User Male_48px.png"/>
+                    <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="Sign up"/>
+                </StackPanel>
+            </Button>
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
     <Grid>
         
     </Grid>
-</Window>
+</Controls:MetroWindow>

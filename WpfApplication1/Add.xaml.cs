@@ -1,19 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using MahApps.Metro.Controls;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
-using MahApps.Metro.Controls;
-using System.Windows.Media;
+using System.Diagnostics;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using System.IO;
 using System.Configuration;
 using System.Windows.Controls.Ribbon;
 
@@ -22,16 +21,31 @@ namespace WpfApplication1
     /// <summary>
     /// Interaction logic for Add.xaml
     /// </summary>
-    public partial class Add : Window
+    public partial class Add : MetroWindow
     {
         // Establishing Connection String from Configuration File
-        string _ConnectionString = ConfigurationManager.ConnectionStrings["cs"].ConnectionString;
+        public static string cs = "Server="+GetServerAddress()+";Database=mpro;Uid=mis;Pwd=isaacobella;";
+		MySqlConnection _Conn = new MySqlConnection(cs);
         public String operation = "0";
         public Add()
         {
             InitializeComponent();
 
-        }      
+        }
+
+        private void ButtonSettings_Click(object sender, RoutedEventArgs e)
+        {
+            (new Settings()).ShowDialog();
+        }
+        public static string GetServerAddress()
+        {
+            string ipaddress = "";
+            using (StreamReader reader = new StreamReader(Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName).ToString() + "\\Settings.txt"))
+            {
+                ipaddress = reader.ReadLine();
+            }
+            return ipaddress;
+        }		
 
         
 
@@ -62,7 +76,7 @@ namespace WpfApplication1
             {
                 try
                 {
-                    SqlConnection _Conn = new SqlConnection(_ConnectionString);
+                    
 
                     // Open the Database Connection
                     _Conn.Open();
@@ -70,10 +84,10 @@ namespace WpfApplication1
                     string _Date = TextBoxBaseDate.DisplayDate.ToShortDateString();
 
                     // Command String
-                    string _Insert = @"INSERT INTO Equipment VALUES('" + TextBoxEquipmentNo.Text + "','" + TextBoxDescription.Text + "','" + TextBoxYear.Text + "','" + TextBoxMake.Text + "','" + TextBoxModel.Text + "','" + TextBoxSerial.Text + "','" + TextBoxType.Text + "','" + TextBoxColor.Text + "','" + TextBoxIdentification.Text + "','" + TextBoxStatus.Text + "','" + TextBoxOwnership.Text + "','" + TextBoxCustomer.Text + "','" + TextBoxJobSite.Text + "','" + TextBoxRecipients.Text + "','" + TextBoxMaintSched.Text + "','" + TextBoxNoMeter.Text + "','" + TextBoxBaseMeter.Text + "','" + TextBoxBaseDate.Text + "','" + TextBoxAssignTo.Text + "','" + TextBoxCostCenter.Text + "','" + TextBoxParent.Text + "','" + TextBoxCategory.Text + "','" + TextBoxCustom1.Text + "','" + TextBoxCustom2.Text + "','" + TextBoxCustom3.Text + "','" + TextBoxCustom4.Text + "','" + TextBoxCustom5.Text + "','" + TextBoxCustom6.Text + "','" + TextBoxCustom7.Text + "')";
+                    string _Insert = @"INSERT INTO Equipment VALUES('" + TextBoxEquipmentNo.Text + "','" + TextBoxDescription.Text + "','" + TextBoxYear.Text + "','" + TextBoxMake.Text + "','" + TextBoxModel.Text + "','" + TextBoxSerial.Text + "','" + TextBoxType.Text + "','" + TextBoxColor.Text + "','" + TextBoxIdentification.Text + "','" + TextBoxStatus.Text + "','" + TextBoxOwnership.Text + "','" + TextBoxCustomer.Text + "','" + TextBoxJobSite.Text + "','" + TextBoxRecipients.Text + "','" + TextBoxMaintSched.Text + "','" + TextBoxNoMeter.Text + "','" + TextBoxBaseMeter.Text + "','" + Convert.ToDateTime(TextBoxBaseDate.Text).ToString("yyyy-MM-dd") + "','" + TextBoxAssignTo.Text + "','" + TextBoxCostCenter.Text + "','" + TextBoxParent.Text + "','" + TextBoxCategory.Text + "','" + TextBoxCustom1.Text + "','" + TextBoxCustom2.Text + "','" + TextBoxCustom3.Text + "','" + TextBoxCustom4.Text + "','" + TextBoxCustom5.Text + "','" + TextBoxCustom6.Text + "','" + TextBoxCustom7.Text + "')";
 
                     // Initialize the command query and connection
-                    SqlCommand _cmd = new SqlCommand(_Insert, _Conn);
+                    MySqlCommand _cmd = new MySqlCommand(_Insert, _Conn);
 
                     // Execute the command
                     _cmd.ExecuteNonQuery();
@@ -128,7 +142,7 @@ namespace WpfApplication1
             {
                 try
                 {
-                    SqlConnection _Conn = new SqlConnection(_ConnectionString);
+                    
 
                     // Open the Database Connection
                     _Conn.Open();
@@ -136,10 +150,10 @@ namespace WpfApplication1
                     string _Date = TextBoxBaseDate.DisplayDate.ToShortDateString();
 
                     // Command String
-                    string _Update = @"UPDATE Equipment SET [Description]='" + TextBoxDescription.Text + "',[Year]='" + TextBoxYear.Text + "',[Make]='" + TextBoxMake.Text + "',[Model]='" + TextBoxModel.Text + "',[Serial no]='" + TextBoxSerial.Text + "',[Type]='" + TextBoxType.Text + "',[Color]='" + TextBoxColor.Text + "',[Identification]='" + TextBoxIdentification.Text + "',[Status]='" + TextBoxStatus.Text + "',[Ownership]='" + TextBoxOwnership.Text + "',[Customer]='" + TextBoxCustomer.Text + "',[Job site]='" + TextBoxJobSite.Text + "',[Email Recipients]='" + TextBoxRecipients.Text + "',[Maint schedule]='" + TextBoxMaintSched.Text + "',[No Meter]='" + TextBoxNoMeter.Text + "',[Base meter]='" + TextBoxBaseMeter.Text + "',[Base date]='" + TextBoxBaseDate.Text + "',[Assigned to]='" + TextBoxAssignTo.Text + "',[Cost Center]='" + TextBoxCostCenter.Text + "',[Parent]='" + TextBoxParent.Text + "',[Category]='" + TextBoxCategory.Text + "',[Custom1]='" + TextBoxCustom1.Text + "',[Custom2]='" + TextBoxCustom2.Text + "',[Custom3]='" + TextBoxCustom3.Text + "',[Custom4]='" + TextBoxCustom4.Text + "',[Custom5]='" + TextBoxCustom5.Text + "',[Custom6]='" + TextBoxCustom6.Text + "',[Custom7]='" + TextBoxCustom7.Text + "' WHERE [Equipment no]='" + TextBoxEquipmentNo.Text + "'";
+                    string _Update = @"UPDATE Equipment SET `Description`='" + TextBoxDescription.Text + "',`Year`='" + TextBoxYear.Text + "',`Make`='" + TextBoxMake.Text + "',`Model`='" + TextBoxModel.Text + "',`Serial no`='" + TextBoxSerial.Text + "',`Type`='" + TextBoxType.Text + "',`Color`='" + TextBoxColor.Text + "',`Identification`='" + TextBoxIdentification.Text + "',`Status`='" + TextBoxStatus.Text + "',`Ownership`='" + TextBoxOwnership.Text + "',`Customer`='" + TextBoxCustomer.Text + "',`Job site`='" + TextBoxJobSite.Text + "',`Email Recipients`='" + TextBoxRecipients.Text + "',`Maint schedule`='" + TextBoxMaintSched.Text + "',`No Meter`='" + TextBoxNoMeter.Text + "',`Base meter`='" + TextBoxBaseMeter.Text + "',`Base date`='" + TextBoxBaseDate.Text + "',`Assigned to`='" + TextBoxAssignTo.Text + "',`Cost Center`='" + TextBoxCostCenter.Text + "',`Parent`='" + TextBoxParent.Text + "',`Category`='" + TextBoxCategory.Text + "',`Custom1`='" + TextBoxCustom1.Text + "',`Custom2`='" + TextBoxCustom2.Text + "',`Custom3`='" + TextBoxCustom3.Text + "',`Custom4`='" + TextBoxCustom4.Text + "',`Custom5`='" + TextBoxCustom5.Text + "',`Custom6`='" + TextBoxCustom6.Text + "',`Custom7`='" + TextBoxCustom7.Text + "' WHERE `Equipment no`='" + TextBoxEquipmentNo.Text + "'";
 
                     // Initialize the command query and connection
-                    SqlCommand _cmd = new SqlCommand(_Update, _Conn);
+                    MySqlCommand _cmd = new MySqlCommand(_Update, _Conn);
 
                     // Execute the command
                     _cmd.ExecuteNonQuery();

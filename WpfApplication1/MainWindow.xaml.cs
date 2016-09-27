@@ -3,8 +3,11 @@ using System.Windows;
 using System.Windows.Controls;
 using MahApps.Metro.Controls;
 using System.Data;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using System.Configuration;
+using System.IO;
+using System.Diagnostics;
+using MahApps.Metro.Controls.Dialogs;
 
 namespace WpfApplication1
 {
@@ -13,24 +16,46 @@ namespace WpfApplication1
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
-        //String cs = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Employee.mdf;Integrated Security = True; Connect Timeout = 30";
-
+        //String cs = @"Data Source=(LocalDB)\MSMySqlLocalDB;AttachDbFilename=|DataDirectory|\Employee.mdf;Integrated Security = True; Connect Timeout = 30";
+        public static string cs = "Server=" + GetServerAddress() + ";Database=mpro;Uid=mis;Pwd=isaacobella;";
+        MySqlConnection _Conn = new MySqlConnection(cs);
+        MySqlCommand _cmd;
         public MainWindow()
         {
             InitializeComponent();
         }
-
-        // Establishing Connection String from Configuration File
-        string _ConnectionString = ConfigurationManager.ConnectionStrings["cs"].ConnectionString;
-        public void DataGridBinding(String query, String binding, DataGrid datagrid)
+        private void ButtonSettings_Click(object sender, RoutedEventArgs e)
         {
-            try {
-                SqlConnection _Conn = new SqlConnection(_ConnectionString);
+        (new Settings()).ShowDialog();
+        }
+        public static string GetServerAddress()
+        {
+            string ipaddress = "";
+            using (StreamReader reader = new StreamReader(Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName).ToString() + "\\Settings.txt"))
+            {
+                ipaddress = reader.ReadLine();
+            }
+            return ipaddress;
+        }
+        // Establishing Connection String from Configuration File
+
+        public async void DataGridBinding(String query, String binding, DataGrid datagrid)
+        {
+            try
+            {
 
                 // Open the Database Connection
-                _Conn.Open();
+                if (_Conn.State == ConnectionState.Closed)
+                {
+                    _Conn.Open();
+                }
+                else
+                {
+                    _Conn.Close();
+                    _Conn.Open();
+                }
 
-                SqlDataAdapter _Adapter = new SqlDataAdapter(query, _Conn);
+                MySqlDataAdapter _Adapter = new MySqlDataAdapter(query, _Conn);
 
                 DataSet _Bind = new DataSet();
                 _Adapter.Fill(_Bind, binding);
@@ -40,20 +65,21 @@ namespace WpfApplication1
 
                 // Close the Database Connection
                 _Conn.Close();
-            }catch(SqlException ex)
+            }
+            catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                await this.ShowMessageAsync("Error", "Server Errror check your server connection" + ex.ToString());
             }
         }
 
         public void BindGrid()
         {
             DataGridBinding("Select * from Equipment", "EquipmentBinding", MainPageEquipmentDatagrid);
-            DataGridBinding("Select * from [Work order]", "OpenWorkOrderBinding", MainPageOpenWorkOrdersDatagrid);
+            DataGridBinding("Select * from `Work order`", "OpenWorkOrderBinding", MainPageOpenWorkOrdersDatagrid);
             DataGridBinding("Select * from Parts", "InventoryLowStockBinding", MainPageDataDataInventoryLowStockgrid);
-            DataGridBinding("SELECT [Employee id],[Expir Name],[Expir Issued],[Expir Expires],[Expr Notes],CONCAT([First Name],' ',[MI],' ',[Last Name]) AS Name FROM Employee", "EmployeeRenewalsBind", MainPageEmployeeRenewalsagrid);
+            DataGridBinding("SELECT `Employee id`,`Expir Name`,`Expir Issued`,`Expir Expires`,`Expr Notes`,CONCAT(`First Name`,' ',`MI`,' ',`Last Name`) AS Name FROM Employee", "EmployeeRenewalsBind", MainPageEmployeeRenewalsagrid);
             DataGridBinding("SELECT * FROM Invoice", "OpenInvoicesBind", MainPageOpenInvoicesDatagrid);
-            DataGridBinding("SELECT * FROM [Purchase Order]", "OpenPSsBind", MainPageOpenPSsDatagrid);
+            DataGridBinding("SELECT * FROM `Purchase Order`", "OpenPSsBind", MainPageOpenPSsDatagrid);
         }
 
 
@@ -91,17 +117,17 @@ namespace WpfApplication1
                 MessageBox.Show("You have chosen to permanently delete item with unit "+res+", All data will be lost Are you sure?");
                 try
                 {
-                    SqlConnection _conn = new SqlConnection(_ConnectionString);
+                    
 
                     // Open Database Connection
-                    _conn.Open();
+                    _Conn.Open();
 
                     // Command String
                     string _DelCmd = @"Delete from Equipment
-                              Where [Equipment no]='" + res + "'";
+                              Where `Equipment no`='" + res + "'";
 
                     // Initialize the command query and connection
-                    SqlCommand _CmdDelete = new SqlCommand(_DelCmd, _conn);
+                    MySqlCommand _CmdDelete = new MySqlCommand(_DelCmd, _Conn);
 
                     // Execute the command
                     _CmdDelete.ExecuteNonQuery();
@@ -260,7 +286,7 @@ namespace WpfApplication1
                 String res = (drv["Equipment no"]).ToString();
                 try
                 {
-                    SqlConnection _Conn = new SqlConnection(_ConnectionString);
+                    
 
                     // Open the Database Connection
                     _Conn.Open();
@@ -268,11 +294,11 @@ namespace WpfApplication1
 
 
                     // Command String
-                    string _Select = @"SELECT * FROM Equipment WHERE [Equipment no]='" + res + "'";
+                    string _Select = @"SELECT * FROM Equipment WHERE `Equipment no`='" + res + "'";
 
                     // Initialize the command query and connection
-                    SqlCommand _cmd = new SqlCommand(_Select, _Conn);
-                    SqlDataReader _reader = _cmd.ExecuteReader();
+                    MySqlCommand _cmd = new MySqlCommand(_Select, _Conn);
+                    MySqlDataReader _reader = _cmd.ExecuteReader();
                     Add addDup = new Add();
                     while (_reader.Read())
                     {
@@ -289,12 +315,12 @@ namespace WpfApplication1
                         addDup.TextBoxOwnership.Text = _reader["Ownership"].ToString();
                         addDup.TextBoxCustomer.Text = _reader["Customer"].ToString();
                         addDup.TextBoxJobSite.Text = _reader["Job site"].ToString();
-                        //addDup.TextBoxE.Text = _reader["Email recipients"].ToString();
+                        //addDup.TextBoxE.Text = _reader["Email recipients"`.ToString();
                         addDup.TextBoxMaintSched.Text = _reader["Maint schedule"].ToString();
                         addDup.TextBoxNoMeter.Text = _reader["No meter"].ToString();
                         addDup.TextBoxBaseMeter.Text = _reader["Base meter"].ToString();
                         addDup.TextBoxBaseMeter.Text = _reader["Base date"].ToString();
-                        //addDup.TextBoxAssignTo.Text = _reader["Assign to"].ToString();
+                        //addDup.TextBoxAssignTo.Text = _reader["Assign to"`.ToString();
                         addDup.TextBoxCostCenter.Text = _reader["Cost center"].ToString();
                         addDup.TextBoxParent.Text = _reader["Parent"].ToString();
                         addDup.TextBoxCategory.Text = _reader["Category"].ToString();
@@ -308,7 +334,7 @@ namespace WpfApplication1
                     }
                     addDup.ShowDialog();
                 }
-                catch (SqlException ex)
+                catch (Exception)
                 {
 
                 }
@@ -322,7 +348,7 @@ namespace WpfApplication1
 
         private void RibbonButtonUpdateMeterReadings_Click(object sender, RoutedEventArgs e)
         {
-            //(new Meter_replacements()).ShowDialog();
+            (new update_curent_meter_readings()).ShowDialog();
         }
 
         private void RibbonButtonPurchaseOrdersAdd_Click(object sender, RoutedEventArgs e)
@@ -357,7 +383,7 @@ namespace WpfApplication1
 
         private void TextBoxSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
-            DataGridBinding("SELECT [Equipment no],[Description] FROM [Equipment] WHERE [Equipment no] LIKE '%" + TextBoxSearch.Text + "%' OR [Description] LIKE '%" + TextBoxSearch.Text + "%'", "searchBind", dataGridSearch);
+            DataGridBinding("SELECT `Equipment no`,`Description` FROM `Equipment` WHERE `Equipment no` LIKE '%" + TextBoxSearch.Text + "%' OR `Description` LIKE '%" + TextBoxSearch.Text + "%'", "searchBind", dataGridSearch);
         }
 
         private void TextBoxSearch_GotFocus(object sender, RoutedEventArgs e)
@@ -375,7 +401,7 @@ namespace WpfApplication1
             //else
             //{
             //    DataRowView drv = (DataRowView)dataGridSearch.SelectedItem;
-            //    TextBoxSearch.Text = (drv["Unit #"]).ToString();
+            //    TextBoxSearch.Text = (drv`"Unit #"`).ToString();
             //    dataGridSearch.Visibility = Visibility.Collapsed;
             //}
 
@@ -384,7 +410,7 @@ namespace WpfApplication1
         private void dataGridSearch_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //DataRowView drv = (DataRowView)dataGridSearch.SelectedItem;
-            //TextBoxSearch.Text = (drv["Equipment no"]).ToString();
+            //TextBoxSearch.Text = (drv`"Equipment no"`).ToString();
             //dataGridSearch.Visibility = Visibility.Collapsed;
         }
 
@@ -396,7 +422,7 @@ namespace WpfApplication1
                 String res = (drv["Equipment no"]).ToString();
                 try
                 {
-                    SqlConnection _Conn = new SqlConnection(_ConnectionString);
+                    
 
                     // Open the Database Connection
                     _Conn.Open();
@@ -404,11 +430,11 @@ namespace WpfApplication1
 
 
                     // Command String
-                    string _Select = @"SELECT * FROM Equipment WHERE [Equipment no]='" + res + "'";
+                    string _Select = @"SELECT * FROM Equipment WHERE `Equipment no`='" + res + "'";
 
                     // Initialize the command query and connection
-                    SqlCommand _cmd = new SqlCommand(_Select, _Conn);
-                    SqlDataReader _reader = _cmd.ExecuteReader();
+                    MySqlCommand _cmd = new MySqlCommand(_Select, _Conn);
+                    MySqlDataReader _reader = _cmd.ExecuteReader();
                     Add addDup = new Add();
                     while (_reader.Read())
                     {
@@ -425,7 +451,7 @@ namespace WpfApplication1
                         addDup.TextBoxOwnership.Text = _reader["Ownership"].ToString();
                         addDup.TextBoxCustomer.Text = _reader["Customer"].ToString();
                         addDup.TextBoxJobSite.Text = _reader["Job site"].ToString();
-                        //addDup.TextBoxE.Text = _reader["Email recipients"].ToString();
+                        //addDup.TextBoxE.Text = _reader["Email recipients"`.ToString();
                         addDup.TextBoxMaintSched.Text = _reader["Maint schedule"].ToString();
                         addDup.TextBoxNoMeter.Text = _reader["No meter"].ToString();
                         addDup.TextBoxBaseMeter.Text = _reader["Base meter"].ToString();
@@ -446,7 +472,7 @@ namespace WpfApplication1
                     addDup.operation = "1";
                     addDup.ShowDialog();
                 }
-                catch (SqlException ex)
+                catch (Exception)
                 {
 
                 }
@@ -675,6 +701,21 @@ namespace WpfApplication1
             Pick_list_maintenance pk = new Pick_list_maintenance();
             pk.ComboBoxMaintenance.SelectedValue = "Work Type";
             pk.ShowDialog();
+        }
+
+        private void RibbonMenuItemSelectedEquipment1_Click(object sender, RoutedEventArgs e)
+        {
+            (new PM_ckeck()).ShowDialog();
+        }
+
+        private void RibbonButtonCalendar_Click(object sender, RoutedEventArgs e)
+        {
+            (new Calendar()).ShowDialog();
+        }
+
+        private void RibbonButtonGraphing_Click(object sender, RoutedEventArgs e)
+        {
+            (new Graphing()).ShowDialog();
         }
     }
     }

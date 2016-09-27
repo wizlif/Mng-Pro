@@ -7,9 +7,31 @@
         xmlns:local="clr-namespace:WpfApplication1"
         mc:Ignorable="d"
         xmlns:Fluent="clr-namespace:Fluent;assembly=Fluent"
-        ResizeMode="CanResizeWithGrip"
-                      GlowBrush="Azure"
-         Height="852.996" Width="1519.223" Loaded="MainPage_Loaded">
+                      ShowIconOnTitleBar="True"
+        ResizeMode="CanResize"
+                      ShowMaxRestoreButton="True"
+                      ShowMinButton="True"
+                      WindowStartupLocation="CenterScreen"
+                      SaveWindowPosition="True"
+                      BorderBrush="{DynamicResource AccentColorBrush}"
+                      BorderThickness="1"
+        Title="" MinHeight="300" MinWidth="525"  FontFamily="Segoe UI"  Icon="Images/48/Ruby Gemstone_48px.png" Loaded="MainPage_Loaded">
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <Button x:Name="ButtonSettings" Click="ButtonSettings_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image Width="20" Height="20" Source="Images/48/Settings_48px.png"/>
+                    <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="Settings"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="ButtonSignUp" >
+                <StackPanel Orientation="Horizontal">
+                    <Image Width="20" Height="20" Source="Images/48/Add User Male_48px.png"/>
+                    <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="Sign up"/>
+                </StackPanel>
+            </Button>
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
     <Controls:MetroWindow.Resources>
         <Style x:Key="LabelCRStyle" TargetType="Label">
             <Setter Property="Foreground" Value="#00b8d4"/>
@@ -31,40 +53,40 @@
     <DockPanel Height="Auto" LastChildFill="True" >
         <Fluent:Ribbon DockPanel.Dock="Top" IsCollapsed="False">
             <Fluent:RibbonTabItem Header="File">
-                <Fluent:RibbonGroupBox Header="File">
+<Fluent:RibbonGroupBox >
                     <Fluent:Button x:Name="RibbonButtonAdd" Header="Add" Icon="Images\48\File_48px_1.png"  LargeIcon="Images\48\File_48px_1.png" Click="RibbonButtonAdd_Click" />
                     <Fluent:Button x:Name="RibbonButtonAddDuplicate" Header="Add Duplicate" Icon="Images\48\Copy_48px_6.png" LargeIcon="Images\48\Copy_48px_6.png" Click="RibbonButtonAddDuplicate_Click" />
                     <Fluent:Button x:Name="RibbonButtonEdit" Header="Edit" Icon="Images\48\Edit File_48px_1.png" LargeIcon="Images\48\Edit File_48px_1.png" Click="RibbonButtonEdit_Click" />
                     <Fluent:Button x:Name="RibbonButtonDelete" Header="Delete" Icon="Images\48\Delete File_48px.png" LargeIcon="Images\48\Delete File_48px.png" Click="RibbonButtonDelete_Click" />
                 </Fluent:RibbonGroupBox>
-                <Fluent:RibbonGroupBox Header="Category">
+<Fluent:RibbonGroupBox >
                     <Fluent:Button x:Name="RibbonButtonAddCategory" Header="Add Category" Icon="Images\48\Add Property_48px.png" LargeIcon="Images\48\Add Property_48px.png"  Click="RibbonButtonAddCategory_Click"  />
                     <Fluent:Button x:Name="RibbonButtonEditCategory" Header="Edit Category" Icon="Images\48\Edit Property_48px_3.png" LargeIcon="Images\48\Edit Property_48px_3.png" Click="RibbonButtonAddCategory_Click" />
                     <Fluent:Button x:Name="RibbonButtonDeleteCategory" Header="Delete Category" Icon="Images\48\Delete Property_48px_4.png" LargeIcon="Images\48\Delete Property_48px_4.png" />
                 </Fluent:RibbonGroupBox>
-                <Fluent:RibbonGroupBox Header="Backup and Restore">
+<Fluent:RibbonGroupBox >
                     <Fluent:Button x:Name="RibbonButtonBackupDatafiles" Header="Backup Datafiles" Icon="Images\48\Data Backup_48px.png" LargeIcon="Images\48\Data Backup_48px.png"  Click="RibbonButtonBackupDatafiles_Click"  />
                     <Fluent:Button x:Name="RibbonButtonRestoreDatafiles" Header="Restore Datafiles" Icon="Images\48\Data Recovery_48px_1.png" LargeIcon="Images\48\Data Recovery_48px_1.png" Click="RibbonButtonRestoreDatafiles_Click" />
                 </Fluent:RibbonGroupBox>
-                <Fluent:RibbonGroupBox Header="Options">
+<Fluent:RibbonGroupBox >
                     <Fluent:Button x:Name="RibbonButtonOptions" Header="Options" Icon="Images\48\Services_48px.png" LargeIcon="Images\48\Support_48px_9.png"   />
                 </Fluent:RibbonGroupBox>
-                <Fluent:RibbonGroupBox Header="Exit">
+<Fluent:RibbonGroupBox >
                     <Fluent:Button x:Name="RibbonButtonExit" Header="Exit" Icon="Images\48\Delete_48px.png" LargeIcon="Images\48\Delete_48px.png"  Click="RibbonButtonExit_Click"  />
                 </Fluent:RibbonGroupBox>
             </Fluent:RibbonTabItem>
 
             <Fluent:RibbonTabItem Header="Setup">
-                <Fluent:RibbonGroupBox Header="PM Schedule and Service">
+<Fluent:RibbonGroupBox >
                     <Fluent:Button x:Name="RibbonButtonPMSchedule" Header="PM Schedule" Icon="Images\48\Calendar_48px.png" LargeIcon="Images\48\Calendar_48px.png" Click="RibbonButtonPMSchedule_Click" />
                     <Fluent:Button x:Name="RibbonButtonServiceAssociationsConfiguration" Header="Service Associations" Icon="Images\48\Services_48px.png" LargeIcon="Images\48\Services_48px.png" Click="RibbonButtonServiceAssociationsConfiguration_Click" />
                 </Fluent:RibbonGroupBox>
-                <Fluent:RibbonGroupBox Header="Databases">
+<Fluent:RibbonGroupBox >
                     <Fluent:Button x:Name="RibbonButtonEmployeeManagement" Header="Employee Database" Icon="Images\48\User Group Man Man_48px_1.png" LargeIcon="Images\48\User Group Man Man_48px_1.png" Click="RibbonButtonEmployeeManagement_Click" />
                     <Fluent:Button x:Name="RibbonButtonCustomerDatabase" Header="Customer Database" Icon="Images\48\Clipboard_48px_4.png" LargeIcon="Images\48\Clipboard_48px_4.png" Click="RibbonButtonCustomerDatabase_Click" />
                     <Fluent:Button x:Name="RibbonButtonVendorsDatabase" Header="Vendor Database" Icon="Images\48\Package_48px.png" LargeIcon="Images\48\Package_48px.png" Click="RibbonButtonVendorsDatabase_Click" />
                 </Fluent:RibbonGroupBox>
-                <Fluent:RibbonGroupBox Header="Choice Lists">
+<Fluent:RibbonGroupBox >
                     <Fluent:SplitButton Header="Choice Lists" Icon="Images\48\Purchase Order_48px_2.png" LargeIcon="Images\48\Purchase Order_48px_2.png" >
                         <Fluent:MenuItem x:Name="RibbonMenuItemCostCenters"  Header="Cost Centers" Icon="Images\48\Sell Property_48px.png" Click="RibbonMenuItemCostCenters_Click"  />
                         <Fluent:MenuItem x:Name="RibbonMenuItemEmployees" Header="Employees" Icon="Images\48\User Group Man Man_48px_1.png"  >
@@ -116,22 +138,22 @@
                         </Fluent:MenuItem>
                     </Fluent:SplitButton>
                 </Fluent:RibbonGroupBox>
-                <Fluent:RibbonGroupBox Header="Options">
+<Fluent:RibbonGroupBox >
                     <Fluent:Button x:Name="RibbonButtonOptions2" Header="Options" Icon="Images\48\Services_48px.png" LargeIcon="Images\48\Services_48px.png" />
                 </Fluent:RibbonGroupBox>
             </Fluent:RibbonTabItem>
 
             <Fluent:RibbonTabItem Header="Equipment">
-                <Fluent:RibbonGroupBox Header="Records">
+<Fluent:RibbonGroupBox >
                     <Fluent:Button x:Name="RibbonMenuItemGenerateWorkOrders" Click="RibbonMenuItemGenerateWorkOrders_Click" Header="Issue WO" Icon="Images\48\Road Worker_48px.png" LargeIcon="Images\48\Road Worker_48px.png" />
                     <Fluent:Button x:Name="RibbonMenuItemRepairRequests" Click="RibbonMenuItemRepairRequests_Click" Header="Repair Request" Icon="Images\48\Printer Maintenance_48px.png" LargeIcon="Images\48\Printer Maintenance_48px.png" />
                     <Fluent:Button Name="Record_Fuel" Header="Record Fuel" Icon="Images\48\Oil Storage Tank_48px.png" LargeIcon="Images\48\Oil Storage Tank_48px.png" Click="Record_Fuel_Click" />
                     <Fluent:Button x:Name="RibbonButtonInspection" Header="Inspection" Icon="Images\48\Inspection_48px.png" LargeIcon="Images\48\Inspection_48px.png" Click="RibbonButtonInspection_Click" />
                 </Fluent:RibbonGroupBox>
-                <Fluent:RibbonGroupBox Header="Maintainance Status">
+<Fluent:RibbonGroupBox >
                     <Fluent:Button x:Name="RibbonButtonCurrentMaintainanceStatus" Header="Current Maintainance Status" Icon="Images\48\Connection Status On_48px.png" LargeIcon="Images\48\Connection Status On_48px.png" Click="RibbonButtonCurrentMaintainanceStatus_Click" />
                 </Fluent:RibbonGroupBox>
-                <Fluent:RibbonGroupBox Header="History">
+<Fluent:RibbonGroupBox >
                     <Fluent:SplitButton Header="Histories" Icon="Images\48\Historical_48px.png" LargeIcon="Images\48\Historical_48px.png" >
                         <Fluent:MenuItem x:Name="RibbonMenuItemMaintainanceHistory" Header="Maintainance History" Icon="Images\48\Maintenance_48px.png" Click="RibbonMenuItemMaintainanceHistory_Click"/>
                         <Fluent:MenuItem x:Name="RibbonMenuItemFuelHistory" Header="Fuel History" Icon="Images\48\Gas Station_48px.png" Click="RibbonMenuItemMaintainanceHistory_Click"/>
@@ -141,16 +163,16 @@
                         <Fluent:MenuItem x:Name="RibbonMenuItemInspectionHistory" Header="Inspection History" Icon="Images\48\Inspection_48px.png" Click="RibbonMenuItemMaintainanceHistory_Click"/>
                     </Fluent:SplitButton>
                 </Fluent:RibbonGroupBox>
-                <Fluent:RibbonGroupBox Header="PM Setup">
+<Fluent:RibbonGroupBox >
                     <Fluent:Button x:Name="RibbonButtonLastPMSetup" Header="Last PM Setup" Icon="Images\48\Administrative Tools_48px.png" LargeIcon="Images\48\Administrative Tools_48px.png" Click="RibbonButtonLastPMSetup_Click" />
                 </Fluent:RibbonGroupBox>
-                <Fluent:RibbonGroupBox  Header="Meter">
+<Fluent:RibbonGroupBox >
                     <Fluent:Button x:Name="RibbonButtonMeterReplacements" Header="Meter Replacements" Icon="Images\48\Speed_48px.png" LargeIcon="Images\48\Speed_48px.png" Click="RibbonButtonMeterReplacements_Click" />
                 </Fluent:RibbonGroupBox>
             </Fluent:RibbonTabItem>
 
             <Fluent:RibbonTabItem Header="Fleet">
-                <Fluent:RibbonGroupBox Header="File">
+<Fluent:RibbonGroupBox >
                     <Fluent:SplitButton Header="General Work Orders" Icon="Images\48\Road Worker_48px.png" LargeIcon="Images\48\Road Worker_48px.png" >
                         <Fluent:MenuItem x:Name="RibbonMenuItemSelectedEquipment" Header="Selected Equipment" Icon="Images\48\ToolBox_48px.png" Click="RibbonMenuItemSelectedEquipment_Click"/>
                         <Fluent:MenuItem x:Name="RibbonMenuItemSelectedCategory" Header="Selected Category" Icon="Images\48\Category_48px.png" Click="RibbonMenuItemSelectedEquipment_Click"/>
@@ -158,42 +180,42 @@
                         <Fluent:MenuItem x:Name="RibbonMenuItemAllEquipment" Header="All Equipment" Icon="Images\48\Roller Brush_48px_1.png" Click="RibbonMenuItemSelectedEquipment_Click"/>
                     </Fluent:SplitButton>
                     <Fluent:SplitButton Header="PM Check Wizard" Icon="Images\48\Leave_48px_1.png" LargeIcon="Images\48\Leave_48px_1.png" >
-                        <Fluent:MenuItem x:Name="RibbonMenuItemSelectedEquipment1" Header="Selected Equipment" Icon="Images\48\ToolBox_48px.png"/>
-                        <Fluent:MenuItem x:Name="RibbonMenuItemSelectCategory" Header="Selected Category" Icon="Images\48\Category_48px.png"/>
-                        <Fluent:MenuItem x:Name="RibbonMenuItemSelectCategoryAndSubCategories" Header="Selected Category and Sub Categories" Icon="Images\48\Tree Structure_48px.png"/>
-                        <Fluent:MenuItem x:Name="RibbonMenuItemAllEquipments" Header="All Equipment" Icon="Images\48\Roller Brush_48px_1.png"/>
+                        <Fluent:MenuItem x:Name="RibbonMenuItemSelectedEquipment1" Header="Selected Equipment" Icon="Images\48\ToolBox_48px.png" Click="RibbonMenuItemSelectedEquipment1_Click"/>
+                        <Fluent:MenuItem x:Name="RibbonMenuItemSelectCategory" Header="Selected Category" Icon="Images\48\Category_48px.png" Click="RibbonMenuItemSelectedEquipment1_Click"/>
+                        <Fluent:MenuItem x:Name="RibbonMenuItemSelectCategoryAndSubCategories" Header="Selected Category and Sub Categories" Icon="Images\48\Tree Structure_48px.png" Click="RibbonMenuItemSelectedEquipment1_Click"/>
+                        <Fluent:MenuItem x:Name="RibbonMenuItemAllEquipments" Header="All Equipment" Icon="Images\48\Roller Brush_48px_1.png" Click="RibbonMenuItemSelectedEquipment1_Click"/>
                     </Fluent:SplitButton>
                     <Fluent:Button x:Name="RibbonButtonWorOrderManagement" Header="Work Order Management" Icon="Images\48\Week View_48px_1.png" LargeIcon="Images\48\Week View_48px_1.png" Click="RibbonButtonWorOrderManagement_Click" />
                     <Fluent:Button x:Name="RibbonButtonSchedulledRepairManagement" Header="Scheduled Repair Management" Icon="Images\48\Property With Timer_48px.png" LargeIcon="Images\48\Property With Timer_48px.png" />
                     <Fluent:Button x:Name="RibbonButtonJobSiteHistory" Header="Job Site History" Icon="Images\48\Museum_48px.png" LargeIcon="Images\48\Museum_48px.png" Click="RibbonButtonJobSiteHistory_Click" />
-                    <Fluent:Button x:Name="RibbonButtonCalendar" Header="Calendar" Icon="Images\48\Calendar_48px.png" LargeIcon="Images\48\Calendar_48px.png" />
+                    <Fluent:Button x:Name="RibbonButtonCalendar" Header="Calendar" Icon="Images\48\Calendar_48px.png" LargeIcon="Images\48\Calendar_48px.png" Click="RibbonButtonCalendar_Click" />
                 </Fluent:RibbonGroupBox>
-                <Fluent:RibbonGroupBox Header="File">
+<Fluent:RibbonGroupBox >
                     <Fluent:Button x:Name="RibbonButtonUpdateMeterReadings" Header="Update Meter Readings" Icon="Images\48\Dashboard_48px.png" LargeIcon="Images\48\Dashboard_48px.png" Click="RibbonButtonUpdateMeterReadings_Click" />
                     <Fluent:Button x:Name="RibbonButtonUpdateMeterLogs" Header="Meter Update Log" Icon="Images\48\Timer_48px.png" LargeIcon="Images\48\Timer_48px.png" Click="RibbonButtonUpdateMeterLogs_Click" />
                 </Fluent:RibbonGroupBox>
-                <Fluent:RibbonGroupBox Header="File">
+<Fluent:RibbonGroupBox >
                     <Fluent:Button x:Name="RibbonButtonCostStatistics" Header="Cost Statistics" Icon="Images\48\Combo Chart_48px.png" LargeIcon="Images\48\Combo Chart_48px.png" Click="RibbonButtonCostStatistics_Click" />
-                    <Fluent:Button x:Name="RibbonButtonGraphing" Header="Graphing" Icon="Images\48\Chromatography_48px.png" LargeIcon="Images\48\Chromatography_48px.png" />
+                    <Fluent:Button x:Name="RibbonButtonGraphing" Header="Graphing" Icon="Images\48\Chromatography_48px.png" LargeIcon="Images\48\Chromatography_48px.png" Click="RibbonButtonGraphing_Click" />
                 </Fluent:RibbonGroupBox>
-                <Fluent:RibbonGroupBox Header="File">
+<Fluent:RibbonGroupBox >
                     <Fluent:Button x:Name="RibbonButtonEmailLog" Header="Email Log" Icon="Images\48\Email_48px.png" LargeIcon="Images\48\Email_48px.png" Click="RibbonButtonEmailLog_Click" />
                 </Fluent:RibbonGroupBox>
             </Fluent:RibbonTabItem>
 
             <Fluent:RibbonTabItem Header="Inventory">
-                <Fluent:RibbonGroupBox Header="File">
+<Fluent:RibbonGroupBox >
                     <Fluent:Button x:Name="RibbonButtonPartsInventoryListing" Header="Parts Inventory Listing" Icon="Images\48\Engineering_48px.png" LargeIcon="Images\48\Engineering_48px.png" Click="RibbonButtonPartsInventoryListing_Click" />
                     <Fluent:Button x:Name="RibbonButtonFueInventory" Header="Fuel Inventory" Icon="Images\48\Gas Station_48px.png" LargeIcon="Images\48\Gas Station_48px.png" Click="RibbonButtonFueInventory_Click" />
                 </Fluent:RibbonGroupBox>
-                <Fluent:RibbonGroupBox Header="File">
+<Fluent:RibbonGroupBox >
                     <Fluent:Button x:Name="RibbonButtonPurchaseOrdersBrowse" Header="Purchase Orders - Browse" Icon="Images\48\Ingredients List_48px.png" LargeIcon="Images\48\Ingredients List_48px.png" Click="RibbonButtonPurchaseOrdersBrowse_Click" />
                     <Fluent:Button x:Name="RibbonButtonPurchaseOrdersAdd" Header="Purchase Orders - Add" Icon="Images\48\Add List_48px_1.png" LargeIcon="Images\48\Add List_48px_1.png" Click="RibbonButtonPurchaseOrdersAdd_Click" />
                 </Fluent:RibbonGroupBox>
-                <Fluent:RibbonGroupBox Header="File">
+<Fluent:RibbonGroupBox >
                     <Fluent:Button x:Name="RibbonButtonPOReceipts" Header="PO Receipt - by PO#" Icon="Images\48\Receipt_48px.png" LargeIcon="Images\48\Receipt_48px.png" />
                 </Fluent:RibbonGroupBox>
-                <Fluent:RibbonGroupBox Header="File">
+<Fluent:RibbonGroupBox >
                     <Fluent:Button x:Name="RibbonButtonAdjustReceiveInentory" Header="Adjust/Receive into Inventory" Icon="Images\48\Plus Minus_48px.png" LargeIcon="Images\48\Plus Minus_48px.png" Click="RibbonButtonAdjustReceiveInentory_Click" />
                     <Fluent:Button x:Name="RibbonButtonUpdatePhysicalInventory" Header="Update Physical Inventory" Icon="Images\48\Available Updates_48px.png" LargeIcon="Images\48\Available Updates_48px.png" />
                     <Fluent:Button x:Name="RibbonButtonAutoGeneratePO" Header="Auto Generate PO" Icon="Images\48\StumbleUpon_48px.png" LargeIcon="Images\48\StumbleUpon_48px.png" />
@@ -201,40 +223,40 @@
             </Fluent:RibbonTabItem>
 
             <Fluent:RibbonTabItem Header="Billing">
-                <Fluent:RibbonGroupBox Header="File">
+<Fluent:RibbonGroupBox >
                     <Fluent:Button x:Name="RibbonButtonGenerate_Invoice" Header="Generate Invoice" Icon="Images\48\Bill_48px.png" LargeIcon="Images\48\Bill_48px.png" Click="Generate_Invoice_Click" />
                     <Fluent:Button x:Name="RibbonButtonBrowseInvoices" Header="Browse Invoices" Icon="Images\48\Transaction List_48px_1.png" LargeIcon="Images\48\Transaction List_48px_1.png" Click="RibbonButtonBrowseInvoices_Click" />
                 </Fluent:RibbonGroupBox>
-                <Fluent:RibbonGroupBox Header="File">
+<Fluent:RibbonGroupBox >
                     <Fluent:Button x:Name="RibbonButtonRecordPayment" Header="Record Payment" Icon="Images\48\Record_48px.png" LargeIcon="Images\48\Record_48px.png" Click="RibbonButtonRecordPayment_Click" />
                     <Fluent:Button x:Name="RibbonButtonBrowsePayments" Header="Browse Payments" Icon="Images\48\Wallet_48px_1.png" LargeIcon="Images\48\Wallet_48px_1.png" Click="RibbonButtonBrowsePayments_Click" />
                 </Fluent:RibbonGroupBox>
             </Fluent:RibbonTabItem>
 
             <Fluent:RibbonTabItem Header="Tools">
-                <Fluent:RibbonGroupBox Header="">
+<Fluent:RibbonGroupBox >
                     <Fluent:SplitButton Header="Backup/Restore Utility" Icon="Images\48\HDD_48px.png" LargeIcon="Images\48\HDD_48px.png" >
                         <Fluent:MenuItem x:Name="RibbonMenuItemBackupDatafiles" Header="Backup data files" Icon="Images\48\Data Backup_48px.png"/>
                         <Fluent:MenuItem x:Name="RibbonMenuItemRestoreDatafiles" Header="Restore data files" Icon="Images\48\Data Recovery_48px_1.png"/>
                     </Fluent:SplitButton>
                     <Fluent:Button x:Name="RibbonButtonOptimizeRepairUtility" Header="Optimize/Repair Utility" Icon="Images\48\Work_48px.png" LargeIcon="Images\48\Work_48px.png" />
                 </Fluent:RibbonGroupBox>
-                <Fluent:RibbonGroupBox Header="">
+<Fluent:RibbonGroupBox >
                     <Fluent:Button x:Name="RibbonButtonFuelImportTechnology" Header="Fuel Import Technology" Icon="Images\48\Gas Pump_48px_1.png" LargeIcon="Images\48\Gas Pump_48px_1.png" />
                     <Fluent:Button x:Name="RibbonButtonOdometerImportUtility" Header="Odometer Import Utility" Icon="Images\48\Speedometer_48px.png" LargeIcon="Images\48\Speedometer_48px.png" />
                 </Fluent:RibbonGroupBox>
-                <Fluent:RibbonGroupBox Header="">
+<Fluent:RibbonGroupBox >
                     <Fluent:SplitButton Header="Data" Icon="Images\48\Server_48px.png" LargeIcon="Images\48\Server_48px.png" >
                         <Fluent:MenuItem x:Name="RibbonMenuItemPurgeUtility" Header="Purge Utility" Icon="Images\48\Broom_48px.png"/>
                     </Fluent:SplitButton>
                 </Fluent:RibbonGroupBox>
-                <Fluent:RibbonGroupBox Header="">
+<Fluent:RibbonGroupBox >
                     <Fluent:Button x:Name="RibbonButtonOptions1" Header="Options" Icon="Images\48\Services_48px.png" LargeIcon="Images\48\Services_48px.png" />
                 </Fluent:RibbonGroupBox>
             </Fluent:RibbonTabItem>
 
             <Fluent:RibbonTabItem Header="Reports">
-                <Fluent:RibbonGroupBox Header="">
+<Fluent:RibbonGroupBox >
                     <Fluent:SplitButton Header="Assignment" Icon="Images\48\School_48px.png" LargeIcon="Images\48\School_48px.png" >
                         <Fluent:MenuItem x:Name="RibbonMenuItemEquipAssignmentDetailedJobSite" Header="Equip Assignment (Detailed - by Job Site)"  Click="RibbonMenuItemEquipAssignmentDetailedJobSite_Click"/>
                         <Fluent:MenuItem x:Name="RibbonMenuItemEquipAssignmentDetailed" Header="Equip Assignment (Detailed)"  Click="RibbonMenuItemEquipAssignmentDetailedJobSite_Click"/>
@@ -399,13 +421,13 @@
                         </Fluent:MenuItem>
                     </Fluent:SplitButton>
                 </Fluent:RibbonGroupBox>
-                <Fluent:RibbonGroupBox Header="">
+<Fluent:RibbonGroupBox >
                     <Fluent:Button x:Name="RibbonButtonCustomImportDesign" Header="Custom Report Design" Icon="Images\48\System Report_48px_1.png" LargeIcon="Images\48\System Report_48px_1.png" />
                 </Fluent:RibbonGroupBox>
             </Fluent:RibbonTabItem>
 
             <!--<Fluent:RibbonTabItem Header="Window">
-                <Fluent:RibbonGroupBox Header="">
+<Fluent:RibbonGroupBox >
                     <Fluent:Button x:Name="RibbonButtonCascade" Header="Cascade" Icon="Images\file.png" LargeIcon="Images\file.png" />
                     <Fluent:Button x:Name="RibbonButtonTileVertically" Header="Tile Vertically" Icon="Images\file.png" LargeIcon="Images\file.png" />
                     <Fluent:Button x:Name="RibbonButtonTileHorizontally" Header="Tile Horizontally" Icon="Images\file.png" LargeIcon="Images\file.png" />
@@ -413,39 +435,39 @@
             </Fluent:RibbonTabItem>-->
 
             <Fluent:RibbonTabItem Header="Security">
-                <Fluent:RibbonGroupBox Header="">
+<Fluent:RibbonGroupBox >
                     <Fluent:Button x:Name="RibbonButtonUserAdministration" Header="User Administration" Icon="Images\48\School Director_48px.png" LargeIcon="Images\48\School Director_48px.png" />
                     <Fluent:Button x:Name="RibbonButtonChangePassword" Header="Change Password" Icon="Images\48\1Password_48px.png" LargeIcon="Images\48\1Password_48px.png" />
                 </Fluent:RibbonGroupBox>
             </Fluent:RibbonTabItem>
 
             <Fluent:RibbonTabItem Header="Help">
-                <!--<Fluent:RibbonGroupBox Header="">
+<!--<Fluent:RibbonGroupBox >
                     <Fluent:Button x:Name="RibbonButtonContents" Header="Contents" Icon="Images\file.png" LargeIcon="Images\file.png" />
                     <Fluent:Button x:Name="RibbonButtonSearchIndex" Header="Search/Index" Icon="Images\file.png" LargeIcon="Images\file.png" />
                 </Fluent:RibbonGroupBox>
-                <Fluent:RibbonGroupBox Header="">
+<Fluent:RibbonGroupBox >
                     <Fluent:Button x:Name="RibbonButtonHowToOrder" Header="How to Order" Icon="Images\file.png" LargeIcon="Images\file.png" />
                 </Fluent:RibbonGroupBox>
-                <Fluent:RibbonGroupBox Header="">
+<Fluent:RibbonGroupBox >
                     <Fluent:Button x:Name="RibbonButtonContactUs" Header="Contact Us" Icon="Images\file.png" LargeIcon="Images\file.png" />
                     <Fluent:Button x:Name="RibbonButtonTecnialSupport" Header="Technical Support" Icon="Images\file.png" LargeIcon="Images\file.png" />
                     <Fluent:Button x:Name="RibbonButtonEmailBackup" Header="Email Backup" Icon="Images\file.png" LargeIcon="Images\file.png" />
                 </Fluent:RibbonGroupBox>
-                <Fluent:RibbonGroupBox Header="">
+<Fluent:RibbonGroupBox >
                     <Fluent:Button x:Name="RibbonButtonRegister" Header="Register" Icon="Images\file.png" LargeIcon="Images\file.png" />
                 </Fluent:RibbonGroupBox>
-                <Fluent:RibbonGroupBox Header="">
+<Fluent:RibbonGroupBox >
                     <Fluent:Button x:Name="RibbonButtonIMSONtheWeb" Header="IMS on the Web" Icon="Images\file.png" LargeIcon="Images\file.png" />
                     <Fluent:Button x:Name="RibbonButtonDownloadLatestUpdate" Header="Download Latest Update" Icon="Images\file.png" LargeIcon="Images\file.png" />
                 </Fluent:RibbonGroupBox>-->
-                <Fluent:RibbonGroupBox Header="">
+<Fluent:RibbonGroupBox >
                     <Fluent:Button x:Name="RibbonButtonAbout" Header="About" Icon="Images\48\Help_48px.png" LargeIcon="Images\48\Help_48px.png" />
                 </Fluent:RibbonGroupBox>
             </Fluent:RibbonTabItem>
         </Fluent:Ribbon>
-
-        <TabControl DockPanel.Dock="Bottom">
+        <ScrollViewer DockPanel.Dock="Bottom">
+        <TabControl >
             <TabItem Header="Dashboard">
                 <DockPanel LastChildFill="True" >
 
@@ -617,7 +639,7 @@
                                     <DataGridTextColumn Header="WO #" Binding="{Binding 'WO no'}"/>
                                     <DataGridTextColumn Header="Equipment" Binding="{Binding Equipment}"/>
                                     <DataGridTextColumn Header="Unit #" Binding="{Binding }"/>
-                                    <DataGridTextColumn Header="Date Issued" Binding="{Binding 'Date issued'}"/>
+                                        <DataGridTextColumn Header="Date Issued" Binding="{Binding 'Date issued', StringFormat=\{0:dd-MMMM-yyyy\}}"/>
                                     <DataGridTextColumn Header="Priority" Binding="{Binding Priority}"/>
                                     <DataGridTextColumn Header="Type" Binding="{Binding Type}"/>
                                     <DataGridTextColumn Header="Employee Assignment" Binding="{Binding 'Emloyee assignment'}"/>
@@ -675,8 +697,8 @@
                                     <DataGridTextColumn Header="Employee #" Binding="{Binding 'Employee id'}"/>
                                     <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
                                     <DataGridTextColumn Header="Expiration Name" Binding="{Binding 'Expir Name'}"/>
-                                    <DataGridTextColumn Header="Issued" Binding="{Binding 'Expir Issued'}"/>
-                                    <DataGridTextColumn Header="Expires" Binding="{Binding 'Expir Expires'}"/>
+                                        <DataGridTextColumn Header="Issued" Binding="{Binding 'Expir Issued', StringFormat=\{0:dd-MMMM-yyyy\}}"/>
+                                        <DataGridTextColumn Header="Expires" Binding="{Binding 'Expir Expires', StringFormat=\{0:dd-MMMM-yyyy\}}"/>
                                     <DataGridTextColumn Header="Notes" Binding="{Binding 'Expir Notes'}"/>
                                 </DataGrid.Columns>
                             </DataGrid>
@@ -700,8 +722,8 @@
                                 <DataGrid.Columns>
                                     <DataGridTemplateColumn HeaderTemplate="{StaticResource HeaderCheckBox}" CellTemplate="{StaticResource ItemCheckBox}"></DataGridTemplateColumn>
                                     <DataGridTextColumn Header="Invoice #" Binding="{Binding 'Invoice no'}"/>
-                                    <DataGridTextColumn Header="Date" Binding="{Binding 'Invoice Date'}"/>
-                                    <DataGridTextColumn Header="Due Date" Binding="{Binding 'Pay Due Date'}"/>
+                                        <DataGridTextColumn Header="Date" Binding="{Binding 'Invoice Date', StringFormat=\{0:dd-MMMM-yyyy\}}"/>
+                                        <DataGridTextColumn Header="Due Date" Binding="{Binding 'Pay Due Date', StringFormat=\{0:dd-MMMM-yyyy\}}"/>
                                     <DataGridTextColumn Header="Total" Binding="{Binding 'Total cost'}"/>
                                     <DataGridTextColumn Header="Payments" Binding="{Binding 'Payments received'}"/>
                                     <DataGridTextColumn Header="Customer" Binding="{Binding 'Customer'}"/>
@@ -727,8 +749,8 @@
                                 <DataGrid.Columns>
                                     <DataGridTemplateColumn HeaderTemplate="{StaticResource HeaderCheckBox}" CellTemplate="{StaticResource ItemCheckBox}"></DataGridTemplateColumn>
                                     <DataGridTextColumn Header="PO #" Binding="{Binding PO}"/>
-                                    <DataGridTextColumn Header="PO Date" Binding="{Binding Date}"/>
-                                    <DataGridTextColumn Header="Date Expected" Binding="{Binding 'Date Required'}"/>
+                                        <DataGridTextColumn Header="PO Date" Binding="{Binding Date, StringFormat=\{0:dd-MMMM-yyyy\}}"/>
+                                        <DataGridTextColumn Header="Date Expected" Binding="{Binding 'Date Required', StringFormat=\{0:dd-MMMM-yyyy\}}"/>
                                     <DataGridTextColumn Header="Vendor" Binding="{Binding 'Purchased From'}"/>
                                     <DataGridTextColumn Header="Buyer" Binding="{Binding 'Buyer Name'}"/>
                                     <DataGridTextColumn Header="Invoice #" Binding="{Binding 'Invoice Quote'}"/>
@@ -743,12 +765,12 @@
                 <DockPanel LastChildFill="True">
                     <DockPanel LastChildFill="True">
                         <ToolBar Height="24" DockPanel.Dock="Bottom"  >
-                            <Image Source="Images/file.png"></Image>
-                            <Image Source="Images/file.png"></Image>
-                            <Image Source="Images/file.png"></Image>
+                            <Image Source="Images/48/Ruby Gemstone_48px.png"></Image>
+                            <Image Source="Images/48/Ruby Gemstone_48px.png"></Image>
+                            <Image Source="Images/48/Ruby Gemstone_48px.png"></Image>
                             <Separator></Separator>
-                            <Image Source="Images/file.png"></Image>
-                            <Image Source="Images/file.png"></Image>
+                            <Image Source="Images/48/Ruby Gemstone_48px.png"></Image>
+                            <Image Source="Images/48/Ruby Gemstone_48px.png"></Image>
                         </ToolBar>
                         <TreeView>
                         </TreeView>
@@ -808,6 +830,7 @@
                 </DockPanel>
             </TabItem>
         </TabControl>
+        </ScrollViewer>
     </DockPanel>
 
 </Controls:MetroWindow>

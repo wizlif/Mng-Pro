@@ -1,0 +1,117 @@
+﻿<Controls:MetroWindow
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication1"
+       xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" x:Class="WpfApplication1.Calendar"
+       mc:Ignorable="d"
+xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                      ShowIconOnTitleBar="True"
+        ResizeMode="CanResize"
+                      ShowMaxRestoreButton="False"
+                      ShowMinButton="True"
+                      WindowStartupLocation="CenterScreen"
+                      SaveWindowPosition="True"
+                      BorderBrush="{DynamicResource AccentColorBrush}"
+                      BorderThickness="1"
+        Title="" Height="631.071" Width="1317.092" FontFamily="Segoe UI Light" FontSize="16" Icon="Images/48/Ruby Gemstone_48px.png" >
+    <Controls:MetroWindow.Resources>
+    </Controls:MetroWindow.Resources>
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <Button x:Name="ButtonSettings" Click="ButtonSettings_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image Width="20" Height="20" Source="Images/48/Settings_48px.png"/>
+                    <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="Settings"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="ButtonSignUp" >
+                <StackPanel Orientation="Horizontal">
+                    <Image Width="20" Height="20" Source="Images/48/Add User Male_48px.png"/>
+                    <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="Sign up"/>
+                </StackPanel>
+            </Button>
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
+    <StackPanel>
+        <DockPanel LastChildFill="True">
+            <DockPanel DockPanel.Dock="Top"  LastChildFill="True">
+
+
+                <GroupBox VerticalAlignment="Stretch"  HorizontalAlignment="Right" DockPanel.Dock="Right" Header="Filtering options">
+                    <StackPanel Margin="0,0,0,-12">
+                        <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                            <Label Width="137" Content="View services"/>
+                            <ComboBox Width="238"/>
+                            <Label Width="122" Content="Equipment selection"/>
+                            <ComboBox Width="238"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                            <Label Width="137" RenderTransformOrigin="0.5,0.5" Content="Maintenance Due:">
+                                <Label.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="-0.839"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Label.RenderTransform>
+                            </Label>
+                            <RadioButton Width="115" Margin="0,4,0,0" Content="Show All"/>
+                            <RadioButton Margin="0,4,0,0" Content="Show selected"/>
+
+                        </StackPanel>
+                        <CheckBox Content="Hide repeated equipment"/>
+                        <CheckBox Content="Hide equipment satisfied by a worker"/>
+
+
+                    </StackPanel>
+                </GroupBox>
+                <telerik:RadCalendar Columns="3" ViewsHeaderVisibility="Visible" >
+                    <telerik:StyleManager.Theme>
+                        <telerik:Windows8Theme/>
+                    </telerik:StyleManager.Theme>
+                </telerik:RadCalendar>
+            </DockPanel>
+            <telerik:RadCalendar>
+                <telerik:StyleManager.Theme>
+                    <telerik:Windows8Theme/>
+                </telerik:StyleManager.Theme>
+            </telerik:RadCalendar>
+        </DockPanel>
+        <ToolBar  Height="29" Margin="0,360,692,0">
+
+            <Separator/>
+            <Button/>
+            <Button/>
+            <Button/>
+            <Button/>
+            <Separator/>
+            <Button Content="Current month"/>
+            <Button Content="Search"/>
+            <Button Content="Export"/>
+            <Separator/>
+            <Button Content="Repair request"/>
+            <Separator/>
+            <Button Content="Issue WO"/>
+            <Separator/>
+
+
+
+
+
+
+
+        </ToolBar>
+
+
+
+        <Button Margin="997,0,181,0" Content="Close"/>
+
+
+
+
+    </StackPanel>
+</Controls:MetroWindow>

@@ -1,22 +1,39 @@
 ﻿using System;
 using System.Configuration;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using System.Windows;
 using System.Windows.Controls;
+using MahApps.Metro.Controls;
+using System.IO;
+using System.Diagnostics;
 
 namespace WpfApplication1
 {
     /// <summary>
     /// Interaction logic for Pick_list_maintenance.xaml
     /// </summary>
-    public partial class Pick_list_maintenance : Window
+    public partial class Pick_list_maintenance : MetroWindow
     {
         public Pick_list_maintenance()
         {
             InitializeComponent();
+}
+private void ButtonSettings_Click(object sender, RoutedEventArgs e)
+{
+(new Settings()).ShowDialog();
+}
+		        public static string GetServerAddress()
+        {
+            string ipaddress = "";
+            using (StreamReader reader = new StreamReader(Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName).ToString() + "\\Settings.txt"))
+            {
+                ipaddress = reader.ReadLine();
+            }
+            return ipaddress;
         }
         // Establishing Connection String from Configuration File
-        string _ConnectionString = ConfigurationManager.ConnectionStrings["cs"].ConnectionString;
+        public static string cs = "Server="+GetServerAddress()+";Database=mpro;Uid=mis;Pwd=isaacobella;";
+		MySqlConnection _Conn = new MySqlConnection(cs);
         private void ButtonPickListMaintainanceAdd_Click(object sender, RoutedEventArgs e)
         {
             New_Value nv = new New_Value();
@@ -121,7 +138,7 @@ namespace WpfApplication1
             ListBoxMainList.Items.Clear();
             try
             {
-                SqlConnection _Conn = new SqlConnection(_ConnectionString);
+                
                 string query = "";
                 // Open the Database Connection
                 _Conn.Open();
@@ -129,95 +146,95 @@ namespace WpfApplication1
                 switch (ComboBoxMaintenance.SelectedValue.ToString())
                 {
                     case "Colors":
-                        query = "SELECT * FROM [Colors]";
+                        query = "SELECT * FROM `Colors`";
                         break;
                     case "Cost Center":
-                        query = "SELECT * FROM [Cost Center]";
+                        query = "SELECT * FROM `Cost Center`";
                         break;
                     case "Destination":
-                        query = "SELECT * FROM [Destination]";
+                        query = "SELECT * FROM `Destination`";
                         break;
                     case "Employee Categories":
-                        query = "SELECT * FROM [Employee Categories]";
+                        query = "SELECT * FROM `Employee Categories`";
                         break;
                     case "Employee Certificates":
-                        query = "SELECT * FROM [Employee Certificates]";
+                        query = "SELECT * FROM `Employee Certificates`";
                         break;
                     case "Employee Status":
-                        query = "SELECT * FROM [Employee Status]";
+                        query = "SELECT * FROM `Employee Status`";
                         break;
                     case "Employee Types":
-                        query = "SELECT * FROM [Employee Types]";
+                        query = "SELECT * FROM `Employee Types`";
                         break;
                     case "Equiment Usage Type":
-                        query = "SELECT * FROM [Equiment Usage Type]";
+                        query = "SELECT * FROM `Equiment Usage Type`";
                         break;
                     case "Expiration Type":
-                        query = "SELECT * FROM [Expiration Type]";
+                        query = "SELECT * FROM `Expiration Type`";
                         break;
                     case "Fleet Status":
-                        query = "SELECT * FROM [Fleet Status]";
+                        query = "SELECT * FROM `Fleet Status`";
                         break;
                     case "Fluid Types":
-                        query = "SELECT * FROM [Fluid Types]";
+                        query = "SELECT * FROM `Fluid Types`";
                         break;
                     case "Fuel Brand":
-                        query = "SELECT * FROM [Fuel Brand]";
+                        query = "SELECT * FROM `Fuel Brand`";
                         break;
                     case "Fuel Type":
-                        query = "SELECT * FROM [Fuel Type]";
+                        query = "SELECT * FROM `Fuel Type`";
                         break;
                     case "General Expense Types":
-                        query = "SELECT * FROM [General Expense Types]";
+                        query = "SELECT * FROM `General Expense Types`";
                         break;
                     case "Makes":
-                        query = "SELECT * FROM [Makes]";
+                        query = "SELECT * FROM `Makes`";
                         break;
                     case "Models":
-                        query = "SELECT * FROM [Models]";
+                        query = "SELECT * FROM `Models`";
                         break;
                     case "PM Types":
-                        query = "SELECT * FROM [PM Types]";
+                        query = "SELECT * FROM `PM Types`";
                         break;
                     case "Part Categories":
-                        query = "SELECT * FROM [Part Categories]";
+                        query = "SELECT * FROM `Part Categories`";
                         break;
                     case "Part Manufacturers":
-                        query = "SELECT * FROM [Part Manufacturers]";
+                        query = "SELECT * FROM `Part Manufacturers`";
                         break;
                     case "Payment Terms":
-                        query = "SELECT * FROM [Payment Terms]";
+                        query = "SELECT * FROM `Payment Terms`";
                         break;
                     case "Repair Types":
-                        query = "SELECT * FROM [Repair Types]";
+                        query = "SELECT * FROM `Repair Types`";
                         break;
                     case "Shipping Methods":
-                        query = "SELECT * FROM [Shipping Methods]";
+                        query = "SELECT * FROM `Shipping Methods`";
                         break;
                     case "State/Prov":
-                        query = "SELECT * FROM [State/Prov]";
+                        query = "SELECT * FROM `State/Prov`";
                         break;
                     case "Units Type":
-                        query = "SELECT * FROM [Units Type]";
+                        query = "SELECT * FROM `Units Type`";
                         break;
                     case "Vehicle/Equip Types":
-                        query = "SELECT * FROM [Vehicle/Equip Types]";
+                        query = "SELECT * FROM `Vehicle/Equip Types`";
                         break;
                     case "Vendor Type":
-                        query = "SELECT * FROM [Vendor Type]";
+                        query = "SELECT * FROM `Vendor Type`";
                         break;
                     case "Work Order Status":
-                        query = "SELECT * FROM [Work Order Status]";
+                        query = "SELECT * FROM `Work Order Status`";
                         break;
                     case "Work Type":
-                        query = "SELECT * FROM [Work Type]";
+                        query = "SELECT * FROM `Work Type`";
                         break;
                 }
 
                 // Initialize the command query and connection
-                SqlCommand _cmd = new SqlCommand(query, _Conn);
+                MySqlCommand _cmd = new MySqlCommand(query, _Conn);
 
-                SqlDataReader _Reader = _cmd.ExecuteReader();
+                MySqlDataReader _Reader = _cmd.ExecuteReader();
                 while (_Reader.Read())
                 {
                     ListBoxMainList.Items.Add(_Reader["Value"].ToString());

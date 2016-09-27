@@ -88,11 +88,17 @@
       <HintPath>..\packages\MenuRibbon.WPF.0.5.1.0\lib\net40\MenuRibbon.WPF.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\MySQL\MySQL Connector Net 6.9.9\Assemblies\v4.5\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="ReachFramework" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Printing" />
     <Reference Include="System.Reactive.Core, Version=2.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Rx-Core.2.2.4\lib\net45\System.Reactive.Core.dll</HintPath>
       <Private>True</Private>
@@ -134,8 +140,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Add assignment.xaml.cs">
+      <DependentUpon>Add assignment.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Add category.xaml.cs">
       <DependentUpon>Add category.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Add employee.xaml.cs">
+      <DependentUpon>Add employee.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Add fluid.xaml.cs">
+      <DependentUpon>Add fluid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Add general expenses.xaml.cs">
+      <DependentUpon>Add general expenses.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Add inspection.xaml.cs">
+      <DependentUpon>Add inspection.xaml</DependentUpon>
     </Compile>
     <Compile Include="Add New Emloyee.xaml.cs">
       <DependentUpon>Add New Emloyee.xaml</DependentUpon>
@@ -149,8 +170,29 @@
     <Compile Include="Add pm service.xaml.cs">
       <DependentUpon>Add pm service.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Auto generate PO.xaml.cs">
+      <DependentUpon>Auto generate PO.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Backup datafiles.xaml.cs">
       <DependentUpon>Backup datafiles.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Calendar.xaml.cs">
+      <DependentUpon>Calendar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Graphing.xaml.cs">
+      <DependentUpon>Graphing.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="History.xaml.cs">
+      <DependentUpon>History.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="invoice items.xaml.cs">
+      <DependentUpon>invoice items.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="maintenance status.xaml.cs">
+      <DependentUpon>maintenance status.xaml</DependentUpon>
     </Compile>
     <Compile Include="New PM schedule.xaml.cs">
       <DependentUpon>New PM schedule.xaml</DependentUpon>
@@ -245,6 +287,9 @@
     <Compile Include="New Value.xaml.cs">
       <DependentUpon>New Value.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Optmise utility.xaml.cs">
+      <DependentUpon>Optmise utility.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Parts inventory management.xaml.cs">
       <DependentUpon>Parts inventory management.xaml</DependentUpon>
     </Compile>
@@ -253,6 +298,9 @@
     </Compile>
     <Compile Include="Pick list maintenance.xaml.cs">
       <DependentUpon>Pick list maintenance.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PM check.xaml.cs">
+      <DependentUpon>PM check.xaml</DependentUpon>
     </Compile>
     <Compile Include="PM shedule.xaml.cs">
       <DependentUpon>PM shedule.xaml</DependentUpon>
@@ -266,14 +314,140 @@
     <Compile Include="Purchase order parts received.xaml.cs">
       <DependentUpon>Purchase order parts received.xaml</DependentUpon>
     </Compile>
+    <Compile Include="purge utility.xaml.cs">
+      <DependentUpon>purge utility.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Repair requests.xaml.cs">
       <DependentUpon>Repair requests.xaml</DependentUpon>
     </Compile>
     <Compile Include="Replace meter.xaml.cs">
       <DependentUpon>Replace meter.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Report Viewer.xaml.cs">
-      <DependentUpon>Report Viewer.xaml</DependentUpon>
+    <Compile Include="Reports\Daily Inspection Checklist.xaml.cs">
+      <DependentUpon>Daily Inspection Checklist.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Daiy Inspection Report.xaml.cs">
+      <DependentUpon>Daiy Inspection Report.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Depreciation Current Year.xaml.cs">
+      <DependentUpon>Depreciation Current Year.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Depreciation Last 12 Years.xaml.cs">
+      <DependentUpon>Depreciation Last 12 Years.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Depreciation Last 3 Years.xaml.cs">
+      <DependentUpon>Depreciation Last 3 Years.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Depreciation Prior Year.xaml.cs">
+      <DependentUpon>Depreciation Prior Year.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Emissions Expiration Due.xaml.cs">
+      <DependentUpon>Emissions Expiration Due.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Employee Expirations.xaml.cs">
+      <DependentUpon>Employee Expirations.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Employee Labor Detailed.xaml.cs">
+      <DependentUpon>Employee Labor Detailed.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Employee Labor Summary.xaml.cs">
+      <DependentUpon>Employee Labor Summary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Employee License Information.xaml.cs">
+      <DependentUpon>Employee License Information.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Employee Listing Detailed.xaml.cs">
+      <DependentUpon>Employee Listing Detailed.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Equip Assignment Detailed - by Job Site.xaml.cs">
+      <DependentUpon>Equip Assignment Detailed - by Job Site.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Equip Assignment Detailed.xaml.cs">
+      <DependentUpon>Equip Assignment Detailed.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Equip Assignment History.xaml.cs">
+      <DependentUpon>Equip Assignment History.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Equip Assignment Overview - by Job Site.xaml.cs">
+      <DependentUpon>Equip Assignment Overview - by Job Site.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Equip Assignment Overview.xaml.cs">
+      <DependentUpon>Equip Assignment Overview.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Equip Assignment Ticket.xaml.cs">
+      <DependentUpon>Equip Assignment Ticket.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Equip Employee Assignment Detailed.xaml.cs">
+      <DependentUpon>Equip Employee Assignment Detailed.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Equip Employee Assignment Overview.xaml.cs">
+      <DependentUpon>Equip Employee Assignment Overview.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Equipment Listing.xaml.cs">
+      <DependentUpon>Equipment Listing.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Equipment Usage Detailed.xaml.cs">
+      <DependentUpon>Equipment Usage Detailed.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Equipment Usage Summary.xaml.cs">
+      <DependentUpon>Equipment Usage Summary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Expirations Due All.xaml.cs">
+      <DependentUpon>Expirations Due All.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Fluid Usage Analysis Current Year.xaml.cs">
+      <DependentUpon>Fluid Usage Analysis Current Year.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Fluid Usage Analysis History.xaml.cs">
+      <DependentUpon>Fluid Usage Analysis History.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Fluid Usage Analysis Last 12 Year.xaml.cs">
+      <DependentUpon>Fluid Usage Analysis Last 12 Year.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Fluid Usage Analysis Last 3 Years.xaml.cs">
+      <DependentUpon>Fluid Usage Analysis Last 3 Years.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Fluid Usage Analysis Prior Year.xaml.cs">
+      <DependentUpon>Fluid Usage Analysis Prior Year.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\General Expenses Analysis Current Year.xaml.cs">
+      <DependentUpon>General Expenses Analysis Current Year.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\General Expenses Analysis Last 12 Years.xaml.cs">
+      <DependentUpon>General Expenses Analysis Last 12 Years.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\General Expenses Analysis Last 3 Years.xaml.cs">
+      <DependentUpon>General Expenses Analysis Last 3 Years.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\General Expenses Analysis Prior Year.xaml.cs">
+      <DependentUpon>General Expenses Analysis Prior Year.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\General Expenses History Detailed.xaml.cs">
+      <DependentUpon>General Expenses History Detailed.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\General Information.xaml.cs">
+      <DependentUpon>General Information.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Insurance Information.xaml.cs">
+      <DependentUpon>Insurance Information.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Loan Lease Information.xaml.cs">
+      <DependentUpon>Loan Lease Information.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\MUI Expirations Due.xaml.cs">
+      <DependentUpon>MUI Expirations Due.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Odometer Replacement History.xaml.cs">
+      <DependentUpon>Odometer Replacement History.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Purchase Information.xaml.cs">
+      <DependentUpon>Purchase Information.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Registration Expirations Due.xaml.cs">
+      <DependentUpon>Registration Expirations Due.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\WO Summary Report.xaml.cs">
+      <DependentUpon>WO Summary Report.xaml</DependentUpon>
     </Compile>
     <Compile Include="Restore data files.xaml.cs">
       <DependentUpon>Restore data files.xaml</DependentUpon>
@@ -281,8 +455,20 @@
     <Compile Include="Service_Associations.xaml.cs">
       <DependentUpon>Service_Associations.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Settings.xaml.cs">
+      <DependentUpon>Settings.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Shipping details.xaml.cs">
       <DependentUpon>Shipping details.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sign up.xaml.cs">
+      <DependentUpon>Sign up.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="update curent meter readings.xaml.cs">
+      <DependentUpon>update curent meter readings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Update physical inventory.xaml.cs">
+      <DependentUpon>Update physical inventory.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vendor_ Databse.xaml.cs">
       <DependentUpon>Vendor_ Databse.xaml</DependentUpon>
@@ -296,7 +482,27 @@
     <Compile Include="Work order management.xaml.cs">
       <DependentUpon>Work order management.xaml</DependentUpon>
     </Compile>
+    <Page Include="Add assignment.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Add category.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Add employee.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Add fluid.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Add general expenses.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Add inspection.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -316,7 +522,35 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Auto generate PO.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Backup datafiles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Calendar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Graphing.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="History.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="invoice items.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Login.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="maintenance status.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -456,6 +690,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Optmise utility.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Parts inventory management.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -465,6 +703,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Pick list maintenance.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PM check.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -484,6 +726,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="purge utility.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Repair requests.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -492,7 +738,171 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Report Viewer.xaml">
+    <Page Include="Reports\Daily Inspection Checklist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\Daiy Inspection Report.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\Depreciation Current Year.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\Depreciation Last 12 Years.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\Depreciation Last 3 Years.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\Depreciation Prior Year.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\Emissions Expiration Due.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\Employee Expirations.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\Employee Labor Detailed.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\Employee Labor Summary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\Employee License Information.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\Employee Listing Detailed.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\Equip Assignment Detailed - by Job Site.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\Equip Assignment Detailed.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\Equip Assignment History.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\Equip Assignment Overview - by Job Site.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\Equip Assignment Overview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\Equip Assignment Ticket.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\Equip Employee Assignment Detailed.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\Equip Employee Assignment Overview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\Equipment Listing.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\Equipment Usage Detailed.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\Equipment Usage Summary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\Expirations Due All.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\Fluid Usage Analysis Current Year.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\Fluid Usage Analysis History.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\Fluid Usage Analysis Last 12 Year.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\Fluid Usage Analysis Last 3 Years.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\Fluid Usage Analysis Prior Year.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\General Expenses Analysis Current Year.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\General Expenses Analysis Last 12 Years.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\General Expenses Analysis Last 3 Years.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\General Expenses Analysis Prior Year.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\General Expenses History Detailed.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\General Information.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\Insurance Information.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\Loan Lease Information.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\MUI Expirations Due.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\Odometer Replacement History.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\Purchase Information.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\Registration Expirations Due.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Reports\WO Summary Report.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -512,7 +922,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Settings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Shipping details.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Sign up.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="update curent meter readings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Update physical inventory.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -562,9 +988,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\file.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\WindowsIcons-license.txt" />
@@ -877,6 +1300,27 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\48\End_48px_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Filled Filter_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Binoculars_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Resize Vertical_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Ruby Gemstone_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Settings_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Add User Male_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\48\Login Rounded_48px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

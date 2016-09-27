@@ -1,0 +1,217 @@
+﻿<Window x:Class="WpfApplication1.Expirations_Due_All"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication1"
+        mc:Ignorable="d"
+        x:Name="ReportViewer"
+        Title="Expirations_Due_All" Height="300" Width="300" Loaded="Window_Loaded" >
+    <DockPanel  Width="{Binding ElementName=ReportViewer,Path=ActualWidth}"   x:Name="StackPanel" HorizontalAlignment="Center" VerticalAlignment="Center" >
+        <Viewbox  x:Name="ViewBox" Width="{Binding ElementName=StackPanel,Path=ActualWidth}">
+            <DockPanel LastChildFill="True" Width="{Binding ElementName=ReportViewer,Path=ActualWidth}" Height="{Binding ElementName=ReportViewer,Path=ActualHeight}">
+                <TreeView DockPanel.Dock="Left">
+                    <TreeViewItem Header="Assignment">
+                        <TreeViewItem Header="Equip Assignment (Detailed - by Job Site)"></TreeViewItem>
+                        <TreeViewItem Header="Equip Assignment (Detailed)"></TreeViewItem>
+                        <TreeViewItem Header="Equip Assignment (Overview - by Job Site)"></TreeViewItem>
+                        <TreeViewItem Header="Equip Assignment (Overview)"></TreeViewItem>
+                        <TreeViewItem Header="Equip Assignment History"></TreeViewItem>
+                        <TreeViewItem Header="Equip Assignment Ticket"></TreeViewItem>
+                        <TreeViewItem Header="Equip Employee Assignment (Detailed)"></TreeViewItem>
+                        <TreeViewItem Header="Equip Employee Assignment (Overview)"></TreeViewItem>
+                    </TreeViewItem>
+                    <TreeViewItem Header="Employees">
+                        <TreeViewItem Header="Employee Expirations"/>
+                        <TreeViewItem Header="Employee Labor (Detailed)"/>
+                        <TreeViewItem Header="Employee Labor (Summary)"/>
+                        <TreeViewItem Header="Employee License Information"/>
+                        <TreeViewItem Header="Employee Listing (Detailed)"/>
+                        <TreeViewItem Header="Employee Listing (Overview)"/>
+                        <TreeViewItem Header="Employee Personell Information"/>
+                    </TreeViewItem>
+                    <TreeViewItem Header="Equipment">
+                        <TreeViewItem Header="Daily Inspection Checklist"/>
+                        <TreeViewItem Header="Daiy Inspection Report"/>
+                        <TreeViewItem Header="Depreciation">
+                            <TreeViewItem Header="Depreciation (Current Year)"/>
+                            <TreeViewItem Header="Depreciation (Last 12 Years)"/>
+                            <TreeViewItem Header="Depreciation (Last 3 Years)"/>
+                            <TreeViewItem Header="Depreciation (Prior Year)"/>
+                        </TreeViewItem>
+                        <TreeViewItem Header="Daiy Inspection Report"/>
+                        <TreeViewItem Header="Equipment Listing"/>
+                        <TreeViewItem Header="Equipment Usage (Detailed)"/>
+                        <TreeViewItem Header="Expirations">
+                            <TreeViewItem Header="Emissions Expiration Due"/>
+                            <TreeViewItem Header="Expirations Due (All)"/>
+                            <TreeViewItem Header="MUI Expirations Due"/>
+                            <TreeViewItem Header="Registration Expirations Due"/>
+                        </TreeViewItem>
+                        <TreeViewItem Header="Equipment Usage (Summary)"/>
+                        <TreeViewItem Header="General Informatiion"/>
+                        <TreeViewItem Header="Insurance Information"/>
+                        <TreeViewItem Header="Misc Logs">
+                            <TreeViewItem Header="Fluid Consumption">
+                                <TreeViewItem Header="Fluid Usage Analysis (Current Year)"/>
+                                <TreeViewItem Header="Fluid Usage Analysis (Last 12 Year)"/>
+                                <TreeViewItem Header="Fluid Usage Analysis (Last 3 Years)"/>
+                                <TreeViewItem Header="Fluid Usage Analysis (Prior Year)"/>
+                                <TreeViewItem Header="Fluid Usage Analysis History)"/>
+                            </TreeViewItem>
+                            <TreeViewItem Header="General Expenses">
+                                <TreeViewItem Header="General Expenses Analysis (Current Year)"/>
+                                <TreeViewItem Header="General Expenses Analysis (Last 12 Year)"/>
+                                <TreeViewItem Header="General Expenses Analysis (Last 3 Years)"/>
+                                <TreeViewItem Header="General Expenses Analysis (Prior Year)"/>
+                                <TreeViewItem Header="General Expenses History (Detailed)"/>
+                            </TreeViewItem>
+                        </TreeViewItem>
+                        <TreeViewItem Header="Loan/Lease Information"/>
+                        <TreeViewItem Header="Odometer Replacement History"/>
+                        <TreeViewItem Header="Purchase Information"/>
+                        <TreeViewItem Header="Specifications"/>
+                    </TreeViewItem>
+                    <TreeViewItem Header="Fuel">
+                        <TreeViewItem Header="Fuel Transaction History (Detailed)"></TreeViewItem>
+                        <TreeViewItem Header="Fuel Transaction History (Summary - by Job Site)"></TreeViewItem>
+                        <TreeViewItem Header="Fuel Transaction History (Summary)"></TreeViewItem>
+                        <TreeViewItem Header="Fuel Transaction by State/Prov (Detailed)"></TreeViewItem>
+                        <TreeViewItem Header="Fuel Transaction by State/Prov (Summary)"></TreeViewItem>
+                        <TreeViewItem Header="Inventory">
+                            <TreeViewItem Header="Fuel Inventory Overview"></TreeViewItem>
+                            <TreeViewItem Header="Fuel Inventory Re-order"></TreeViewItem>
+                            <TreeViewItem Header="Fuel Inventory Transaction (Detailed)"></TreeViewItem>
+                            <TreeViewItem Header="Fuel Inventory Transaction (Summary)"></TreeViewItem>
+                        </TreeViewItem>
+                        <TreeViewItem Header="Statistical">
+                            <TreeViewItem Header="Fuel Cost Analysis (Current Year)"></TreeViewItem>
+                            <TreeViewItem Header="Fuel Cost Analysis (Last 12 Years)"></TreeViewItem>
+                            <TreeViewItem Header="Fuel Cost Analysis (Last 3 Years)"></TreeViewItem>
+                            <TreeViewItem Header="Fuel Cost Analysis (Prior Years)"></TreeViewItem>
+                        </TreeViewItem>
+                    </TreeViewItem>
+                    <TreeViewItem Header="History (Maintainance)">
+                        <TreeViewItem Header="History (Cost Summary)"></TreeViewItem>
+                        <TreeViewItem Header="History (Detailed)"></TreeViewItem>
+                        <TreeViewItem Header="History (Overview)"></TreeViewItem>
+                        <TreeViewItem Header="History and Fuel (Cost Summary)"></TreeViewItem>
+                        <TreeViewItem Header="Inventory History (Detailed)"></TreeViewItem>
+                        <TreeViewItem Header="Labor History (Cost Summary)"></TreeViewItem>
+                        <TreeViewItem Header="Labor History (Detailed)"></TreeViewItem>
+                        <TreeViewItem Header="Preventive Only (Cost Summary)"></TreeViewItem>
+                        <TreeViewItem Header="Preventive Only (Detailed)"></TreeViewItem>
+                        <TreeViewItem Header="Repair Only (Cost Summary)"></TreeViewItem>
+                        <TreeViewItem Header="Repair Only (Detailed)"></TreeViewItem>
+                        <TreeViewItem Header="Total Operating (Cost Summary)"></TreeViewItem>
+                        <TreeViewItem Header="Vendor Service (Detailed)"></TreeViewItem>
+                        <TreeViewItem Header="Statistical"/>
+                        <TreeViewItem Header="History Cost Analysis (Current Year)"></TreeViewItem>
+                        <TreeViewItem Header="History Cost Analysis (Last 12 Years)"></TreeViewItem>
+                        <TreeViewItem Header="History Cost Analysis (Last 3 Years)"></TreeViewItem>
+                        <TreeViewItem Header="History Cost Analysis (Prior Year)"></TreeViewItem>
+                        <TreeViewItem Header="Top 20 Costly (Maintainance)"></TreeViewItem>
+                        <TreeViewItem Header="Top 20 Costly (Operating)"></TreeViewItem>
+                    </TreeViewItem>
+                    <TreeViewItem Header="Inventory">
+                        <TreeViewItem Header="Inventory Listing"></TreeViewItem>
+                        <TreeViewItem Header="Inventory Listing (By Category)"></TreeViewItem>
+                        <TreeViewItem Header="Inventory Listing (By Vendor)"></TreeViewItem>
+                        <TreeViewItem Header="Inventory Stock Value (Detailed)"></TreeViewItem>
+                        <TreeViewItem Header="Inventory Stock Value (Summary)"></TreeViewItem>
+                        <TreeViewItem Header="Inventory Usage (Cost Summary)"></TreeViewItem>
+                        <TreeViewItem Header="Inventory Usage (Detailed)"></TreeViewItem>
+                        <TreeViewItem Header="Inventory Usage (Summary)"></TreeViewItem>
+                    </TreeViewItem>
+                    <TreeViewItem Header="Invoices">
+                        <TreeViewItem Header="Invoice Payment List"></TreeViewItem>
+                        <TreeViewItem Header="Invoice Summary (Outstanding)"></TreeViewItem>
+                        <TreeViewItem Header="Invoice Summary (Paid)"></TreeViewItem>
+                        <TreeViewItem Header="Invoices (Outstanding)"></TreeViewItem>
+                        <TreeViewItem Header="Invoices (Paid)"></TreeViewItem>
+                    </TreeViewItem>
+                    <TreeViewItem Header="Maintainance">
+                        <TreeViewItem Header="Maintainance Due (Detailed)"></TreeViewItem>
+                        <TreeViewItem Header="Maintainance Due (Equipment List)"></TreeViewItem>
+                        <TreeViewItem Header="Maintainance Due (Fuel Tracked)"></TreeViewItem>
+                        <TreeViewItem Header="Maintainance Due (Summary)"></TreeViewItem>
+                        <TreeViewItem Header="Maintainace Status (Detailed)"></TreeViewItem>
+                        <TreeViewItem Header="Maintainace/Expirations Due (All)"></TreeViewItem>
+                        <TreeViewItem Header="Preventive Maintainance (Cost Summary)"></TreeViewItem>
+                        <TreeViewItem Header="Preventive Maintainance Schedules"></TreeViewItem>
+                        <TreeViewItem Header="Repair Maintainance (Cost Summary)"></TreeViewItem>
+                        <TreeViewItem Header="Scheduled Repairs Due (by Date)"></TreeViewItem>
+                        <TreeViewItem Header="Scheduled Repairs Listing"></TreeViewItem>
+                    </TreeViewItem>
+                    <TreeViewItem Header="Purchase Orders">
+                        <TreeViewItem Header="Purchase Order Receipts"></TreeViewItem>
+                        <TreeViewItem Header="Purchase Order Summary (Closed)"></TreeViewItem>
+                        <TreeViewItem Header="Purchase Order Summary (Outstanding)"></TreeViewItem>
+                        <TreeViewItem Header="Purchase Order Vendor Summary (Closed)"></TreeViewItem>
+                        <TreeViewItem Header="Purchase Order Vendor Summary (Outstanding)"></TreeViewItem>
+                        <TreeViewItem Header="Purchase Orders (Closed)"></TreeViewItem>
+                        <TreeViewItem Header="Purchase Orders (Outstanding)"></TreeViewItem>
+                    </TreeViewItem>
+                    <TreeViewItem Header="Vendors">
+                        <TreeViewItem Header="Vendor Listing"></TreeViewItem>
+                        <TreeViewItem Header="Vendor Usage (Detailed)"></TreeViewItem>
+                        <TreeViewItem Header="Vendor Usage (Summary)"></TreeViewItem>
+                    </TreeViewItem>
+                    <TreeViewItem Header="Work Orders">
+                        <TreeViewItem Header="Work Order Summary"></TreeViewItem>
+                        <TreeViewItem Header="Work Orders (Closed)"></TreeViewItem>
+                        <TreeViewItem Header="Work Orders (Open)"></TreeViewItem>
+                        <TreeViewItem Header="Statistical">
+                            <TreeViewItem Header="Word Order Analysis (Current Year)"></TreeViewItem>
+                            <TreeViewItem Header="Word Order Analysis (Last 3 Years)"></TreeViewItem>
+                            <TreeViewItem Header="Word Order Analysis (Prior Year)"></TreeViewItem>
+                        </TreeViewItem>
+                    </TreeViewItem>
+                </TreeView>
+                <DockPanel LastChildFill="True">
+                <DocumentViewer>
+                        <FixedDocument>
+                            <PageContent>
+                                <FixedPage x:Name="FixedPage" Width="793.76" Height="1122.56">
+                                    <!-- Page 1 Begins Here -->
+                                    <DockPanel   Width="693.76"  Margin="50" LastChildFill="True">
+                                        <DockPanel DockPanel.Dock="Top">
+                                            <DockPanel.Background>
+                                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                    <LinearGradientBrush.RelativeTransform>
+                                                        <TransformGroup>
+                                                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                                            <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
+                                                            <TranslateTransform/>
+                                                        </TransformGroup>
+                                                    </LinearGradientBrush.RelativeTransform>
+                                                    <GradientStop Color="#FF005DFF" Offset="0"/>
+                                                    <GradientStop Color="White" Offset="1"/>
+                                                </LinearGradientBrush>
+                                            </DockPanel.Background>
+                                            <Label DockPanel.Dock="Left" VerticalAlignment="Center"  FontFamily="Arial Black" FontStyle="Italic" FontSize="20">Report #1</Label>
+                                            <Label DockPanel.Dock="Right" VerticalAlignment="Center" Foreground="White" FontFamily="Arial Black" FontStyle="Italic" FontSize="16" HorizontalAlignment="Right">Other header</Label>
+                                        </DockPanel>
+                                        <DockPanel >
+                                            <DataGrid x:Name="WODatagrid" ItemsSource="{Binding WOBind}" AutoGenerateColumns="False">
+                                                <DataGrid.Columns>
+                                                    <DataGridTextColumn Header="WO #" Binding="{Binding 'WO no'}"/>
+                                                    <DataGridTextColumn Header="Equipment" Binding="{Binding Equipment}"/>
+                                                    <DataGridTextColumn Header="Date Issued" Binding="{Binding 'Date issued'}"/>
+                                                    <DataGridTextColumn Header="Date Comp." Binding="{Binding 'Date complete'}"/>
+                                                    <DataGridTextColumn Header="Vendor" Binding="{Binding 'Vendor name'}"/>
+                                                    <DataGridTextColumn Header="Assigned To" Binding="{Binding 'Employee assignment'}"/>
+                                                </DataGrid.Columns>
+                                            </DataGrid>
+                                        </DockPanel>
+                                    </DockPanel>
+                                </FixedPage>
+                            </PageContent>
+                        </FixedDocument>
+                    </DocumentViewer>
+                </DockPanel>
+            </DockPanel>
+        </Viewbox>
+    </DockPanel>
+</Window>

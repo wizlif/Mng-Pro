@@ -1,22 +1,38 @@
 ﻿using System;
 using System.Configuration;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using System.Windows;
 using System.Windows.Controls;
+using MahApps.Metro.Controls;
+using System.IO;
+using System.Diagnostics;
 
 namespace WpfApplication1
 {
     /// <summary>
     /// Interaction logic for PM_shedule.xaml
     /// </summary>
-    public partial class PM_shedule : Window
+    public partial class PM_shedule : MetroWindow
     {
-        string _ConnectionString = ConfigurationManager.ConnectionStrings["cs"].ConnectionString;
+        public static string cs = "Server="+GetServerAddress()+";Database=mpro;Uid=mis;Pwd=isaacobella;";
+		MySqlConnection _Conn = new MySqlConnection(cs);
         public PM_shedule()
         {
             InitializeComponent();
+}
+private void ButtonSettings_Click(object sender, RoutedEventArgs e)
+{
+(new Settings()).ShowDialog();
+}
+        public static string GetServerAddress()
+        {
+            string ipaddress = "";
+            using (StreamReader reader = new StreamReader(Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName).ToString() + "\\Settings.txt"))
+            {
+                ipaddress = reader.ReadLine();
+            }
+            return ipaddress;
         }
-
         private void ButtonAddNewSchedule_Click(object sender, RoutedEventArgs e)
         {
             (new New_PM_schedule()).ShowDialog();
@@ -28,15 +44,13 @@ namespace WpfApplication1
             cb.Items.Clear();
             try
             {
-                SqlConnection _Conn = new SqlConnection(_ConnectionString);
-
                 // Open the Database Connection
                 _Conn.Open();
 
                 // Initialize the command query and connection
-                SqlCommand _cmd = new SqlCommand(query, _Conn);
+                MySqlCommand _cmd = new MySqlCommand(query, _Conn);
 
-                SqlDataReader _Reader = _cmd.ExecuteReader();
+                MySqlDataReader _Reader = _cmd.ExecuteReader();
                 while (_Reader.Read())
                 {
                     cb.Items.Add(_Reader[column].ToString());
@@ -61,7 +75,7 @@ namespace WpfApplication1
             {
                 try
                 {
-                    SqlConnection _Conn = new SqlConnection(_ConnectionString);
+                    
 
                     // Open the Database Connection
                     _Conn.Open();
@@ -69,11 +83,11 @@ namespace WpfApplication1
 
 
                     // Command String
-                    string _Select = @"SELECT * FROM Schedule WHERE [Name]='" + ComboBoxSchedule.SelectedItem.ToString() + "'";
+                    string _Select = @"SELECT * FROM Schedule WHERE `Name`='" + ComboBoxSchedule.SelectedItem.ToString() + "'";
 
                     // Initialize the command query and connection
-                    SqlCommand _cmd = new SqlCommand(_Select, _Conn);
-                    SqlDataReader _reader = _cmd.ExecuteReader();
+                    MySqlCommand _cmd = new MySqlCommand(_Select, _Conn);
+                    MySqlDataReader _reader = _cmd.ExecuteReader();
                     New_PM_schedule editSchedule = new New_PM_schedule();
                     while (_reader.Read())
                     {
@@ -95,7 +109,7 @@ namespace WpfApplication1
                     }
                     editSchedule.ShowDialog();
                 }
-                catch (SqlException ex)
+                catch (Exception)
                 {
 
                 }
@@ -108,7 +122,7 @@ namespace WpfApplication1
             {
                 try
                 {
-                    SqlConnection _Conn = new SqlConnection(_ConnectionString);
+                    
 
                     // Open the Database Connection
                     _Conn.Open();
@@ -116,14 +130,14 @@ namespace WpfApplication1
 
 
                     // Command String
-                    string _DelCmd = @"DELETE FROM Schedule WHERE [Name]='" + ComboBoxSchedule.SelectedItem.ToString() + "'";
+                    string _DelCmd = @"DELETE FROM Schedule WHERE `Name`='" + ComboBoxSchedule.SelectedItem.ToString() + "'";
 
                     // Initialize the command query and connection
-                    SqlCommand _CmdDelete = new SqlCommand(_DelCmd, _Conn);
+                    MySqlCommand _CmdDelete = new MySqlCommand(_DelCmd, _Conn);
                     // Execute the command
                     _CmdDelete.ExecuteNonQuery();
                 }
-                catch (SqlException ex)
+                catch (Exception)
                 {
 
                 }

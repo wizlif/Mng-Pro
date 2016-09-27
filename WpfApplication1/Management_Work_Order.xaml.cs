@@ -2,28 +2,40 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using MahApps.Metro.Controls;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
+using System.Diagnostics;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using System.IO;
 
 namespace WpfApplication1
 {
     /// <summary>
     /// Interaction logic for Management_Work_Order.xaml
     /// </summary>
-    public partial class Management_Work_Order : Window
+    public partial class Management_Work_Order : MetroWindow
     {
         public Management_Work_Order()
         {
             InitializeComponent();
         }
-
+        private void ButtonSettings_Click(object sender, RoutedEventArgs e)
+        {
+            (new Settings()).ShowDialog();
+        }
+        public static string GetServerAddress()
+        {
+            string ipaddress = "";
+            using (StreamReader reader = new StreamReader(Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName).ToString() + "\\Settings.txt"))
+            {
+                ipaddress = reader.ReadLine();
+            }
+            return ipaddress;
+        }
         private void ManagementWorkOrder_Loaded(object sender, RoutedEventArgs e)
         {
         }

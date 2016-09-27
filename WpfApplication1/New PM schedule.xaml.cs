@@ -1,21 +1,38 @@
 ﻿using System;
 using System.Configuration;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using System.Windows;
+using MahApps.Metro.Controls;
+using System.IO;
+using System.Diagnostics;
+
 namespace WpfApplication1
 {
     /// <summary>
     /// Interaction logic for New_PM_schedule.xaml
     /// </summary>
-    public partial class New_PM_schedule : Window
+    public partial class New_PM_schedule : MetroWindow
     {
         // Establishing Connection String from Configuration File
-        string _ConnectionString = ConfigurationManager.ConnectionStrings["cs"].ConnectionString;
+        public static string cs = "Server="+GetServerAddress()+";Database=mpro;Uid=mis;Pwd=isaacobella;";
+		MySqlConnection _Conn = new MySqlConnection(cs);
         public New_PM_schedule()
         {
             InitializeComponent();
+}
+private void ButtonSettings_Click(object sender, RoutedEventArgs e)
+{
+(new Settings()).ShowDialog();
+}
+        public static string GetServerAddress()
+        {
+            string ipaddress = "";
+            using (StreamReader reader = new StreamReader(Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName).ToString() + "\\Settings.txt"))
+            {
+                ipaddress = reader.ReadLine();
+            }
+            return ipaddress;
         }
-
         private void CheckBoxTrackByMeterPrim_Click(object sender, RoutedEventArgs e)
         {
             if (CheckBoxTrackByMeterPrim.IsChecked == true)
@@ -32,17 +49,17 @@ namespace WpfApplication1
         {
             try
             {
-                SqlConnection _Conn = new SqlConnection(_ConnectionString);
+                
 
                 // Open the Database Connection
                 _Conn.Open();
 
 
                 // Command String
-                string _Select = @"SELECT COUNT(*) FROM Schedule WHERE [Name]='" + TextBoxScheduleName.Text + "'";
+                string _Select = @"SELECT COUNT(*) FROM Schedule WHERE `Name`='" + TextBoxScheduleName.Text + "'";
 
                 // Initialize the command query and connection
-                SqlCommand _cmd = new SqlCommand(_Select, _Conn);
+                MySqlCommand _cmd = new MySqlCommand(_Select, _Conn);
 
                 if ((int)_cmd.ExecuteScalar() > 0)
                 {
@@ -57,7 +74,7 @@ namespace WpfApplication1
                         string _Insert = @"INSERT INTO Schedule VALUES('" + TextBoxScheduleName.Text + "','" + CheckBoxTrackByDate.IsChecked.ToString() + "','" + CheckBoxTrackByFuel.IsChecked.ToString() + "','" + CheckBoxTrackByMeterPrim.IsChecked.ToString() + "','" + CheckBoxTrackByMeterSec.IsChecked.ToString() + "','" + ComboBoxTrackByMeterPrim.Text + "','" + ComboBoxTrackByMeterSec.Text + "')";
 
                         // Initialize the command query and connection
-                        SqlCommand _cmd1 = new SqlCommand(_Insert, _Conn);
+                        MySqlCommand _cmd1 = new MySqlCommand(_Insert, _Conn);
 
                         // Execute the command
                         _cmd1.ExecuteNonQuery();
